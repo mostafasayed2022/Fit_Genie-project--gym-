@@ -44,8 +44,10 @@ function Footer() {
         </div>
         <div className="column">
           <h3>Contact Us</h3>
-          <p>Email: info@example.com</p>
+          <p> Name: Mostafa Sayed</p>
+          <p> Email:  mostafa123@gmail.com</p>
           <p>Phone: 123-456-7890</p>
+          <p>Your massage: very nice this site</p>
         </div>
       </div>
       <div className="bottomBar" >
