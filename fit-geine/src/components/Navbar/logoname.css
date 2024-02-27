@@ -1,0 +1,27 @@
+
+:root{
+    --color1:#F5F7F7;
+    --color2:#EDB518;
+    --color3:#79031D;
+    --color4:#000407;
+    
+}
+.span1 {
+    color:var(--color1);
+    font-size: 35px;
+    padding-left: 15px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .span2{
+        color:var(--color2);
+        font-size: 30px;
+        
+    }
+    .logo_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    }
+  

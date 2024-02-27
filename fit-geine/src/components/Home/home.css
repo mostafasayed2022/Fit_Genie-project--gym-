@@ -1,0 +1,505 @@
+:root{
+    --color1:#F5F7F7;
+    --color2:#EDB518;
+    --color3:#79031D;
+    --color4:#000407;
+    --linear:linear-gradient(to right bottom, #070002, #1a1415, #292022, #382d2f, #493a3c);
+    --linear2:linear-gradient(to right top, #f5f7f7, #b1b4b4, #727576, #393c3d, #000407);
+}
+
+body {
+    background-color: var(--color3);
+    /* height: 5000px; */
+  }
+  
+  h2 {
+    margin: 45px;
+    font-weight: 600;
+  }
+    
+    .containerr{
+        background-image: url("../../images/home.jpg");
+        background-color: var(--color3);
+        height: 100vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        /* margin-bottom: 100px; */
+    }
+    .containerr .banner{
+          margin: auto;
+        }
+        .banner .right-banner
+        {
+            color: white;
+            padding: 30px;
+            /* margin: 15px; */
+            text-align: center;
+        }
+        
+        .right-banner h1 {
+            font-size: 80px;
+            text-transform: uppercase;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: -3px;
+            transition: 700ms ease;
+            font-variation-settings: "wght" 311;
+            margin-bottom: 0.8rem;
+            color: var(--color2);
+            outline: none;
+            text-align: center;
+          }
+          
+         .right-banner h1:hover {
+            font-variation-settings: "wght" 582; 
+            letter-spacing: 1px;
+          }
+          .right-banner h2{
+            font-size: 25px;
+            font-weight: 500;
+            letter-spacing: 0px;
+          }
+          .right-banner h2 span{
+            font-size: 34px;
+            font-weight: bold;
+            color: var(--color2);
+            letter-spacing: 6px;
+            }
+            .btn{
+                cursor: pointer;
+                outline: none;
+                padding: 0.75rem 1.25rem;
+                border-radius: 12px;
+                font-size: 1rem;
+                font-family: inherit;
+                background-color: var(--color2);
+                color: var(--color4);
+                border: 1px solid transparent;
+                transition: 0.3s ease all;
+                margin: auto;
+            }
+            
+            .btn:hover {
+                border-color: var(--color2);
+                background-color: var(--color3);
+                color: var(--color1);
+            }
+            .butt{
+            display: flex;
+           align-items: center;
+            justify-content: center;
+           }
+           
+           .cards{
+            background-image: linear-gradient(to right bottom, #070002, #1a1415, #292022, #382d2f, #493a3c);
+            display: flex;
+             align-items: center;
+             justify-content: center;
+             flex-wrap: wrap;
+             gap: 50px;
+             padding: 30px;
+             cursor: pointer;
+             border: none;
+           }
+           .cards .card{
+           background-color: var(--color3);
+           border-radius: 15px;
+            padding: 15px;
+            color: var(--color1);
+            transition: 0.5s ease-out;
+            border: none;
+           }
+           .card .image {
+            width: 210px;
+            height: 180px;
+            border-radius: 10px;
+           }
+           
+           /* {
+            background-color: var(--color2);
+            border: none;
+           }
+            */
+           .cards .card:hover {
+            transform: translateY(-5px); /* Move the card up on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8); /* Change box shadow on hover */
+            }
+           
+           .cards .card:hover Button{
+           
+           background-color: var(--color4);
+           color: var(--color1);
+           }
+           
+           .cards .card:hover .title{
+            color: var(--color4);
+            }
+            .cards .card:hover .text{
+                color: var(--color4);
+                font-weight: bold;
+                }
+           
+           .title{
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--color2);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-top: 15px;
+           }
+           .text{
+            /* text-align: center; */
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            line-height: 1.5;
+           }
+           
+           .title_cards{
+            background-image: url("../../images/services.jpg");
+            height: 30vh;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            font-size: 80px;
+            text-transform: uppercase;
+            color: var(--color2);
+            font-weight: bold;
+            
+           }
+           
+           /* counter */
+           
+           .counter_number{
+            background-image: url("../../images/counter1.jpg");
+            height: 25vh;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+
+           }
+           
+           .counter_number .numbers{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            }
+            
+            .number{
+              margin-right: 10px;
+              margin-left: 10px;
+
+            }
+            
+            .number .counter{
+              font-weight: bold;
+              font-style: italic;
+              font-size: 1.9em;
+              margin: 6px 0;
+              color: var(--color1);
+            }
+            
+            .number span {
+              font-size: 1.2em;
+              display: block;
+              color: var(--color2);
+              font-size: 25px;
+              font-weight: bold;
+            }
+            .slick-dots {
+              position: absolute;
+              bottom: 16px;
+              display: block;
+              width: 100%;
+              padding: 0;
+              margin: 0;
+              list-style: none;
+              text-align: center;
+            }
+            
+            .terminals h3{
+              font-size: 35px;
+              font-weight: bold;
+              color: var(--color2);
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            
+            .Testimonials h1{
+              text-align: center;
+            
+            }
+            
+            .Testimonials{
+              background-image: url("../../images/services.jpg");
+              height: 30vh;
+              width: 100%;
+              background-size: cover;
+              background-position: center;
+              text-align: center;
+              font-size: 30px;
+              text-transform: uppercase;
+              color: var(--color2);
+              font-weight: bold;
+              padding: 10px;
+              margin: 0;
+            }
+            
+            .slick-slide {
+              height: 31vh; 
+              min-height: 1px;
+              text-align: center;
+              font-size: 23px;
+              font-weight: 500;
+              /* background-image: linear-gradient(to right top, #79031d, #590a37, #2e173a, #0c1527, #000407); */
+              background-image: linear-gradient(to right bottom, #070002, #1a1415, #292022, #382d2f, #493a3c);
+
+              padding-top: 45px;
+              color: var(--color1);
+            }
+            
+            .slick-prev:before, .slick-next:before{
+              font-family: 'slick';
+              font-size: 20px;
+              line-height: 1;
+              opacity: .75;
+              color: white;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+              position: absolute;
+              right: 233%;
+              display: none;
+            }
+            
+            /* TrainerCard.css */
+.trainer-card {
+  border-radius: 4px;
+  padding: 16px;
+  margin: 8px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.6s;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.trainer-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px var(--color3);
+  background-color: var(--color3, 0.8);
+  color: var(--color1);
+}
+
+.trainer-card h3{
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--color2);
+}
+
+.trainer-card p{
+  font-size: 14px;
+}
+.trainer-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  background-image: linear-gradient(to right top, #f5f7f7, #b1b4b4, #727576, #393c3d, #000407);
+}
+
+
+
+.trainer-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+
+
+.Trainers{
+  background-image: url("../../images/services.jpg");
+  height: 30vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: var(--color2);
+  font-weight: bold;
+  padding: 10px;
+  margin: 0;
+}
+
+
+/* PricingPlan.module.css */
+
+.plans{
+  background-image: url("../../images/services.jpg");
+  height: 30vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: var(--color2);
+  font-weight: bold;
+  padding: 10px;
+  margin: 0;
+}
+
+
+.plan{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+.pricing-plan {
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 30px;
+  width: 290px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(108, 106, 106, 0.5); /* Add box shadow */
+  transition: 0.5s ease-out;
+  cursor: pointer;
+  
+}
+
+.pricing-plan:hover {
+  transform: translateY(-5px); /* Move the card up on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8); /* Change box shadow on hover */
+  }
+
+
+.plan h2 {
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center; 
+  color: var(--color2);
+}
+
+.plan h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  background: var(--color4);
+  color: var(--color1);
+  padding: 6px;
+  border-radius: 11px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.plan ul {
+  list-style-type: none;
+  padding: 20px;
+  margin: 5px;
+  font-size: 15px;
+  text-align: left;
+}
+
+.plan li {
+  margin-bottom: 20px;
+}
+
+.plan button {
+  background-color: var(--color2);
+  color: var(--color4);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.plan button:hover {
+  background-color: var(--color4);
+  color: var(--color1);
+}
+
+
+/* Accordion */
+
+.accordion{
+  background-image: url("../../images/services.jpg");
+  height: 30vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: var(--color2);
+  font-weight: bold;
+  padding: 10px;
+  margin-top: 40px;
+}
+
+.accordio-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 30px;
+  margin-top: 30px;
+  max-width: 96%;
+  margin-left: 20px;
+}
+
+.cont{
+  background-image: var(--linear);
+  padding: 50px;
+}
+
+.text_accordion{
+  color: var(--color3);
+}
+  
+  .accordio-container .card{
+    background-color: var(--color2);
+    transition: 0.5s ease-in-out;
+  }
+  
+ 
+  .accordio-container .card:hover{
+    background-color: var(--color3);
+  }
+  
+  .accordio-container .card:hover .text_accordion{
+    color: var(--color1);
+  }
+  
+  .accordio-container .card:hover .card-content{
+    color: var(--color1);
+  }
+  
+  .css-animoo {
+    width: 101%;
+    padding: 0;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 0;
+  }
+
+  .form-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 60px;
+    padding: 23px;
+    flex-wrap: wrap; 
+    margin: 0;
+  }
+.container-form{
+  padding: 20px;
+  border-radius: 15px;
+  background-image: var(--linear2);
+}
