@@ -11,7 +11,7 @@ import services from "../../images/services.jpg";
 import contactBG from "../../images/contactBg.jpg";
 import { CheckBox } from '@mui/icons-material';
 
-const loginUser = async (credentials: { email: string, password: string }) => {
+const loginUser = async (credentials: { username: string, password: string }) => {
   const data = await fetch("https://127.0.0.1:8000/api/login/", {
     method: 'POST',
     headers: {
@@ -23,7 +23,7 @@ const loginUser = async (credentials: { email: string, password: string }) => {
 }
 
 const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedIn: boolean) => void }) => {
-  const [email, setEmail] = useState<string>("");
+  const [username, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -33,7 +33,7 @@ const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedI
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await loginUser({ email, password });
+    const response = await loginUser({ username, password });
     props.setToken(response.token);
     props.setLoggedIn(true);
   }
@@ -52,7 +52,7 @@ const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedI
                 <input
                   required
                   type="email"
-                  name="email"
+                  name="username"
                   id='email'
                   placeholder="UserName or email"
                   onChange={e=> setEmail(e.target.value)}

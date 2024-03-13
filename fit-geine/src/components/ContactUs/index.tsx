@@ -14,7 +14,7 @@ import services from "../../images/services.jpg";
 function ContactUs() {
   return (
     <>
-      <Navbar />
+      <Navbar loggedIn={undefined} />
       <Contactt/>
       <div className='accordion-contact' style={{ backgroundImage: `url(${services})` }}>
         <h1> FREQUENTLY ASKED QUESTIONS</h1>
