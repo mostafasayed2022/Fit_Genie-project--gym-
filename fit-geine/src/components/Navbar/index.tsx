@@ -6,7 +6,7 @@ import "./navbar.scss";
 import logo from "../../images/logo.ico";
 import "./logoname.css";
 
-function Navbar() {
+const Navbar = (props: { loggedIn: any; }) => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [size, setSize] = useState({
@@ -52,6 +52,13 @@ function Navbar() {
           }`}
         >
           <ul>
+            {/* {props.loggedIn ?
+
+              <li><Link to="/logout" className="icon solid fa-sign-out-alt"><span className="label">Logout</span></Link></li>
+              :
+              <li><Link to="/login" className="icon solid fa-sign-in-alt"><span className="label">Login</span></Link></li>
+
+            } */}
             <li>
               <Link to="/home">Home</Link>
             </li>

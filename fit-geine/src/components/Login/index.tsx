@@ -11,62 +11,51 @@ import services from "../../images/services.jpg";
 import contactBG from "../../images/contactBg.jpg";
 import { CheckBox } from '@mui/icons-material';
 
+const loginUser = async (credentials: { email: string, password: string }) => {
+  const data = await fetch("https://127.0.0.1:8000/api/login/", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(credentials)
+  });
+  return await data.json();
+}
 
-
-function Login() {
-  // const [values, setValues] = useState({
-  //   name:'',
-  //   email: '',
-  //   password: ''
-  // });
-
-  // const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
-  // const { user, loginUser } = useAuth();
-  // const navigate = useNavigate();
-
-  // const loginForm = useRef<HTMLFormElement>(null);
-
-  // useEffect(() => {
-  //   if (user) {
-  //     navigate('/home');
-  //   }
-  // }, [user, navigate]);
-
-  // function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-  //   setValues({ ...values, [e.target.name]: e.target.value });
-  // }
-
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   setErrors(Validation(values));
-  //   const { email, password } = values;
-  //   setUserInfo({ email, password });
-  //   // loginUser({ email, password });
-  //   // loginUser({email, password})
-  // };
-  const [password, setPassword] = useState('');
-  const [showPassword, setSowPassword] = useState(false);
+const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedIn: boolean) => void }) => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
-    setSowPassword(!showPassword);
+    setShowPassword(!showPassword);
+  }
+
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const response = await loginUser({ email, password });
+    props.setToken(response.token);
+    props.setLoggedIn(true);
   }
 
   return (
     <body>
-      <Navbar />
+      <Navbar loggedIn={undefined} />
       <div className='logiiin' style={{ backgroundImage: `url(${services})` }}>
         <h1> Login Page</h1>
       </div>
       <div className="containerrrr" style={{ backgroundImage: `url(${contactBG})` }}>
         <div className="login-register-container">
           <div className='form-cont'>
-            <form  >
+            <form  method='post' onSubmit={handleLogin}>
               <div className="form-field-wrapper">
                 <input
                   required
                   type="email"
                   name="email"
+                  id='email'
                   placeholder="UserName or email"
+                  onChange={e=> setEmail(e.target.value)}
                 />
                 {/* {errors.email && <p style={{ color: 'red', fontSize: '13px' }}>{errors.email}</p>} */}
               </div>
@@ -76,7 +65,7 @@ function Login() {
                   type={showPassword ? 'text' : 'password'}
                   name="password"
                   placeholder="Enter password..."
-                  autoComplete="Password"
+                  autoComplete="current-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -102,7 +91,7 @@ function Login() {
                     <span>Show password</span>
                   </label>
                 </div>
-                <div className='Forget'> 
+                <div className='Forget'>
                   <a href="#">Forget password?</a>
                 </div>
               </div>
@@ -117,13 +106,10 @@ function Login() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </body>
   );
 }
 
 export default Login;
-function setUserInfo(arg0: { email: string; password: string; }) {
-  throw new Error('Function not implemented.');
-}
 
