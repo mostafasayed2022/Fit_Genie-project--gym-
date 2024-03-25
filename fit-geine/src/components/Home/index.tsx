@@ -84,7 +84,7 @@ const plans = [
 function Home() {
   return (
     <>
-      <Navbar />
+      <Navbar loggedIn={undefined} />
       <div className="containerr" style={{
         backgroundImage: `url(${home})`,
       }}>
@@ -173,7 +173,7 @@ function Home() {
       <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
         <h1>Testimonials</h1>
       </div>
-      <TestimonialsSlider />
+      {/* <TestimonialsSlider /> */}
 
 
       <div className="trainers-page">
