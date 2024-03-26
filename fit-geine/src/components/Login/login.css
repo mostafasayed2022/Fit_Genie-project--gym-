@@ -5,8 +5,8 @@
   --color2:#6c8589;
   --color3:#cedcdd;
   --color4:#000c08;
-  --linear:linear-gradient(to right bottom, #070002, #1a1415, #292022, #382d2f, #493a3c);
-  --linear2:linear-gradient(to right top, #f5f7f7, #b1b4b4, #727576, #393c3d, #000407);
+  /* --linear:linear-gradient(to right bottom, #070002, #1a1415, #292022, #382d2f, #493a3c);
+  --linear2:linear-gradient(to right top, #f5f7f7, #b1b4b4, #727576, #393c3d, #000407); */
   --facebook:#4267B2;
 }
  
@@ -74,12 +74,14 @@
   color: var(--color2);
   font-weight: bold;
   padding: 10px;
+  background-color: var(--color1);
   /* margin-top: 40px; */
 }
 
 .logiiin h1{
   margin: 0;
   font-weight: 600;
+  color: var(--color3);
 }
 /* FORM STYLING */
 
@@ -108,7 +110,7 @@ input{
 .text-login {
    color: var(--color1);
     font-size: 18px;
-    font-weight: bold;
+    font-weight: bold;  
 }
 
 .text-login span a{
@@ -118,9 +120,12 @@ input{
 }
 
 .form-cont{
-  background-image: var(--linear);
+  background-color: var(--color1);
   padding: 20px;
   border-radius: 20px
+}
+.form-cont input{
+  background-color: var(--color3);
 }
 
 .social-media{

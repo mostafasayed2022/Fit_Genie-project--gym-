@@ -36,7 +36,7 @@ function Pricing() {
 
   return (
     <body>
-      <Navbar />
+      <Navbar loggedIn={undefined} />
       <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
         <h1>Pricing</h1>
       </div>
@@ -52,7 +52,7 @@ function Pricing() {
         </div>
       </div>
 
-      <div className="pricing-title pricing-title2" style={{ backgroundImage: `url(${bg_gym})` }} >
+      <div className="pricing-title pricing-title2" >
         <h3 className="pricing-heading" id="heading"> <span className="planss"> PAYMENT</span> OPTIONS</h3>
         <p>At Goldstone we truly embrace technology.
           You now have two ways to Join our club: Join &

@@ -21,7 +21,7 @@ body {
         background-image: url("../../images/home.jpg");
         background-color: var(--color3);
         height: 100vh;
-        width: 100%;
+        width: 100%;  
         background-size: cover;
         background-position: center;
         /* margin-bottom: 100px; */
@@ -52,7 +52,7 @@ body {
           }
           
           @keyframes h1 {
-            from { color: var(--color3);}
+            from { color: var(--color1);}
             to {color: var(--color2);}
           }
           
@@ -68,7 +68,7 @@ body {
           .right-banner h2 span{
             font-size: 34px;
             font-weight: bold;
-            color: var(--color2);
+            color: var(--color1);
             letter-spacing: 6px;
             }
             .btn{
@@ -97,7 +97,8 @@ body {
            }
            
            .cards{
-            background-image: linear-gradient(to right bottom, #070002, #1a1415, #292022, #382d2f, #493a3c);
+            /* background-image: linear-gradient(to right bottom, #070002, #1a1415, #292022, #382d2f, #493a3c); */
+            background-color: var(--color1);
             display: flex;
              align-items: center;
              justify-content: center;
@@ -128,20 +129,22 @@ body {
             */
            .cards .card:hover {
             transform: translateY(-5px); /* Move the card up on hover */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8); /* Change box shadow on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Change box shadow on hover */
             }
            
            .cards .card:hover Button{
            
            background-color: var(--color4);
-           color: var(--color1);
+           color: var(--color3);
            }
            
            .cards .card:hover .title{
-            color: var(--color4);
+            color: var(--color1);
+            font-weight: bold;
+            font-size:20px ;
             }
             .cards .card:hover .text{
-                color: var(--color4);
+                color: var(--color1);
                 font-weight: bold;
                 }
            
@@ -149,7 +152,7 @@ body {
             text-align: center;
             font-size: 18px;
             font-weight: bold;
-            color: var(--color2);
+            color: var(--color4);
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             margin-top: 15px;
            }
@@ -159,6 +162,8 @@ body {
             font-weight: 500;
             letter-spacing: 2px;
             line-height: 1.5;
+            color: var(--color4);
+            font-weight: bold;
            }
            
            .title_cards{
@@ -170,7 +175,7 @@ body {
             text-align: center;
             font-size: 80px;
             text-transform: uppercase;
-            color: var(--color2);
+            color: var(--colo3);
             font-weight: bold;
             animation: h1 5s infinite;
 
@@ -189,7 +194,6 @@ body {
             height: 25vh;
             width: 100%;
             background-size: cover;
-            background-position: center;
             text-align: center;
 
            }
@@ -211,13 +215,13 @@ body {
               font-style: italic;
               font-size: 1.9em;
               margin: 6px 0;
-              color: var(--color1);
+              color: var(--color4);
             }
             
             .number span {
               font-size: 1.2em;
               display: block;
-              color: var(--color2);
+              color: var(--color3);
               font-size: 25px;
               font-weight: bold;
             }
@@ -304,8 +308,8 @@ body {
 }
 
 .trainer-card:hover{
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px var(--color3);
+  transform: translateY(-8px);
+  box-shadow: 6px 8px 10px var(--color3);
   background-color: var(--color3, 0.8);
   color: var(--color1);
 }
@@ -313,18 +317,20 @@ body {
 .trainer-card h3{
   font-size: 15px;
   font-weight: bold;
-  color: var(--color2);
+  color: var(--color4);
 }
 
 .trainer-card p{
   font-size: 14px;
+  font-weight: 500;
 }
 .trainer-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
-  background-image: linear-gradient(to right top, #f5f7f7, #b1b4b4, #727576, #393c3d, #000407);
+  /* background-image: linear-gradient(to right top, #f5f7f7, #b1b4b4, #727576, #393c3d, #000407); */
+  background-color: var(--color2);
 }
 
 
@@ -348,7 +354,7 @@ body {
   text-align: center;
   font-size: 30px;
   text-transform: uppercase;
-  color: var(--color2);
+  color: var(--color3);
   font-weight: bold;
   padding: 10px;
   margin: 0;
@@ -358,7 +364,7 @@ body {
 
 @keyframes h1 {
   from { color: var(--color3);}
-  to {color: var(--color2);}
+  to {color: var(--color1);}
 
 }
 
@@ -402,7 +408,7 @@ body {
   margin-top: 30px;
   width: 290px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(108, 106, 106, 0.5); /* Add box shadow */
+  box-shadow: 6px 8px 10px rgba(108, 106, 106, 0.5); /* Add box shadow */
   transition: 0.5s ease-out;
   cursor: pointer;
   
@@ -424,8 +430,8 @@ body {
 .plan h3 {
   font-size: 22px;
   margin-bottom: 20px;
-  background: var(--color4);
-  color: var(--color1);
+  background: var(--color2);
+  color: var(--color3);
   padding: 6px;
   border-radius: 11px;
   text-align: center;
@@ -456,7 +462,7 @@ body {
 
 .plan button:hover {
   background-color: var(--color4);
-  color: var(--color1);
+  color: var(--color3);
 }
 
 
@@ -511,7 +517,8 @@ body {
 }
 
 .cont{
-  background-image: var(--linear);
+  /* background-image: var(--linear); */
+  background-color: var(--color1);
   padding: 50px;
 }
 
@@ -560,7 +567,14 @@ body {
 .container-form{
   padding: 20px;
   border-radius: 15px;
-  background-image: var(--linear2);
+  background-color: var(--color1);
+}
+
+.container-form input{
+  background-color: var(--color3);
+}
+.container-form textarea{
+  background-color: var(--color3);
 }
 
 .txt-contact{
@@ -569,12 +583,13 @@ body {
   font-size: 50px;
   font-weight: 500;
   text-transform: uppercase;
-  background-image: var(--linear2);
+  /* background-image: var(--linear2); */
+  background-color: var(--color1);
   
 }
 
 .txt-contact span{
-  color: var(--color2);
+  color: var(--color3);
 }
 
 .txt-contact h3{
@@ -588,6 +603,7 @@ body {
 .txt-contact p{
      font-size: 15px;
     text-transform: capitalize;
+    color: var(--color3);
 }
 
 .txt-contact h3 span{

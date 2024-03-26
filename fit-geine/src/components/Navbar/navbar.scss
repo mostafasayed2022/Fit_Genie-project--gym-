@@ -1,8 +1,8 @@
 :root {
-    --color1:#F5F7F7;
-    --color2:#EDB518;
-    --color3:#79031D;
-    --color4:#000407;
+    --color1:#254c51;    
+    --color2:#6c8589;
+    --color3:#cedcdd;
+    --color4:#000c08;   
 }
 
 
@@ -104,8 +104,9 @@
                         border-radius: 12px;
                         transition: 0.3s ease all;
 
-                        &:hover {
-                            background: rgba(#EDB518, 0.8);
+                        &:hover {   
+                            background: rgba(#6c8589, 0.8);
+                            color: var(--color3)    ;
                         }
 
                         &:active {
@@ -124,7 +125,7 @@
                 font-size: 1rem;
                 font-family: inherit;
                 background: var(--color3);
-                color: #FFF;
+                color: var(--color2);
                 border: 1px solid transparent;
                 transition: 0.3s ease all;
                 margin: 0.50em 0.50em;
@@ -133,7 +134,7 @@
                 &:hover {
                     border-color: var(--color2);
                     background: rgba(#3B7197, 0.1);
-                    color: var(--color1);
+                    color: var(--color3);
                 }
 
                 &:active {
@@ -145,7 +146,7 @@
                 &__login {
 
                     background-color: var(--color2);
-                    color: #fff;
+                    color: var(--color3);
 
                 }
 

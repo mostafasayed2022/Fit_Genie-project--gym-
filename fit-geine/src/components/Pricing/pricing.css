@@ -15,11 +15,8 @@
 }
 
 .pricing-title2{
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: var(--color1);
     margin-top: 50px;
-    filter: red (100%);
 }
 
 
@@ -47,11 +44,11 @@
 .pricing-title h3 .planss{
     font-size: 70px;
     font-weight: bold;
-    color: var(--color2);
+    color: var(--color3);
 }
 
 .pricing-title h3::after{
-    content: "";
+    content: "";    
     display: block;
     max-width: 90px;
     height: 5px;
@@ -66,7 +63,7 @@
 
 .pricing-title2 p{
     font-size: 15px;
-    color: var(--color1);
+    color: var(--color3);
     line-height: 2;
     
 }
@@ -83,8 +80,8 @@
 
 
 @keyframes h3 {
-    from { color: var(--color3);}
-    to {color: var(--color2);}
+    from { color: var(--color4);}
+    to {color: var(--color3 );}
   }
 
 

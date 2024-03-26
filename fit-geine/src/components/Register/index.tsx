@@ -36,7 +36,7 @@ function Register() {
 
   return (
     <>
-      <Navbar />
+      <Navbar loggedIn={undefined} />
       <div className='logiiin' style={{ backgroundImage: `url(${services})` }}>
         <h1> Register Page</h1>
       </div>

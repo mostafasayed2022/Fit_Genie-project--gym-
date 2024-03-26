@@ -170,9 +170,9 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
+      {/* <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
         <h1>Testimonials</h1>
-      </div>
+      </div> */}
       {/* <TestimonialsSlider /> */}
 
 
