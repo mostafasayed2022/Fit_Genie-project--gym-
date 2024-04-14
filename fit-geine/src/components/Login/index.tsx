@@ -2,14 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../Navbar';
 import '../Login/login.css';
-import { useAuth } from '../../utils/AuthContext';
-import Validation from '../Validation';
 import Footer from "../Footer";
-
 import { FaGoogle, FaFacebook, FaLinkedin } from 'react-icons/fa';
 import services from "../../images/services.jpg";
 import contactBG from "../../images/contactBg.jpg";
-import { CheckBox } from '@mui/icons-material';
+
 
 const loginUser = async (credentials: { username: string, password: string }) => {
   const data = await fetch("https://127.0.0.1:8000/api/login/", {
