@@ -44,7 +44,7 @@ function index() {
   
   return (
     <body>
-      <Navbar />
+      <Navbar loggedIn={undefined} />
 
       <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
         <h1>About us</h1>

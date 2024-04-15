@@ -31,9 +31,9 @@ const [token, setToken]=useState<string | undefined>(undefined);
       <Route path="educationalResources" element={<EducationalResources />} />
       <Route path="contactUs" element={<ContactUs />} />
       <Route path="/login" element={<Login setToken={setToken} setLoggedIn={setLoggedIn} />} />
-      <Route path="register" element={<Register />} />
+      <Route path="*" element={<Register />} />
       <Route path="/home" element={<Home />} />
-      <Route path="*" element={<NotFound />} />
+      {/* <Route path="" element={<NotFound />} /> */}
       <Route path="pricing" element={<Pricing />} />
     </Routes>
   );

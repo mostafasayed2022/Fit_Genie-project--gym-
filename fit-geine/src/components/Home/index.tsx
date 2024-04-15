@@ -1,14 +1,15 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { useEffect} from "react";
+import { useEffect } from "react";
 import Navbar from "../Navbar";
 import { Link } from "react-router-dom";
 import Counter from './Counter';
-import TestimonialsSlider from './TestimonialsSlider';
+// import TestimonialsSlider from './TestimonialsSlider';
 import TrainerCard from './TrainerCard ';
 import PricingPlans from './PricingPlans';
 import ControlledAccordions from './Accordions ';
 import ContactForm from './ContactForm';
+import About from './About';
 import AOS from "aos";
 import Footer from "../Footer";
 // images
@@ -96,12 +97,15 @@ function Home() {
             <h2 className="fancy">UNLOCK YOUR FULL <span>FITNESS</span>  POTENTIAL</h2>
             <div className="butt">
               <Link to="/register">
-                <button  className="btn">Get Started</button>
+                <button className="btn">Get Started</button>
               </Link>
             </div>
           </div>
 
         </div>
+      </div>
+      <div>
+        <About />
       </div>
       <div data-aos="fade-up-right" className='title_cards ' style={{ backgroundImage: `url(${services})` }}>
         services
@@ -109,7 +113,7 @@ function Home() {
       <div className='cards'>
         <div className='card'>
           <Card style={{ width: '15rem' }}>
-            <Card.Img className='image'  src={card1} />
+            <Card.Img className='image' src={card1} />
             <Card.Body>
               <Card.Title className='title'>Fitness</Card.Title>
               <Card.Text className='text'>
@@ -122,7 +126,7 @@ function Home() {
 
         <div className='card'>
           <Card style={{ width: '15rem' }}>
-            <Card.Img className='image'  src={card2} />
+            <Card.Img className='image' src={card2} />
             <Card.Body>
               <Card.Title className='title'>Body Building</Card.Title>
               <Card.Text className='text'>
@@ -135,7 +139,7 @@ function Home() {
 
         <div className='card'>
           <Card style={{ width: '15rem' }}>
-            <Card.Img className='image'  src={card3} />
+            <Card.Img className='image' src={card3} />
             <Card.Body>
               <Card.Title className='title'>Crossfit </Card.Title>
               <Card.Text className='text'>
@@ -148,7 +152,7 @@ function Home() {
 
         <div className='card'>
           <Card style={{ width: '15rem' }}>
-            <Card.Img className='image'  src={card4} />
+            <Card.Img className='image' src={card4} />
             <Card.Body>
               <Card.Title className='title'>Cardio</Card.Title>
               <Card.Text className='text'>
@@ -203,11 +207,11 @@ function Home() {
 
       <ControlledAccordions />
       <div>
-      <ContactForm/>
+        <ContactForm />
       </div>
-      
+
       <div>
-      <Footer/>
+        <Footer />
       </div>
     </>
   );
