@@ -45,15 +45,15 @@ body {
             transition: 700ms ease;
             font-variation-settings: "wght" 311;
             margin-bottom: 0.8rem;
-            color: var(--color2);
+            color: white;
             outline: none;
             text-align: center;
             animation: h1 5s infinite;
           }
           
           @keyframes h1 {
-            from { color: var(--color1);}
-            to {color: var(--color2);}
+            from { color: white;}
+            to {color: var(--color3);}
           }
           
          .right-banner h1:hover {
@@ -175,15 +175,15 @@ body {
             text-align: center;
             font-size: 80px;
             text-transform: uppercase;
-            color: var(--colo3);
+            color:white;
             font-weight: bold;
             animation: h1 5s infinite;
 
            }
            
            @keyframes h1 {
-            from { color: var(--color3);}
-            to {color: var(--color2);}
+            from { color: white;}
+            to {color: var(--color3);}
 
           }
            
@@ -257,7 +257,7 @@ body {
               text-align: center;
               font-size: 30px;
               text-transform: uppercase;
-              color: var(--color2);
+              color: white;
               font-weight: bold;
               padding: 10px;
               margin: 0;
@@ -265,8 +265,8 @@ body {
 
             }
             @keyframes h1 {
-              from { color: var(--color3);}
-              to {color: var(--color2);}
+              from { color: white;}
+              to {color: var(--color3);}
             }
             
             .slick-slide {
@@ -354,7 +354,7 @@ body {
   text-align: center;
   font-size: 30px;
   text-transform: uppercase;
-  color: var(--color3);
+  color: white;
   font-weight: bold;
   padding: 10px;
   margin: 0;
@@ -363,8 +363,8 @@ body {
 }
 
 @keyframes h1 {
-  from { color: var(--color3);}
-  to {color: var(--color1);}
+  from { color: white;}
+  to {color: var(--color3);}
 
 }
 
@@ -380,7 +380,7 @@ body {
   text-align: center;
   font-size: 30px;
   text-transform: uppercase;
-  color: var(--color2);
+  color: white;
   font-weight: bold;
   padding: 10px;
   margin: 0;
@@ -389,8 +389,8 @@ body {
 }
 
 @keyframes h1 {
-  from { color: var(--color3);}
-  to {color: var(--color2);}
+  from { color: white;}
+  to {color: var(--color3);}
 }
 
 
@@ -477,7 +477,7 @@ body {
   text-align: center;
   font-size: 30px;
   text-transform: uppercase;
-  color: var(--color2);
+  color: white;
   font-weight: bold;
   padding: 10px;
   margin-top: 30px;
@@ -486,8 +486,8 @@ body {
 }
 
 @keyframes h1 {
-  from { color: var(--color3);}
-  to {color: var(--color2);}
+  from { color: white;}
+  to {color: var(--color3);}
 
 }
 
@@ -501,7 +501,7 @@ body {
   text-align: center;
   font-size: 30px;
   text-transform: uppercase;
-  color: var(--color2);
+  color: white;
   font-weight: bold;
   padding: 10px;
 }
