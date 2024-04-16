@@ -5,6 +5,8 @@ import Footer from "../Footer";
 // import index from "../About";
 // import { Article } from "@mui/icons-material";
 import "./blog.css";
+
+
 const Blog = () => {
   const [blog, setBlog] = useState<Article[]>([]);
 
@@ -19,9 +21,9 @@ const Blog = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get("https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=2b7ebd82fc8145e0aae2ac6d266718d3");
-       // Filter out the card with the title 'Some title to remove'
-       const filteredNews = response.data.articles.filter((article: { title: string; }) => article.title !== 'Some title to remove');
-       setBlog(filteredNews);
+        // Filter out the card with the title 'Some title to remove'
+        const filteredNews = response.data.articles.filter((article: { title: string; }) => article.title !== 'Some title to remove');
+        setBlog(filteredNews);
       }
       catch (error) {
         console.error("Error fetching data: ", error)
@@ -37,7 +39,7 @@ const Blog = () => {
     <div>
       <Navbar loggedIn={undefined} />
       <div className="container">
-        <h2>Health News</h2>
+          <h1> Blog</h1>
         <div className="row">
           {blog.map((article, index) => (
             <div className="col-md-4 mb-4 cardss" key={index}>
