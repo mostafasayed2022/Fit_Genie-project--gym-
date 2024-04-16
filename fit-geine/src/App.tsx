@@ -3,14 +3,14 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import NotFound from "./components/NotFound";
+// import NotFound from "./components/NotFound";
 import Login from "./components/Login";
 import About from "./components/About";
 import ContactUs from "./components/ContactUs";
-import EducationalResources from "./components/EducationalResources";
 import Register from "./components/Register";
 import Pricing from "./components/Pricing";
 import Footer from "./components/Footer";
+import Blog from './components/Blog';
 
 const App =()=> {
 const [loggedIn, setLoggedIn]=useState(false);
@@ -28,7 +28,7 @@ const [token, setToken]=useState<string | undefined>(undefined);
   return (
     <Routes>
       <Route path="about" element={<About />} />
-      <Route path="educationalResources" element={<EducationalResources />} />
+      <Route path="blog" element={<Blog />} />
       <Route path="contactUs" element={<ContactUs />} />
       <Route path="/login" element={<Login setToken={setToken} setLoggedIn={setLoggedIn} />} />
       <Route path="*" element={<Register />} />
