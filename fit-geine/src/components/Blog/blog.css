@@ -1,10 +1,10 @@
- /* .container {
+ .container {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 0 auto;
 }
-.cards {
+.cardss {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,7 +16,7 @@
     width: 50%;
 }
 
-.card img {
+.cardd img {
     border-radius: 5px;
     width: 100%;
 }
@@ -25,10 +25,9 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
 }
 
-.card {
+.cardd {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
@@ -37,7 +36,7 @@
 
   }
   
-  .card img {
+  .cardd img {
     max-width: 100%;
     border-radius: 5px;
   }
@@ -56,10 +55,10 @@
     display: block;
     margin-top: 10px;
     padding: 5px 10px;
-    background-color: #007bff;
+    background-color:red;
     color: #fff;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
   }
-    */
+   

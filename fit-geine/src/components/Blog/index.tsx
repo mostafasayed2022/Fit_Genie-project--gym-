@@ -40,8 +40,8 @@ const Blog = () => {
         <h2>Health News</h2>
         <div className="row">
           {blog.map((article, index) => (
-            <div className="col-md-4 mb-4 cards" key={index}>
-              <div className="card">
+            <div className="col-md-4 mb-4 cardss" key={index}>
+              <div className="cardd">
                 <img src={article.urlToImage} alt={article.title} />
                 <div className={`card-body item ${article.title === 'Some title to hide' ? 'hidden' : ''}`} key={index}>
                   <h5 className="card-title">{article.title}</h5>
