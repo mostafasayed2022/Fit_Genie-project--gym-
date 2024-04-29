@@ -11,6 +11,8 @@ import Register from "./components/Register";
 import Pricing from "./components/Pricing";
 import Footer from "./components/Footer";
 import Blog from './components/Blog';
+import PaymentForm from './components/Home/PaymentForm';
+import NotFound from './components/NotFound';
 
 const App =()=> {
 const [loggedIn, setLoggedIn]=useState(false);
@@ -31,10 +33,11 @@ const [token, setToken]=useState<string | undefined>(undefined);
       <Route path="blog" element={<Blog />} />
       <Route path="contactUs" element={<ContactUs />} />
       <Route path="/login" element={<Login setToken={setToken} setLoggedIn={setLoggedIn} />} />
-      <Route path="*" element={<Register />} />
+      <Route path="/register" element={<Register />} />
       <Route path="/home" element={<Home />} />
-      {/* <Route path="" element={<NotFound />} /> */}
+      <Route path="*" element={<NotFound />} />
       <Route path="pricing" element={<Pricing />} />
+      <Route path='payment' element={<PaymentForm/>}/>
     </Routes>
   );
 }

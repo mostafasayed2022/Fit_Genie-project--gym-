@@ -610,3 +610,41 @@ body {
   color: var(--color3);
   font-weight: bold;
 }
+
+/* ------------------payment_form --------------------------------*/
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.payment-label {
+  margin-bottom: 10px;
+}
+
+.payment-input {
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.payment-error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.payment-button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.payment-button:hover {
+  background-color: #0056b3;
+}

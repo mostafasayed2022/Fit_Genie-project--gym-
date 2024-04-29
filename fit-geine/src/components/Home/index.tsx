@@ -12,6 +12,7 @@ import ContactForm from './ContactForm';
 import About from './About';
 import AOS from "aos";
 import Footer from "../Footer";
+import PaymentForm from './PaymentForm';
 // images
 import './home.css';
 import home from "../../images/home.jpg";
@@ -197,7 +198,9 @@ function Home() {
 
       <div className='plan'>
         {plans.map((plan, index) => (
+        <Link to={"/payment"}>
           <PricingPlans key={index} {...plan} />
+        </Link>
         ))}
       </div>
 
@@ -209,7 +212,6 @@ function Home() {
       <div>
         <ContactForm />
       </div>
-
       <div>
         <Footer />
       </div>

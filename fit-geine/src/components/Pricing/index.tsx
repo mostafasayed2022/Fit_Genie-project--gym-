@@ -3,11 +3,6 @@ import Navbar from "../Navbar";
 import Footer from "../Footer";
 import './pricing.css'
 import PricingPlans from '../Home/PricingPlans';
-
-
-
-
-
 // images
 import bg_grit_light from '../../images/bg_grit_light.jpg';
 import services from "../../images/services.jpg";
