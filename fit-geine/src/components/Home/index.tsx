@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Navbar from "../Navbar";
 import { Link } from "react-router-dom";
 import Counter from './Counter';
-// import TestimonialsSlider from './TestimonialsSlider';
+import TestimonialsSlider from './TestimonialsSlider';
 import TrainerCard from './TrainerCard ';
 import PricingPlans from './PricingPlans';
 import ControlledAccordions from './Accordions ';
@@ -175,10 +175,10 @@ function Home() {
           </div>
         </div>
       </div>
-      {/* <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
+       <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
         <h1>Testimonials</h1>
-      </div> */}
-      {/* <TestimonialsSlider /> */}
+      </div> 
+       <TestimonialsSlider /> 
 
 
       <div className="trainers-page">

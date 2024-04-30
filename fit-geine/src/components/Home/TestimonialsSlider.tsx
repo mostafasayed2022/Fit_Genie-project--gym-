@@ -1,62 +1,94 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React, { useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 import './home.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-// Testimonial data
+
+
+
+
 const testimonials = [
   {
+    image: 'https://static.vecteezy.com/system/resources/previews/011/675/365/original/man-avatar-image-for-profile-png.png',
     id: 1,
-    name: 'John Doe',
-    text: 'Grateful email messages… Thank you so much for a job well done',
+    text: "I've never felt stronger and more confident. The trainers here are amazing!",
+    author: "Jessica T.",
   },
   {
+    image: 'https://static.vecteezy.com/system/resources/previews/011/675/365/original/man-avatar-image-for-profile-png.png',
     id: 2,
-    name: 'Jane Smith',
-    text: 'Social media love… You guys are the best! Keep up the great work!',
+    text: "The classes are so much fun and the atmosphere is motivating. Love it!",
+    author: "Michael S.",
   },
   
   {
-    id: 2,
-    name: 'Jane Smith',
-    text: 'Happy handwritten thank you note.. I just wanted to let you know that its been great working with you.',
+    image: 'https://static.vecteezy.com/system/resources/previews/011/675/365/original/man-avatar-image-for-profile-png.png',
+    id: 3,
+    text: "The classes are so much fun and the atmosphere is motivating. Love it!",
+    author: "Michael S.",
   },
   
   {
-    id: 2,
-    name: 'Jane Smith',
-    text: 'Gushing in-person gratitude… You,ve been so helpful.',
+    image: 'https://static.vecteezy.com/system/resources/previews/011/675/365/original/man-avatar-image-for-profile-png.png',
+    id: 4,
+    text: "The classes are so much fun and the atmosphere is motivating. Love it!",
+    author: "Michael S.",
   },
   
-    {
-    id: 2,
-    name: 'Jane Smith',
-    text: 'He has excellent testimonials wherever he has been',
+  {
+    image: 'https://static.vecteezy.com/system/resources/previews/011/675/365/original/man-avatar-image-for-profile-png.png',
+    id: 5,
+    text: "The classes are so much fun and the atmosphere is motivating. Love it!",
+    author: "Michael S.",
+  },
+  
+  {
+    image: 'https://static.vecteezy.com/system/resources/previews/011/675/365/original/man-avatar-image-for-profile-png.png',
+    id: 6,
+    text: "The classes are so much fun and the atmosphere is motivating. Love it!",
+    author: "Michael S.",
   },
   // Add more testimonials as needed
 ];
 
 const TestimonialsSlider = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    
-  };
 
+  useEffect(() => {
+    AOS.init({
+      duration: 2000,
+      once: true,
+    });
+  }, []);
   return (
-  
-    <Slider {...settings}>
-      {testimonials.map(testimonial => (
-        <div className='terminals' key={testimonial.id}>
-          <h3>{testimonial.name}</h3>
-          <p>{testimonial.text}</p>
+    <Swiper
+      // install Swiper modules
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      spaceBetween={50}
+      slidesPerView={3}
+      navigation
+      pagination={{ clickable: true }}
+      autoplay={{delay:3000}}
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}
+    >
+    {testimonials.map((testimonial) => (
+      <SwiperSlide key={testimonial.id} >
+        <div className="testimonial">
+          <img src={testimonial.image} className='testimonial-img' />
+          <p className="testimonial-text">{testimonial.text}</p>
+          <p className="testimonial-author">- {testimonial.author}</p>
         </div>
-      ))}
-    </Slider>
+      </SwiperSlide>
+    ))}
+  
+  </Swiper>
+
   );
 };
 
