@@ -666,14 +666,17 @@ body {
 }
 
 .testimonial-text {
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 20px;
+  line-height: 2;
+  color: var(--color1);
+  font-weight: 600;
 }
 
 .testimonial-author {
   margin-top: 10px;
   font-style: italic;
-  color: #888;
+  color: var(--color4);
+  font-weight: 300;
 }
 
 .testimonial-img{
