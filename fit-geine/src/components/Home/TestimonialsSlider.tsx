@@ -9,51 +9,54 @@ import './home.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+// images
+
+import img1 from "../../images/img1.jpg";
+import img2 from "../../images/img2.jpg";
+import img3 from "../../images/img3.jpg";
+import img4 from "../../images/img4.jpg";
+import img5 from "../../images/img5.jpg";
+
+
 
 
 
 
 const testimonials = [
   {
-    image: 'https://static.vecteezy.com/system/resources/previews/011/675/365/original/man-avatar-image-for-profile-png.png',
+    image: {img1},
     id: 1,
     text: "I've never felt stronger and more confident. The trainers here are amazing!",
     author: "Jessica T.",
   },
   {
-    image: 'https://static.vecteezy.com/system/resources/previews/011/675/365/original/man-avatar-image-for-profile-png.png',
+    image: {img2},
     id: 2,
     text: "The classes are so much fun and the atmosphere is motivating. Love it!",
     author: "Michael S.",
   },
   
   {
-    image: 'https://static.vecteezy.com/system/resources/previews/011/675/365/original/man-avatar-image-for-profile-png.png',
+    image: {img3},
     id: 3,
     text: "The classes are so much fun and the atmosphere is motivating. Love it!",
     author: "Michael S.",
   },
   
   {
-    image: 'https://static.vecteezy.com/system/resources/previews/011/675/365/original/man-avatar-image-for-profile-png.png',
+    image: {img4},
     id: 4,
     text: "The classes are so much fun and the atmosphere is motivating. Love it!",
     author: "Michael S.",
   },
   
   {
-    image: 'https://static.vecteezy.com/system/resources/previews/011/675/365/original/man-avatar-image-for-profile-png.png',
+    image: {img5},
     id: 5,
     text: "The classes are so much fun and the atmosphere is motivating. Love it!",
     author: "Michael S.",
   },
   
-  {
-    image: 'https://static.vecteezy.com/system/resources/previews/011/675/365/original/man-avatar-image-for-profile-png.png',
-    id: 6,
-    text: "The classes are so much fun and the atmosphere is motivating. Love it!",
-    author: "Michael S.",
-  },
   // Add more testimonials as needed
 ];
 
