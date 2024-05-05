@@ -613,13 +613,26 @@ body {
 
 /* ------------------payment_form --------------------------------*/
 
+.pay-cont{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+.pay-cont img{
+  width: 770px;
+  height: 470px;
+}
+
 .payment-form {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  width: 35%;
   margin: 70px auto;
   padding: 35px;
-  border: 1px solid;
+  /* border: 1px solid; */
   border-radius: 20px;
   transition: 0.5s  all ease;
   cursor: pointer;

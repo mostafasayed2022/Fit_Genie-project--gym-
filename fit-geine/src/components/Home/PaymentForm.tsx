@@ -2,6 +2,8 @@ import React, { useState, FormEvent } from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import PricingPlans from '../Pricing/index';
+import pay from "../../images/payment.jpg";
+
 
 import './home.css';
 import '../Pricing/pricing.css';
@@ -56,37 +58,43 @@ const PaymentForm = () => {
                     account system allows you to log in and control your
                     account, 24/7.</p>
             </div>
-            <form className="payment-form" onSubmit={handlePayment}>
-                <label className="payment-label">
-                    Card Number:
-                    <input
-                        type="text"
-                        className="payment-input"
-                        value={cardNumber}
-                        onChange={(e) => setCardNumber(e.target.value)}
-                    />
-                </label>
-                <label className="payment-label">
-                    Expiry Date:
-                    <input
-                        className="payment-input"
-                        type="text"
-                        value={expiryDate}
-                        onChange={(e) => setExpiryDate(e.target.value)}
-                    />
-                </label>
-                <label className="payment-label">
-                    CVV:
-                    <input
-                        className="payment-input"
-                        type="text"
-                        value={cvv}
-                        onChange={(e) => setCvv(e.target.value)}
-                    />
-                </label>
-                {error && <div className="payment-error">Error: {error}</div>}
-                <button className="payment-button" type="submit">Pay Now</button>
-            </form>
+            <div className="pay-cont">
+            <div className="img">
+                <img src={pay} />
+            </div>
+                <form className="payment-form" onSubmit={handlePayment}>
+                    <label className="payment-label">
+                        Card Number:
+                        <input
+                            type="text"
+                            className="payment-input"
+                            value={cardNumber}
+                            onChange={(e) => setCardNumber(e.target.value)}
+                        />
+                    </label>
+                    <label className="payment-label">
+                        Expiry Date:
+                        <input
+                            className="payment-input"
+                            type="text"
+                            value={expiryDate}
+                            onChange={(e) => setExpiryDate(e.target.value)}
+                        />
+                    </label>
+                    <label className="payment-label">
+                        CVV:
+                        <input
+                            className="payment-input"
+                            type="text"
+                            value={cvv}
+                            onChange={(e) => setCvv(e.target.value)}
+                        />
+                    </label>
+                    {error && <div className="payment-error">Error: {error}</div>}
+                    <button className="payment-button" type="submit">Pay Now</button>
+                </form>
+            </div>
+
             <Footer />
         </>
     );
