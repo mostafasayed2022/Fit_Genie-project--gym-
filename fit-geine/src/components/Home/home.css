@@ -653,6 +653,7 @@ body {
 
 /* TestimonialsSlider.css */
 .testimonial {
+  margin: 20px;
   background-color: var(--color3);
   padding: 20px;
   border-radius: 8px;
