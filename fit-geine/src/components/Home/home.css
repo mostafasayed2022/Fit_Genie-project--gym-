@@ -617,7 +617,16 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 300px;
-  margin: 0 auto;
+  margin: 70px auto;
+  padding: 35px;
+  border: 1px solid;
+  border-radius: 20px;
+  transition: 0.5s  all ease;
+  cursor: pointer;
+}
+
+.payment-form:hover{
+  background-color: var(--color3);
 }
 
 .payment-label {
@@ -628,7 +637,8 @@ body {
   padding: 5px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 10px;
+  background-color: var(--color2);
 }
 
 .payment-error {
@@ -638,15 +648,16 @@ body {
 
 .payment-button {
   padding: 10px;
-  background-color: #007bff;
+  background-color: var(--color1);
   color: white;
   border: none;
-  border-radius: 3px;
+  border-radius: 10px;
   cursor: pointer;
+  transition: 0.5s ease-in-out;
 }
 
 .payment-button:hover {
-  background-color: #0056b3;
+  background-color: var(--color4);
 }
 
 /* testimonials gym */

@@ -12,7 +12,6 @@ import ContactForm from './ContactForm';
 import About from './About';
 import AOS from "aos";
 import Footer from "../Footer";
-import PaymentForm from './PaymentForm';
 // images
 import './home.css';
 import home from "../../images/home.jpg";
@@ -102,7 +101,6 @@ function Home() {
               </Link>
             </div>
           </div>
-
         </div>
       </div>
       <div>
