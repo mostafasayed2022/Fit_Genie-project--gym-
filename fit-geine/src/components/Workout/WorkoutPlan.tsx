@@ -7,7 +7,7 @@ interface WorkoutPlan {
     Typeofexercises: string;
 }
 
-const WorkoutPlanComponent = () => {
+const WorkoutPlan = () => {
     const [workoutPlans, setWorkoutPlans] = useState<WorkoutPlan[]>([]);
     const [isFetching, setIsFetching] = useState<boolean>(false);
 
@@ -40,4 +40,4 @@ const WorkoutPlanComponent = () => {
     );
 };
 
-export default WorkoutPlanComponent;
+export default WorkoutPlan;
