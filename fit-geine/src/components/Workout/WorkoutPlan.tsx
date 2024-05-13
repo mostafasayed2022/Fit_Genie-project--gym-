@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Navbar from "../Navbar";
 
@@ -7,59 +7,37 @@ interface WorkoutPlan {
     Typeofexercises: string;
 }
 
-const WorkoutPlan=()=> {
+const WorkoutPlanComponent = () => {
     const [workoutPlans, setWorkoutPlans] = useState<WorkoutPlan[]>([]);
-    const [token, setToken] = useState<string>(() => localStorage.getItem('token')|| '');
+    const [isFetching, setIsFetching] = useState<boolean>(false);
 
-    useEffect(() => {
-        if (token) {
-            const fetchWorkoutPlans = async () => {
-                try {
-                    const response = await axios.get('https://127.0.0.1:8000/api/workoutplan/', {
-                        headers: {
-                            Authorization: `Bearer ${token}`
-                        }
-                    });
-                    setWorkoutPlans(response.data);
-                } catch (error) {
-                    console.error('Error fetching data:', error);
-                }
-                console.log(fetchWorkoutPlans)
-
-            };
-            fetchWorkoutPlans();
+    const fetchWorkoutPlans = async () => {
+        setIsFetching(true);
+        try {
+            const response = await axios.get<WorkoutPlan[]>('https://127.0.0.1:8000/api/workoutplan/');
+            setWorkoutPlans(response.data);
+        } catch (error) {
+            console.error('Error fetching data:', error);
         }
-    }, [token]);
-
-
-    const handleTokenChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const newToken = e.target.value;
-        setToken(newToken);
-        localStorage.setItem("token", newToken);
-    }
+        setIsFetching(false);
+    };
 
     return (
-    <>
-    <Navbar loggedIn={undefined}/>
-        <div>
-            <h1>Workout Plans</h1>
-            <input
-                type="email"
-                value={token || ''}
-                onChange={handleTokenChange}
-                placeholder="Enter token"
-            />
-            <button onClick={() => setToken('')}>Clear Token</button>
-            <ul>
-                {workoutPlans.map(workoutPlan => (
-                    <li key={workoutPlan.Intensitylevel}>{workoutPlan.Typeofexercises}</li>
-                ))}
-            </ul>
-        </div>
+        <>
+            <Navbar loggedIn={undefined} />
+            <div>
+                <h1>Workout Plans</h1>
+                <button onClick={fetchWorkoutPlans} disabled={isFetching}>
+                    {isFetching ? 'Fetching...' : 'Fetch Workout Plans'}
+                </button>
+                <ul>
+                    {workoutPlans.map(workoutPlan => (
+                        <li key={workoutPlan.Intensitylevel}>{workoutPlan.Typeofexercises}</li>
+                    ))}
+                </ul>
+            </div>
         </>
     );
 };
 
-
-
-export default WorkoutPlan;
+export default WorkoutPlanComponent;
