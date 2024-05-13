@@ -35,23 +35,22 @@ const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedI
     const response = await loginUser({ username, password });
     props.setToken(response.token);
     props.setLoggedIn(true);
-    
-    if(username==='admin' && password==="password")
-    {
+
+    if (username === 'admin' && password === "password") {
       setLoggedIn();
       Swal.fire({
-      icon:"success",
-      title:"Login Success",
-      showCancelButton:false,
-      timer:1500
+        icon: "success",
+        title: "Login Success",
+        showCancelButton: false,
+        timer: 1500
       });
     }
-    else{
+    else {
       Swal.fire({
-        icon:"error",
-        title:"Login failed",
-        text:"check your username or password"
-      }) 
+        icon: "error",
+        title: "Login failed",
+        text: "check your username or password"
+      })
     }
   }
 
@@ -64,7 +63,7 @@ const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedI
       <div className="containerrrr" style={{ backgroundImage: `url(${contactBG})` }}>
         <div className="login-register-container">
           <div className='form-cont'>
-            <form  method='post' onSubmit={handleLogin}>
+            <form method='post' onSubmit={handleLogin}>
               <div className="form-field-wrapper">
                 <input
                   required
@@ -72,7 +71,7 @@ const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedI
                   name="username"
                   id='email'
                   placeholder="UserName or email"
-                  onChange={e=> setEmail(e.target.value)}
+                  onChange={e => setEmail(e.target.value)}
                 />
                 {/* {errors.email && <p style={{ color: 'red', fontSize: '13px' }}>{errors.email}</p>} */}
               </div>
@@ -94,9 +93,9 @@ const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedI
                   type="submit"
                   value="Login"
                   className="btnn"
-                  onClick={()=>handleLogin}   
-                  />
-                
+                  onClick={() => handleLogin}
+                />
+
               </div>
               <div className='forget-password'>
                 <div className='checkbox'>

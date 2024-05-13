@@ -1,58 +1,63 @@
 import React, { useState } from "react";
-import axios from "axios";
-import Navbar from "../Navbar";
 
 interface WorkoutPlan {
-    Title: string;
     Intensitylevel: string;
     Typeofexercises: string;
 }
 
-const WorkoutPlan = () => {
+const WorkoutPlanComponent = () => {
     const [workoutPlans, setWorkoutPlans] = useState<WorkoutPlan[]>([]);
-    const [isFetching, setIsFetching] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
 
-
-    const fetchWorkoutPlans = async () => {
-        setIsFetching(true);
+    const fetchWorkoutPlans = async (email: string) => {
+        setIsLoading(true);
         try {
-            const response = await axios.get<WorkoutPlan[]>('https://127.0.0.1:8000/api/workoutplan/');
-            setWorkoutPlans(response.data);
+            const response = await fetch('https://127.0.0.1:8000/api/workoutplan/', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email })
+            });
+            const data = await response.json();
+            setWorkoutPlans(data);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
-        setIsFetching(false);
+        setIsLoading(false);
     };
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
     };
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        fetchWorkoutPlans(email);
+    };
 
     return (
-        <>
-            <Navbar loggedIn={undefined} />
-            <div>
-                <h1>Workout Plans</h1>
-
+        <div>
+            <h1>Workout Plans</h1>
+            <form onSubmit={handleSubmit}>
                 <input
                     type="email"
                     value={email}
                     onChange={handleEmailChange}
                     placeholder="Enter your email"
                 />
-                <button onClick={fetchWorkoutPlans} disabled={isFetching}>
-                    {isFetching ? 'Fetching...' : 'Fetch Workout Plans'}
+                <button type="submit" disabled={isLoading}>
+                    {isLoading ? 'Loading...' : 'Fetch Workout Plans'}
                 </button>
-                <ul>
-                    {workoutPlans.map(workoutPlan => (
-                        <li key={workoutPlan.Title}>{workoutPlan.Typeofexercises}</li>
-                    ))}
-                </ul>
-            </div>
-        </>
+            </form>
+            <ul>
+                {workoutPlans.map(workoutPlan => (
+                    <li key={workoutPlan.Intensitylevel}>{workoutPlan.Typeofexercises}</li>
+                ))}
+            </ul>
+        </div>
     );
 };
 
-export default WorkoutPlan;
+export default WorkoutPlanComponent;
