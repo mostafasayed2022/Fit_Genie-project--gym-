@@ -14,6 +14,7 @@ import Blog from './components/Blog';
 import PaymentForm from './components/Home/PaymentForm';
 import NotFound from './components/NotFound';
 import WorkoutPlan from './components/Workout/WorkoutPlan';
+import NutrationPlan from './components/NutrationPlan/Nutration';
 
 const App =()=> {
 const [loggedIn, setLoggedIn]=useState(false);
@@ -40,6 +41,8 @@ const [token, setToken]=useState<string | undefined>(undefined);
       <Route path="pricing" element={<Pricing />} />
       <Route path='payment' element={<PaymentForm/>}/>
       <Route path='workout' element={<WorkoutPlan/>}/>
+      <Route path='nutration' element={<NutrationPlan/>}/>
+
     </Routes>
   );
 }

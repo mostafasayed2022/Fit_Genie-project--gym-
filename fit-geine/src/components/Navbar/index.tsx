@@ -73,7 +73,11 @@ const Navbar = (props: { loggedIn: any; }) => {
             </li>
             
             <li>
-              <Link to="/workout">workout</Link>
+              <Link to="/workout">Workout Plan</Link>
+            </li>
+            
+            <li>
+              <Link to="/nutration">Nutration Plan</Link>
             </li>
             
             <li>

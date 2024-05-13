@@ -4,18 +4,18 @@ import Navbar from "../Navbar";
 
 interface WorkoutPlan {
     Title:string;
-    Intensitylevel: string;
-    Typeofexercises: string;
+    Calories: number;
+    Carbs: number;
 }
 
-const WorkoutPlan = () => {
+const NutrationPlan = () => {
     const [workoutPlans, setWorkoutPlans] = useState<WorkoutPlan[]>([]);
     const [isFetching, setIsFetching] = useState<boolean>(false);
 
     const fetchWorkoutPlans = async () => {
         setIsFetching(true);
         try {
-            const response = await axios.get<WorkoutPlan[]>('https://127.0.0.1:8000/api/workoutplan/');
+            const response = await axios.get<WorkoutPlan[]>('https://127.0.0.1:8000/api/mealplan/');
             setWorkoutPlans(response.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -27,13 +27,13 @@ const WorkoutPlan = () => {
         <>
             <Navbar loggedIn={undefined} />
             <div>
-                <h1>Workout Plans</h1>
+                <h1>Nutration Plans</h1>
                 <button onClick={fetchWorkoutPlans} disabled={isFetching}>
-                    {isFetching ? 'Fetching...' : 'Fetch Workout Plans'}
+                    {isFetching ? 'Fetching...' : 'Fetch Nutration Plans'}
                 </button>
                 <ul>
                     {workoutPlans.map(workoutPlan => (
-                        <li key={workoutPlan.Title}>{workoutPlan.Typeofexercises}</li>
+                        <li key={workoutPlan.Title}>{workoutPlan.Calories}</li>
                     ))}
                 </ul>
             </div>
@@ -41,4 +41,4 @@ const WorkoutPlan = () => {
     );
 };
 
-export default WorkoutPlan;
+export default NutrationPlan;
