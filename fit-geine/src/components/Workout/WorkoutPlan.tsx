@@ -6,7 +6,7 @@ interface WorkoutPlan {
     Typeofexercises: string;
 }
 
-const WorkoutPlan= () => {
+const WorkoutPlan = () => {
     const [workoutPlans, setWorkoutPlans] = useState<WorkoutPlan[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
@@ -40,7 +40,7 @@ const WorkoutPlan= () => {
 
     return (
         <>
-            <Navbar loggedIn={undefined}/>
+            <Navbar loggedIn={undefined} />
             <div>
                 <h1>Workout Plans</h1>
                 <form onSubmit={handleSubmit}>
@@ -50,12 +50,12 @@ const WorkoutPlan= () => {
                         onChange={handleEmailChange}
                         placeholder="Enter your email"
                     />
-                    <button onClick={()=>fetchWorkoutPlans} >
+                    <button onClick={() => fetchWorkoutPlans} >
                         {isLoading ? 'Loading...' : 'Fetch Workout Plans'}
                     </button>
                 </form>
                 <ul>
-                    {workoutPlans.map(workoutPlan => (
+                    {Array.isArray(workoutPlans) && workoutPlans.map(workoutPlan => (
                         <li key={workoutPlan.Intensitylevel}>{workoutPlan.Typeofexercises}</li>
                     ))}
                 </ul>
