@@ -9,7 +9,7 @@ interface WorkoutPlan {
 
 const WorkoutPlan=()=> {
     const [workoutPlans, setWorkoutPlans] = useState<WorkoutPlan[]>([]);
-    const [token, setToken] = useState<string | null>(() => localStorage.getItem('token'));
+    const [token, setToken] = useState<string>(() => localStorage.getItem('token')|| '');
 
     useEffect(() => {
         if (token) {
