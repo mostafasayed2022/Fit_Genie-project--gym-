@@ -50,7 +50,7 @@ const WorkoutPlan= () => {
                         onChange={handleEmailChange}
                         placeholder="Enter your email"
                     />
-                    <button type="submit" disabled={isLoading}>
+                    <button onClick={()=>fetchWorkoutPlans} >
                         {isLoading ? 'Loading...' : 'Fetch Workout Plans'}
                     </button>
                 </form>
