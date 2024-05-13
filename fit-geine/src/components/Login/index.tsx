@@ -6,6 +6,8 @@ import Footer from "../Footer";
 import { FaGoogle, FaFacebook, FaLinkedin } from 'react-icons/fa';
 import services from "../../images/services.jpg";
 import contactBG from "../../images/contactBg.jpg";
+import Swal from 'sweetalert2'
+
 
 
 const loginUser = async (credentials: { username: string, password: string }) => {
@@ -28,11 +30,29 @@ const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedI
     setShowPassword(!showPassword);
   }
 
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     const response = await loginUser({ username, password });
     props.setToken(response.token);
     props.setLoggedIn(true);
+    
+    if(username==='admin' && password==="password")
+    {
+      setLoggedIn();
+      Swal.fire({
+      icon:"success",
+      title:"Login Success",
+      showCancelButton:false,
+      timer:1500
+      });
+    }
+    else{
+      Swal.fire({
+        icon:"error",
+        title:"Login failed",
+        text:"check your username or password"
+      }) 
+    }
   }
 
   return (
@@ -74,7 +94,9 @@ const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedI
                   type="submit"
                   value="Login"
                   className="btnn"
-                />
+                  onClick={()=>handleLogin}   
+                  />
+                
               </div>
               <div className='forget-password'>
                 <div className='checkbox'>
@@ -109,4 +131,8 @@ const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedI
 }
 
 export default Login;
+
+function setLoggedIn() {
+  throw new Error('Function not implemented.');
+}
 

@@ -7,7 +7,7 @@ import contactBG from "../../images/contactBg.jpg";
 import './register.css';
 import axios from 'axios';
 
-function Register() {
+const Register=()=> {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -28,6 +28,8 @@ function Register() {
   {
     console.error(`Error registration :`,error);
   }
+  
+  
 }
 
   const togglePasswordVisibility = () => {
