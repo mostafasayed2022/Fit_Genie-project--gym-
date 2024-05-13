@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import Navbar from "../Navbar";
 
 interface WorkoutPlan {
     Intensitylevel: string;
     Typeofexercises: string;
 }
 
-const WorkoutPlanComponent = () => {
+const WorkoutPlan= () => {
     const [workoutPlans, setWorkoutPlans] = useState<WorkoutPlan[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
@@ -38,26 +39,30 @@ const WorkoutPlanComponent = () => {
     };
 
     return (
-        <div>
-            <h1>Workout Plans</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="email"
-                    value={email}
-                    onChange={handleEmailChange}
-                    placeholder="Enter your email"
-                />
-                <button type="submit" disabled={isLoading}>
-                    {isLoading ? 'Loading...' : 'Fetch Workout Plans'}
-                </button>
-            </form>
-            <ul>
-                {workoutPlans.map(workoutPlan => (
-                    <li key={workoutPlan.Intensitylevel}>{workoutPlan.Typeofexercises}</li>
-                ))}
-            </ul>
-        </div>
+        <>
+            <Navbar loggedIn={undefined}/>
+            <div>
+                <h1>Workout Plans</h1>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={handleEmailChange}
+                        placeholder="Enter your email"
+                    />
+                    <button type="submit" disabled={isLoading}>
+                        {isLoading ? 'Loading...' : 'Fetch Workout Plans'}
+                    </button>
+                </form>
+                <ul>
+                    {workoutPlans.map(workoutPlan => (
+                        <li key={workoutPlan.Intensitylevel}>{workoutPlan.Typeofexercises}</li>
+                    ))}
+                </ul>
+            </div>
+        </>
+
     );
 };
 
-export default WorkoutPlanComponent;
+export default WorkoutPlan;
