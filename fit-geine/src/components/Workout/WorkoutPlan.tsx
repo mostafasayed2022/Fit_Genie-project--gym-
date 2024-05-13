@@ -21,6 +21,7 @@ const WorkoutPlan = () => {
                 },
                 body: JSON.stringify({ email: email })
             });
+            console.log(response)
             const data = await response.json();
             setWorkoutPlans(data);
         } catch (error) {
@@ -49,6 +50,7 @@ const WorkoutPlan = () => {
                         value={email}
                         onChange={handleEmailChange}
                         placeholder="Enter your email"
+                        required
                     />
                     <button onClick={() => fetchWorkoutPlans} >
                         {isLoading ? 'Loading...' : 'Fetch Workout Plans'}
