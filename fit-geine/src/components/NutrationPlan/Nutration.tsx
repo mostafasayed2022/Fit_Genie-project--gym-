@@ -3,7 +3,7 @@ import axios from "axios";
 import Navbar from "../Navbar";
 
 interface WorkoutPlan {
-    Title:string;
+    Title: string;
     Calories: number;
     Carbs: number;
 }
@@ -11,6 +11,8 @@ interface WorkoutPlan {
 const NutrationPlan = () => {
     const [workoutPlans, setWorkoutPlans] = useState<WorkoutPlan[]>([]);
     const [isFetching, setIsFetching] = useState<boolean>(false);
+    const [email, setEmail] = useState<string>('');
+
 
     const fetchWorkoutPlans = async () => {
         setIsFetching(true);
@@ -23,11 +25,23 @@ const NutrationPlan = () => {
         setIsFetching(false);
     };
 
+    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value);
+    };
+
+
     return (
         <>
             <Navbar loggedIn={undefined} />
             <div>
                 <h1>Nutration Plans</h1>
+
+                <input
+                    type="email"
+                    value={email}
+                    onChange={handleEmailChange}
+                    placeholder="Enter your email"
+                />
                 <button onClick={fetchWorkoutPlans} disabled={isFetching}>
                     {isFetching ? 'Fetching...' : 'Fetch Nutration Plans'}
                 </button>
