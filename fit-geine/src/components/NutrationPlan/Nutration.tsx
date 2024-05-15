@@ -69,7 +69,6 @@ const Nutrition = () => {
 
                 {isLoading && <h1>Loading...</h1>}
                 {error && <h1>{error}</h1>}
-
                 {mealData && Object.entries(mealData).map(([meal, mealData]) => (
                     <div key={meal}>
                         <h1>{meal}</h1>
