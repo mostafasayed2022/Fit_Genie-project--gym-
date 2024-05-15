@@ -58,7 +58,7 @@ const Nutration = () => {
                         placeholder="Enter your email"
                         required
                     />
-                    <button type="submit">Get API data</button>
+                    <button onClick={()=>handleSubmit}>Get API data</button>
                 </form>
 
                 {isLoading && <h1>Loading...</h1>}
