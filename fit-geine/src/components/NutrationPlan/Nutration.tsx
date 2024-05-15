@@ -52,7 +52,7 @@ const Nutration = () => {
                         placeholder="Enter your email"
                         required
                     />
-                    <button onClick={() => fetchWorkoutPlans} >
+                    <button onClick={() => handleSubmit} >
                         {isLoading ? 'Loading...' : 'Fetch Workout Plans'}
                     </button>
                 </form>
