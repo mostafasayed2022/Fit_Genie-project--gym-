@@ -69,13 +69,13 @@ const Nutrition = () => {
 
                 {isLoading && <h1>Loading...</h1>}
                 {error && <h1>{error}</h1>}
-                {mealData && Object.keys(mealData).map((meal) => (
-                    <div key={meal}>
-                        <h1>{meal}</h1>
-                        <p>Calories: {mealData[meal].calories}</p>
-                        <p>Protein: {mealData[meal].protein}</p>
-                        <p>Carbs: {mealData[meal].carbs}</p>
-                        <p>Meal: {mealData[meal].meal}</p>
+                {mealData && Object.keys(mealData).map((mealKey) => (
+                    <div key={mealKey}>
+                        <h1>{mealKey}</h1>
+                        <p>Calories: {mealData[mealKey]?.calories}</p>
+                        <p>Protein: {mealData[mealKey]?.protein}</p>
+                        <p>Carbs: {mealData[mealKey]?.carbs}</p>
+                        <p>Meal: {mealData[mealKey]?.meal}</p>
                     </div>
                 ))}
             </div>
