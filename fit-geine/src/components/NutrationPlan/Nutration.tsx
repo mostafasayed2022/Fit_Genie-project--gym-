@@ -68,7 +68,7 @@ const Nutration = () => {
                 </ul> */}
 
                 <div className="row">
-                    { Array.isArray(workoutPlans)&& workoutPlans.map((WorkoutPlan, index) => (
+                {Array.isArray(workoutPlans) && workoutPlans.length > 0 && workoutPlans.map((WorkoutPlan, index) => (
                         <div className="col-md-4 mb-4 cardss" key={index}>
                             <div className="cardd">
                                 <div>
