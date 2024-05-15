@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Navbar from "../Navbar";
-import index from "../About";
 
 interface WorkoutPlan {
     title: string;
@@ -23,7 +22,6 @@ const Nutration = () => {
                 },
                 body: JSON.stringify({ email: email })
             });
-            console.log(response)
             const data = await response.json();
             setWorkoutPlans(data);
         } catch (error) {
@@ -40,6 +38,7 @@ const Nutration = () => {
         e.preventDefault();
         fetchWorkoutPlans(email);
     };
+
     const handleShowDetails = (index: number) => {
         setSelectedWorkoutPlan(workoutPlans[index]);
     };
@@ -57,25 +56,18 @@ const Nutration = () => {
                         placeholder="Enter your email"
                         required
                     />
-                    {/* <button onClick={() => handleSubmit} >
+                    <button type="submit">
                         {isLoading ? 'Loading...' : 'Fetch Workout Plans'}
-                    </button> */}
-                    <button type="submit">Show Details</button>
-
+                    </button>
                 </form>
-                {/* <ul>
-                    {Array.isArray(workoutPlans) && workoutPlans.map(workoutPlan => (
-                        <li key={workoutPlan.Title}>{workoutPlan.Calories}</li>
-                    ))}
-                </ul> */}
 
                 <div className="row">
-                {Array.isArray(workoutPlans) && workoutPlans.length > 0 && workoutPlans.map((WorkoutPlan, index) => (
+                    {workoutPlans.map((workoutPlan, index) => (
                         <div className="col-md-4 mb-4 cardss" key={index}>
                             <div className="cardd">
                                 <div>
-                                    <h5 className="card-title">{WorkoutPlan.title}</h5>
-                                    <p className="card-description">{WorkoutPlan.calories}</p>
+                                    <h5 className="card-title">{workoutPlan.title}</h5>
+                                    <p className="card-description">{workoutPlan.calories}</p>
                                     <button onClick={() => handleShowDetails(index)}>Show Details</button>
                                 </div>
                             </div>
@@ -84,8 +76,8 @@ const Nutration = () => {
                 </div>
                 {selectedWorkoutPlan && (
                     <div>
-                        <h5>selected workout:{selectedWorkoutPlan.title}</h5>
-                        <p>calories: {selectedWorkoutPlan.calories}</p>
+                        <h5>Selected Workout Plan: {selectedWorkoutPlan.title}</h5>
+                        <p>Calories: {selectedWorkoutPlan.calories}</p>
                     </div>
                 )}
             </div>
