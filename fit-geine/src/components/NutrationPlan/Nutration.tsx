@@ -3,20 +3,22 @@ import Navbar from "../Navbar";
 
 interface MealData {
     [key: string]: {
-        Calories: number;
-        Protein: number;
-        Carbs: number;
-        Meal: string;
+        calories: string;
+        protein: string;
+        carbs: string;
+        meal: string;
     };
 }
 
-const Nutration = () => {
+const Nutrition = () => {
     const [mealData, setMealData] = useState<MealData | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
+    const [error, setError] = useState<string | null>(null);
 
     const fetchMealData = async (email: string) => {
         setIsLoading(true);
+        setError(null);
         try {
             const response = await fetch('https://127.0.0.1:8000/api/mealplan/', {
                 method: "POST",
@@ -25,13 +27,17 @@ const Nutration = () => {
                 },
                 body: JSON.stringify({ email: email })
             });
+
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
+
             const data = await response.json();
+            console.log('Fetched data:', data);  // Debugging log
             setMealData(data);
         } catch (error) {
             console.error('Error fetching data:', error);
+            setError('Failed to fetch data');
         }
         setIsLoading(false);
     };
@@ -49,7 +55,7 @@ const Nutration = () => {
         <>
             <Navbar loggedIn={false} />
             <div>
-                <h1>Nutration Plans</h1>
+                <h1>Nutrition Plans</h1>
                 <form onSubmit={handleSubmit}>
                     <input
                         type="email"
@@ -58,18 +64,19 @@ const Nutration = () => {
                         placeholder="Enter your email"
                         required
                     />
-                    <button onClick={()=>handleSubmit}>Get API data</button>
+                    <button type="submit">Get API Data</button>
                 </form>
 
                 {isLoading && <h1>Loading...</h1>}
+                {error && <h1>{error}</h1>}
 
                 {mealData && Object.keys(mealData).map((meal) => (
                     <div key={meal}>
                         <h1>{meal}</h1>
-                        <p>Calories: {mealData[meal].Calories}</p>
-                        <p>Protein: {mealData[meal].Protein}</p>
-                        <p>Carbs: {mealData[meal].Carbs}</p>
-                        <p>Meal: {mealData[meal].Meal}</p>
+                        <p>Calories: {mealData[meal].calories}</p>
+                        <p>Protein: {mealData[meal].protein}</p>
+                        <p>Carbs: {mealData[meal].carbs}</p>
+                        <p>Meal: {mealData[meal].meal}</p>
                     </div>
                 ))}
             </div>
@@ -77,4 +84,4 @@ const Nutration = () => {
     );
 };
 
-export default Nutration;
+export default Nutrition;
