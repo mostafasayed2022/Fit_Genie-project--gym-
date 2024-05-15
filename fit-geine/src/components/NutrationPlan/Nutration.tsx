@@ -63,12 +63,12 @@ const Nutration = () => {
                 </ul> */}
                 
                 <div className="row">
-          {workoutPlans.map((article, index) => (
+          {workoutPlans.map((WorkoutPlan, index) => (
             <div className="col-md-4 mb-4 cardss" key={index}>
               <div className="cardd">
-                <div className={`card-body item ${article.title === 'Some title to hide' ? 'hidden' : ''}`} key={index}>
-                  <h5 className="card-title">{article.title}</h5>
-                  <p className="card-description">{article.calories}</p>
+                <div key={index}>
+                  <h5 className="card-title">{WorkoutPlan.title}</h5>
+                  <p className="card-description">{WorkoutPlan.calories}</p>
                 </div>
               </div>
             </div>
