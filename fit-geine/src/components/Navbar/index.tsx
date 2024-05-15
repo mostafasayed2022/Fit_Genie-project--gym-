@@ -77,7 +77,7 @@ const Navbar = (props: { loggedIn: any; }) => {
             </li>
             
             <li>
-              <Link to="/nutration">Nutration Plan</Link>
+              <Link to="/nutration">Nutrition Plan</Link>
             </li>
             
             <li>
