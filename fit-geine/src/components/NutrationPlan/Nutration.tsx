@@ -33,7 +33,7 @@ const Nutrition = () => {
             }
 
             const data = await response.json();
-            console.log('Fetched data:', data);  // Debugging log
+            console.log('Fetched data:', data); // Log the fetched data
             setMealData(data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -69,13 +69,14 @@ const Nutrition = () => {
 
                 {isLoading && <h1>Loading...</h1>}
                 {error && <h1>{error}</h1>}
-                {mealData && Object.entries(mealData).map(([meal, mealData]) => (
+
+                {mealData && Object.keys(mealData).map((meal) => (
                     <div key={meal}>
                         <h1>{meal}</h1>
-                        <p>Calories: {mealData.calories}</p>
-                        <p>Protein: {mealData.protein}</p>
-                        <p>Carbs: {mealData.carbs}</p>
-                        <p>Meal: {mealData.meal}</p>
+                        <p>Calories: {mealData[meal].calories}</p>
+                        <p>Protein: {mealData[meal].protein}</p>
+                        <p>Carbs: {mealData[meal].carbs}</p>
+                        <p>Meal: {mealData[meal].meal}</p>
                     </div>
                 ))}
             </div>
