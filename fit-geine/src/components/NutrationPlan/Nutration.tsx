@@ -57,9 +57,11 @@ const Nutration = () => {
                         placeholder="Enter your email"
                         required
                     />
-                    <button onClick={() => handleSubmit} >
+                    {/* <button onClick={() => handleSubmit} >
                         {isLoading ? 'Loading...' : 'Fetch Workout Plans'}
-                    </button>
+                    </button> */}
+                    <button onClick={() => handleSubmit}>Show Details</button>
+
                 </form>
                 {/* <ul>
                     {Array.isArray(workoutPlans) && workoutPlans.map(workoutPlan => (
@@ -74,7 +76,7 @@ const Nutration = () => {
                                 <div>
                                     <h5 className="card-title">{WorkoutPlan.title}</h5>
                                     <p className="card-description">{WorkoutPlan.calories}</p>
-                                    <button onClick={() => { console.log('Clicked on index:', index); handleShowDetails(index); }}>Show Details</button>
+                                    {/* <button onClick={() => handleShowDetails(index)}>Show Details</button> */}
                                 </div>
                             </div>
                         </div>
