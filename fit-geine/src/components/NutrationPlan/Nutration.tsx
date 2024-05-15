@@ -3,10 +3,10 @@ import Navbar from "../Navbar";
 
 interface MealData {
     [key: string]: {
-        calories: number;
-        protein: number;
-        carbs: number;
-        meal: string;
+        Calories: number;
+        Protein: number;
+        Carbs: number;
+        Meal: string;
     };
 }
 
@@ -66,10 +66,10 @@ const Nutration = () => {
                 {mealData && Object.keys(mealData).map((meal) => (
                     <div key={meal}>
                         <h1>{meal}</h1>
-                        <p>Calories: {mealData[meal].calories}</p>
-                        <p>Protein: {mealData[meal].protein}</p>
-                        <p>Carbs: {mealData[meal].carbs}</p>
-                        <p>Meal: {mealData[meal].meal}</p>
+                        <p>Calories: {mealData[meal].Calories}</p>
+                        <p>Protein: {mealData[meal].Protein}</p>
+                        <p>Carbs: {mealData[meal].Carbs}</p>
+                        <p>Meal: {mealData[meal].Meal}</p>
                     </div>
                 ))}
             </div>
