@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import Navbar from "../Navbar";
 
-interface WorkoutPlan {
-    Meal: string;
-    Calories: string;
+interface MealData {
+    [key: string]: {
+        calories: number;
+        protein: number;
+        carbs: number;
+        meal: string;
+    };
 }
 
 const Nutration = () => {
-    const [workoutPlans, setWorkoutPlans] = useState<WorkoutPlan[]>([]);
+    const [mealData, setMealData] = useState<MealData | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
-    const [selectedWorkoutPlan, setSelectedWorkoutPlan] = useState<WorkoutPlan | null>(null);
 
-    const fetchWorkoutPlans = async (email: string) => {
+    const fetchMealData = async (email: string) => {
         setIsLoading(true);
         try {
             const response = await fetch('https://127.0.0.1:8000/api/mealplan/', {
@@ -22,8 +25,11 @@ const Nutration = () => {
                 },
                 body: JSON.stringify({ email: email })
             });
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
             const data = await response.json();
-            setWorkoutPlans(data);
+            setMealData(data);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -36,11 +42,7 @@ const Nutration = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        fetchWorkoutPlans(email);
-    };
-
-    const handleShowDetails = (index: number) => {
-        setSelectedWorkoutPlan(workoutPlans[index]);
+        fetchMealData(email);
     };
 
     return (
@@ -56,33 +58,22 @@ const Nutration = () => {
                         placeholder="Enter your email"
                         required
                     />
-                    <button type="submit">
-                        {isLoading ? 'Loading...' : 'Fetch Workout Plans'}
-                    </button>
+                    <button type="submit">Get API data</button>
                 </form>
 
-                <div className="row">
-                    {workoutPlans.map((workoutPlan, index) => (
-                        <div className="col-md-4 mb-4 cardss" key={index}>
-                            <div className="cardd">
-                                <div>
-                                    <h5 className="card-title">{workoutPlan.Meal}</h5>
-                                    <p className="card-description">{workoutPlan.Calories}</p>
-                                    <button onClick={() => handleShowDetails(index)}>Show Details</button>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                {selectedWorkoutPlan && (
-                    <div>
-                        <h5>Selected Workout Plan: {selectedWorkoutPlan.Meal}</h5>
-                        <p>Calories: {selectedWorkoutPlan.Calories}</p>
+                {isLoading && <h1>Loading...</h1>}
+
+                {mealData && Object.keys(mealData).map((meal) => (
+                    <div key={meal}>
+                        <h1>{meal}</h1>
+                        <p>Calories: {mealData[meal].calories}</p>
+                        <p>Protein: {mealData[meal].protein}</p>
+                        <p>Carbs: {mealData[meal].carbs}</p>
+                        <p>Meal: {mealData[meal].meal}</p>
                     </div>
-                )}
+                ))}
             </div>
         </>
-
     );
 };
 
