@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../Navbar";
+import index from "../About";
 
 interface WorkoutPlan {
     title: string;
@@ -10,6 +11,7 @@ const Nutration = () => {
     const [workoutPlans, setWorkoutPlans] = useState<WorkoutPlan[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
+    const [selectedWorkoutPlan, setSelectedWorkoutPlan] = useState<WorkoutPlan | null>(null);
 
     const fetchWorkoutPlans = async (email: string) => {
         setIsLoading(true);
@@ -38,12 +40,15 @@ const Nutration = () => {
         e.preventDefault();
         fetchWorkoutPlans(email);
     };
+    const handleShowDetails = (index: number) => {
+        setSelectedWorkoutPlan(workoutPlans[index]);
+    };
 
     return (
         <>
-            <Navbar loggedIn={undefined} />
+            <Navbar loggedIn={false} />
             <div>
-                <h1>Workout Plans</h1>
+                <h1>Nutration Plans</h1>
                 <form onSubmit={handleSubmit}>
                     <input
                         type="email"
@@ -61,19 +66,26 @@ const Nutration = () => {
                         <li key={workoutPlan.Title}>{workoutPlan.Calories}</li>
                     ))}
                 </ul> */}
-                
+
                 <div className="row">
-          {workoutPlans.map((WorkoutPlan, index) => (
-            <div className="col-md-4 mb-4 cardss" key={index}>
-              <div className="cardd">
-                <div key={index}>
-                  <h5 className="card-title">{WorkoutPlan.title}</h5>
-                  <p className="card-description">{WorkoutPlan.calories}</p>
+                    {workoutPlans.map((WorkoutPlan, index) => (
+                        <div className="col-md-4 mb-4 cardss" key={index}>
+                            <div className="cardd">
+                                <div>
+                                    <h5 className="card-title">{WorkoutPlan.title}</h5>
+                                    <p className="card-description">{WorkoutPlan.calories}</p>
+                                    <button onClick={() => { console.log('Clicked on index:', index); handleShowDetails(index); }}>Show Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
+                {selectedWorkoutPlan && (
+                    <div>
+                        <h5>selected workout:{selectedWorkoutPlan.title}</h5>
+                        <p>calories: {selectedWorkoutPlan.calories}</p>
+                    </div>
+                )}
             </div>
         </>
 
