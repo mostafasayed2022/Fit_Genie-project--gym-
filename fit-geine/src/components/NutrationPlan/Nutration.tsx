@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Navbar from "../Navbar";
 
 interface WorkoutPlan {
-    title: string;
-    calories: string;
+    Meal: string;
+    Calories: string;
 }
 
 const Nutration = () => {
@@ -66,8 +66,8 @@ const Nutration = () => {
                         <div className="col-md-4 mb-4 cardss" key={index}>
                             <div className="cardd">
                                 <div>
-                                    <h5 className="card-title">{workoutPlan.title}</h5>
-                                    <p className="card-description">{workoutPlan.calories}</p>
+                                    <h5 className="card-title">{workoutPlan.Meal}</h5>
+                                    <p className="card-description">{workoutPlan.Calories}</p>
                                     <button onClick={() => handleShowDetails(index)}>Show Details</button>
                                 </div>
                             </div>
@@ -76,8 +76,8 @@ const Nutration = () => {
                 </div>
                 {selectedWorkoutPlan && (
                     <div>
-                        <h5>Selected Workout Plan: {selectedWorkoutPlan.title}</h5>
-                        <p>Calories: {selectedWorkoutPlan.calories}</p>
+                        <h5>Selected Workout Plan: {selectedWorkoutPlan.Meal}</h5>
+                        <p>Calories: {selectedWorkoutPlan.Calories}</p>
                     </div>
                 )}
             </div>
