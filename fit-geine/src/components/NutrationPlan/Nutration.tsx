@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Navbar from "../Navbar";
 
 interface WorkoutPlan {
-    Title: string;
-    Calories: string;
+    title: string;
+    calories: string;
 }
 
 const Nutration = () => {
@@ -56,11 +56,24 @@ const Nutration = () => {
                         {isLoading ? 'Loading...' : 'Fetch Workout Plans'}
                     </button>
                 </form>
-                <ul>
+                {/* <ul>
                     {Array.isArray(workoutPlans) && workoutPlans.map(workoutPlan => (
                         <li key={workoutPlan.Title}>{workoutPlan.Calories}</li>
                     ))}
-                </ul>
+                </ul> */}
+                
+                <div className="row">
+          {workoutPlans.map((article, index) => (
+            <div className="col-md-4 mb-4 cardss" key={index}>
+              <div className="cardd">
+                <div className={`card-body item ${article.title === 'Some title to hide' ? 'hidden' : ''}`} key={index}>
+                  <h5 className="card-title">{article.title}</h5>
+                  <p className="card-description">{article.calories}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
             </div>
         </>
 
