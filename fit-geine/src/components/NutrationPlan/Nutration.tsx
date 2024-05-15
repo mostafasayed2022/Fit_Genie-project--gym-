@@ -60,7 +60,7 @@ const Nutration = () => {
                     {/* <button onClick={() => handleSubmit} >
                         {isLoading ? 'Loading...' : 'Fetch Workout Plans'}
                     </button> */}
-                    <button onClick={() => handleSubmit}>Show Details</button>
+                    <button type="submit">Show Details</button>
 
                 </form>
                 {/* <ul>
@@ -76,7 +76,7 @@ const Nutration = () => {
                                 <div>
                                     <h5 className="card-title">{WorkoutPlan.title}</h5>
                                     <p className="card-description">{WorkoutPlan.calories}</p>
-                                    {/* <button onClick={() => handleShowDetails(index)}>Show Details</button> */}
+                                    <button onClick={() => handleShowDetails(index)}>Show Details</button>
                                 </div>
                             </div>
                         </div>
