@@ -74,7 +74,7 @@ const Nutration = () => {
                                 <div>
                                     <h5 className="card-title">{WorkoutPlan.title}</h5>
                                     <p className="card-description">{WorkoutPlan.calories}</p>
-                                    <button onClick={() => handleShowDetails(index)}>Show Details</button>
+                                    <button onClick={() => { console.log('Clicked on index:', index); handleShowDetails(index); }}>Show Details</button>
                                 </div>
                             </div>
                         </div>
