@@ -6,12 +6,17 @@ import services from "../../images/services.jpg";
 import contactBG from "../../images/contactBg.jpg";
 import './register.css';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Register=()=> {
+const Register = () => {
   const [formData, setFormData] = useState({
+    fullName: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
+  const navigate=useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,17 +25,35 @@ const Register=()=> {
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    try{
-     const response =await axios.post(`https://localhost:8000/api/register/`,formData);
-     console.log(response.data);  
+
+    if (formData.password !== formData.confirmPassword) {
+      Swal.fire({
+        icon: "error",
+        title: "Passwords do not match",
+        text: "Please make sure your passwords match.",
+      });
+      return;
+    }
+
+    try {
+      const response = await axios.post(`https://localhost:8000/api/register/`, formData);
+      Swal.fire({
+        icon: "success",
+        title: "Registration Successful",
+        text: "You have successfully registered!",
+      });
+      navigate('/login');
+      
+      console.log(response.data);
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Registration Failed",
+        text: "Error registering",
+      });
+      console.error(`Error registration:`, error);
+    }
   }
-  catch(error)
-  {
-    console.error(`Error registration :`,error);
-  }
-  
-  
-}
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -38,7 +61,7 @@ const Register=()=> {
 
   return (
     <>
-      <Navbar loggedIn={undefined} />
+      {/* <Navbar loggedIn={undefined} /> */}
       <div className='logiiin' style={{ backgroundImage: `url(${services})` }}>
         <h1> Register Page</h1>
       </div>
@@ -51,7 +74,7 @@ const Register=()=> {
                   required
                   type="text"
                   name="fullName"
-                  // value={formData.fullName}
+                  value={formData.fullName}
                   onChange={handleInputChange}
                   placeholder="Full name"
                 />
@@ -85,7 +108,7 @@ const Register=()=> {
                   name="confirmPassword"
                   placeholder="Confirm password..."
                   autoComplete="Password"
-                  // value={formData.confirmPassword}
+                  value={formData.confirmPassword}
                   onChange={handleInputChange}
                 />
               </div>
@@ -95,7 +118,6 @@ const Register=()=> {
                   type="submit"
                   value="Register"
                   className="btnnn"
-                  onChange={handleSubmit}
                 />
               </div>
 
@@ -112,16 +134,16 @@ const Register=()=> {
                 </div>
               </div>
             </form>
-            <p className='social'>Sign in with  <span>social</span> </p>
+            <p className='social'>Sign in with <span>social</span></p>
             <div className='social-media'>
-              <button className='btn-social' type="submit"><FaGoogle className='FaGoogle' />  </button>
-              <button className='btn-social' type="submit"><FaFacebook className='FaFacebook' />  </button>
-              <button className='btn-social' type="submit"><FaLinkedin className='FaLinkedin' />  </button>
+              <button className='btn-social' type="button"><FaGoogle className='FaGoogle' /></button>
+              <button className='btn-social' type="button"><FaFacebook className='FaFacebook' /></button>
+              <button className='btn-social' type="button"><FaLinkedin className='FaLinkedin' /></button>
             </div>
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

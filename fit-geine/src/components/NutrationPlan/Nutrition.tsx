@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "../Navbar";
+import Loader from "../Loader/Loader";
+import "../Loader/Loader.css"
+import './Nutrition.css';
 
 interface MealData {
     [key: string]: {
@@ -25,7 +28,7 @@ const Nutrition = () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ email: email })
+                body: JSON.stringify({ email })
             });
 
             if (!response.ok) {
@@ -33,9 +36,9 @@ const Nutrition = () => {
             }
 
             const data = await response.json();
-            console.log('Fetched data:', data); // Log the fetched data
+            console.log('Fetched data:', data);
             setMealData(data);
-        } catch (error) {
+        } catch (error: unknown) {
             console.error('Error fetching data:', error);
             setError('Failed to fetch data');
         }
@@ -53,10 +56,11 @@ const Nutrition = () => {
 
     return (
         <>
+            {isLoading && <Loader />}
             <Navbar loggedIn={false} />
-            <div>
+            <div className="nutrition-container">
                 <h1>Nutrition Plans</h1>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="nutrition-form">
                     <input
                         type="email"
                         value={email}
@@ -67,17 +71,20 @@ const Nutrition = () => {
                     <button type="submit">Get API Data</button>
                 </form>
 
-                {isLoading && <h1>Loading...</h1>}
                 {error && <h1>{error}</h1>}
-                {mealData && Object.keys(mealData).map((mealKey) => (
-                    <div key={mealKey}>
-                        <h1>{mealKey}</h1>
-                        <p>Calories: {mealData[mealKey]?.calories}</p>
-                        <p>Protein: {mealData[mealKey]?.protein}</p>
-                        <p>Carbs: {mealData[mealKey]?.carbs}</p>
-                        <p>Meal: {mealData[mealKey]?.meal}</p>
+                {mealData && (
+                    <div className="cards-container">
+                        {Object.keys(mealData).map((mealKey) => (
+                            <div className="card" key={mealKey}>
+                                <h2>{mealKey}</h2>
+                                <p>Calories: {mealData[mealKey]?.calories}</p>
+                                <p>Protein: {mealData[mealKey]?.protein}</p>
+                                <p>Carbs: {mealData[mealKey]?.carbs}</p>
+                                <p>Meal: {mealData[mealKey]?.meal}</p>
+                            </div>
+                        ))}
                     </div>
-                ))}
+                )}
             </div>
         </>
     );

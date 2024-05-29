@@ -1,64 +1,88 @@
- .container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 auto;
+:root{
+  --color1:#254c51;    
+  --color2:#6c8589;
+  --color3:#cedcdd;
+  --color4:#000c08;
+  --linear:linear-gradient(to right bottom, #070002, #1a1415, #292022, #382d2f, #493a3c);
+  --linear2:linear-gradient(to right top, #f5f7f7, #b1b4b4, #727576, #393c3d, #000407);
 }
+
+
+/* blog.css */
+.container {
+  /* padding: 20px; */
+  max-width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .cardss {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 50px;
-    padding: 30px;
-    cursor: pointer;
-    border: none;
-    width: 50%;
+  flex: 1 1 calc(33.333% - 20px);
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: 0.5s ease-in-out;
+}
+.cardss:hover{
+  background-color: var(--color2);
+  cursor: pointer;
 }
 
 .cardd img {
-    border-radius: 5px;
-    width: 100%;
-}
-.row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-.cardd {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.card-body {
+  padding: 15px;
+}
 
+.card-body.item.hidden {
+  display: none;
+}
+
+.card-title {
+  font-size: 1.25em;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-size: 1em;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.card-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.card-button:hover {
+  background-color: var(--color1);
+  color: var(--color3);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .cardss {
+    flex: 1 1 calc(50% - 20px);
   }
-  
-  .cardd img {
-    max-width: 100%;
-    border-radius: 5px;
+}
+
+@media (max-width: 576px) {
+  .cardss {
+    flex: 1 1 100%;
   }
-  
-  .card-title {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-  }
-  
-  .card-description {
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  .card-button {
-    display: block;
-    margin-top: 10px;
-    padding: 5px 10px;
-    background-color:red;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-   
+}

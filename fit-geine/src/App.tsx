@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./components/Home";
 // import NotFound from "./components/NotFound";
 import Login from "./components/Login";
@@ -16,21 +16,22 @@ import NotFound from './components/NotFound';
 import WorkoutPlan from './components/Workout/WorkoutPlan';
 import Nutrition from './components/NutrationPlan/Nutrition';
 
-const App =()=> {
-const [loggedIn, setLoggedIn]=useState(false);
-const [token, setToken]=useState<string | undefined>(undefined);
+const App = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [token, setToken] = useState<string | undefined>(undefined);
 
-// const handleError=(response: { ok: any; statusText: string | undefined; json: () => any; })=>{
-//   if(!response.ok)
-//   {
-//     throw Error(response.statusText);
-//   }
-//   return response.json();
-// }
+  // const handleError=(response: { ok: any; statusText: string | undefined; json: () => any; })=>{
+  //   if(!response.ok)
+  //   {
+  //     throw Error(response.statusText);
+  //   }
+  //   return response.json();
+  // }
 
 
   return (
     <Routes>
+      <Route path="/" element={<Navigate to="/register" />} />
       <Route path="about" element={<About />} />
       <Route path="blog" element={<Blog />} />
       <Route path="contactUs" element={<ContactUs />} />
@@ -39,9 +40,9 @@ const [token, setToken]=useState<string | undefined>(undefined);
       <Route path="/home" element={<Home />} />
       <Route path="*" element={<NotFound />} />
       <Route path="pricing" element={<Pricing />} />
-      <Route path='payment' element={<PaymentForm/>}/>
-      <Route path='workout' element={<WorkoutPlan/>}/>
-      <Route path='nutration' element={<Nutrition/>}/>
+      <Route path='payment' element={<PaymentForm />} />
+      <Route path='workout' element={<WorkoutPlan />} />
+      <Route path='nutration' element={<Nutrition />} />
 
     </Routes>
   );

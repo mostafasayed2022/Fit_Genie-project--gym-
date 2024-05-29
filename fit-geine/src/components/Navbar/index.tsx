@@ -71,15 +71,15 @@ const Navbar = (props: { loggedIn: any; }) => {
             <li>
               <Link to="/Blog">Blog</Link>
             </li>
-            
+
             <li>
               <Link to="/workout">Workout Plan</Link>
             </li>
-            
+
             <li>
               <Link to="/nutration">Nutrition Plan</Link>
             </li>
-            
+
             <li>
               <Link to="/ContactUs">ContactUs</Link>
             </li>
