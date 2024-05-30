@@ -96,8 +96,7 @@ body {
             justify-content: center;
            }
            
-           .cards{
-            /* background-image: linear-gradient(to right bottom, #070002, #1a1415, #292022, #382d2f, #493a3c); */
+            .cards{
             background-color: var(--color1);
             display: flex;
              align-items: center;
@@ -115,23 +114,22 @@ body {
             color: var(--color1);
             transition: 0.5s ease-out;
             border: none;
+            width: 300px;
            }
            .card .image {
-            width: 210px;
-            height: 180px;
+            width: 260px;
+            height: 201px;
             border-radius: 10px;
            }
            
-           /* {
-            background-color: var(--color2);
-            border: none;
-           }
-            */
-           .cards .card:hover {
-            transform: translateY(-5px); /* Move the card up on hover */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Change box shadow on hover */
-            }
+           .card-body {
+            padding:0;
+        }
            
+           .cards .card:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); 
+            }         
            .cards .card:hover Button{
            
            background-color: var(--color4);
@@ -146,7 +144,7 @@ body {
             .cards .card:hover .text{
                 color: var(--color1);
                 font-weight: bold;
-                }
+                } 
            
            .title{
             text-align: center;
@@ -209,6 +207,18 @@ body {
               margin-left: 10px;
 
             }
+            
+               /* Media query for smaller screens */
+@media (max-width: 768px) {
+  .numbers {
+flex-direction: column;
+padding-bottom: 50px;
+color: var(--color2);
+  }
+  .counter_number{
+    height: 55vh;
+  }
+}
             
             .number .counter{
               font-weight: bold;
@@ -294,6 +304,68 @@ body {
               right: 233%;
               display: none;
             }
+            
+            /* cards service */
+            
+            /* .cards {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-around;
+              gap: 1rem;
+              padding: 1rem;
+            }
+            
+            .card {
+              background: #fff;
+              border-radius: 8px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              overflow: hidden;
+              margin: 1rem;
+              display: flex;
+              flex-direction: column;
+            }
+
+            
+            .card img {
+              width: 100%;
+              height: 200px;
+              object-fit: cover;
+            }
+            
+            .card-body {
+              padding: 1rem;
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+            }
+            
+            .card-title {
+              font-size: 1.25rem;
+              font-weight: bold;
+              margin-bottom: 0.5rem;
+            }
+            
+            .card-text {
+              flex: 1;
+              font-size: 1rem;
+              margin-bottom: 1rem;
+            }
+            
+            .card button {
+              background-color: #007bff;
+              color: white;
+              border: none;
+              border-radius: 4px;
+              padding: 0.5rem 1rem;
+              cursor: pointer;
+              align-self: start;
+            }
+            
+            .card button:hover {
+              background-color: #0056b3;
+            }
+             */
+            
             
             /* TrainerCard.css */
 .trainer-card {
@@ -490,9 +562,7 @@ body {
   to {color: var(--color3);}
 
 }
-
-.accordion-contact
-{
+.accordion-contact {
   background-image: url("../../images/services.jpg");
   height: 30vh;
   width: 100%;
@@ -506,7 +576,7 @@ body {
   padding: 10px;
 }
 
-.accordio-container{
+.accordio-container {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -514,36 +584,68 @@ body {
   margin-top: 30px;
   max-width: 96%;
   margin-left: 20px;
+  flex-wrap: wrap;
 }
 
-.cont{
-  /* background-image: var(--linear); */
+.cont {
   background-color: var(--color1);
   padding: 50px;
 }
 
-.text_accordion{
+.text_accordion {
   color: var(--color3);
 }
-  
-  .accordio-container .card{
-    background-color: var(--color2);
-    transition: 0.5s ease-in-out;
+
+.accordio-container .cardsss {
+  background-color: var(--color2);
+  transition: 0.5s ease-in-out;
+  flex: 1 1 calc(33.333% - 40px);
+  margin: 10px;
+}
+
+.accordio-container .cardsss:hover {
+  background-color: var(--color3);
+}
+
+.accordio-container .cardsss:hover .text_accordion {
+  color: var(--color1);
+}
+
+.accordio-container .cardsss:hover .card-content {
+  color: var(--color1);
+}
+
+@media (max-width: 768px) {
+  .accordion-contact {
+    font-size: 24px;
   }
-  
- 
-  .accordio-container .card:hover{
-    background-color: var(--color3);
+
+  .accordio-container {
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 10px;
   }
-  
-  .accordio-container .card:hover .text_accordion{
-    color: var(--color1);
+
+  .accordio-container .cardsss {
+    flex: 1 1 100%;
+    margin: 10px 0;
   }
-  
-  .accordio-container .card:hover .card-content{
-    color: var(--color1);
+}
+
+@media (max-width: 480px) {
+  .accordion-contact {
+    font-size: 20px;
   }
-  
+
+  .cont {
+    padding: 20px;
+  }
+
+  .accordio-container .cardsss {
+    margin: 10px 0;
+  }
+}
+
   .css-animoo {
     width: 101%;
     padding: 0;

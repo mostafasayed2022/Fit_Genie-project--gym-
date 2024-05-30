@@ -12,8 +12,12 @@ import ContactForm from './ContactForm';
 import About from './About';
 import AOS from "aos";
 import Footer from "../Footer";
-// images
+// css
 import './home.css';
+import '../Pricing/pricing.css'
+
+
+// images
 import home from "../../images/home.jpg";
 import card1 from "../../images/card1.jpg";
 import card2 from "../../images/card2.jpg";
@@ -77,6 +81,29 @@ const plans = [
 ];
 
 
+const cards = [
+  {
+    img: card1,
+    title: 'Fitness',
+    text: 'Fitness is a broad term that encompasses various aspects of physical well-being, including strength, endurance, flexibility, and cardiovascular health.'
+  },
+  {
+    img: card2,
+    title: 'Body Building',
+    text: 'Bodybuilding is a form of physical fitness training that focuses on building and sculpting muscle mass to achieve a muscular and well-defined physique.'
+  },
+  {
+    img: card3,
+    title: 'Crossfit',
+    text: 'CrossFit is a high-intensity fitness program that combines elements of strength training, cardiovascular exercise, and functional movements.'
+  },
+  {
+    img: card4,
+    title: 'Cardio',
+    text: 'Cardiovascular exercise, often referred to simply as "cardio," is any activity that raises your heart rate and increases your breathing rate.'
+  }
+];
+
 
 // useEffect(() => {
 //   AOS.init(); // Initialize AOS
@@ -111,7 +138,7 @@ function Home() {
       </div>
       <div className='cards'>
         <div className='card'>
-          <Card style={{ width: '15rem' }}>
+          <Card style={{  }}>
             <Card.Img className='image' src={card1} />
             <Card.Body>
               <Card.Title className='title'>Fitness</Card.Title>
@@ -124,7 +151,7 @@ function Home() {
         </div>
 
         <div className='card'>
-          <Card style={{ width: '15rem' }}>
+          <Card style={{ }}>
             <Card.Img className='image' src={card2} />
             <Card.Body>
               <Card.Title className='title'>Body Building</Card.Title>
@@ -137,7 +164,7 @@ function Home() {
         </div>
 
         <div className='card'>
-          <Card style={{ width: '15rem' }}>
+          <Card style={{  }}>
             <Card.Img className='image' src={card3} />
             <Card.Body>
               <Card.Title className='title'>Crossfit </Card.Title>
@@ -150,7 +177,7 @@ function Home() {
         </div>
 
         <div className='card'>
-          <Card style={{ width: '15rem' }}>
+          <Card style={{  }}>
             <Card.Img className='image' src={card4} />
             <Card.Body>
               <Card.Title className='title'>Cardio</Card.Title>
@@ -162,6 +189,7 @@ function Home() {
           </Card>
         </div>
       </div>
+      
       <div className='background' style={{ backgroundImage: `url(${counter1})` }}>
 
         <div className='counter_number' >
@@ -173,10 +201,10 @@ function Home() {
           </div>
         </div>
       </div>
-       <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
+      <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
         <h1>Testimonials</h1>
-      </div> 
-       <TestimonialsSlider /> 
+      </div>
+      <TestimonialsSlider />
 
 
       <div className="trainers-page">
@@ -196,9 +224,9 @@ function Home() {
 
       <div className='plan'>
         {plans.map((plan, index) => (
-        <Link to={"/payment"}>
-          <PricingPlans key={index} {...plan} />
-        </Link>
+          <Link to={"/payment"}>
+            <PricingPlans key={index} {...plan} />
+          </Link>
         ))}
       </div>
 

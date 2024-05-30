@@ -19,35 +19,35 @@ const testimonials = [
   {
     image: img1,
     id: 1,
-    text: "I've never felt stronger and more confident. The trainers here are amazing!",
-    author: "Jessica T.",
+    text: "Great service and friendly staff!",
+    author: "John Doe.",
   },
   {
     image: img2,
     id: 2,
-    text: "The classes are so much fun and the atmosphere is motivating. Love it!",
-    author: "Michael S.",
+    text: "I love the workout plans, they are so effective!",
+    author: "Jane Smith.",
   },
   
   {
     image: img3,
     id: 3,
-    text: "The classes are so much fun and the atmosphere is motivating. Love it!",
-    author: "Michael S.",
+    text: "Amazing experience, highly recommended!",
+    author: "Bob Johnson.",
   },
   
   {
     image: img4,
     id: 4,
-    text: "The classes are so much fun and the atmosphere is motivating. Love it!",
-    author: "Michael S.",
+    text: "The best gym I have ever been to.",
+    author: "Alice Brown.",
   },
   
   {
     image: img5,
     id: 5,
-    text: "The classes are so much fun and the atmosphere is motivating. Love it!",
-    author: "Michael S.",
+    text: "I feel healthier and stronger thanks to their programs.",
+    author: "Diana Clark.",
   },
   
   // Add more testimonials as needed

@@ -40,8 +40,8 @@ const Blog: React.FC = () => {
         </div>   
         <div className="row">
           {blog.map((article, index) => (
-            <div className="col-md-4 mb-4 cardss" key={index}>
-              <div className="cardd">
+            <div className="col-md-4 mb-4 cardssss" key={index}>
+              <div className="carddd">
                 <img src={article.urlToImage} alt={article.title} />
                 <div className={`card-body item ${article.title === 'Some title to hide' ? 'hidden' : ''}`}>
                   <h5 className="card-title">{article.title}</h5>

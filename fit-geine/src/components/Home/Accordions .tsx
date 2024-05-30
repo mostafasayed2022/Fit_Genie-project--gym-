@@ -20,7 +20,7 @@ export default function ControlledAccordions() {
     <div className='cont'>
         <div className='accordio-container'>
             <div>
-                <Accordion className='card'>
+                <Accordion className='cardsss'>
                     <AccordionSummary
                         expandIcon={<ArrowDownwardIcon />}
                         aria-controls="panel1-content"
@@ -40,7 +40,7 @@ export default function ControlledAccordions() {
                     </AccordionDetails>
                 </Accordion>
 
-                <Accordion className='card'>
+                <Accordion className='cardsss'>
                     <AccordionSummary
                         expandIcon={<ArrowDownwardIcon />}
                         aria-controls="panel1-content"
@@ -62,7 +62,7 @@ export default function ControlledAccordions() {
                     </AccordionDetails>
                 </Accordion>
 
-                <Accordion className='card'>
+                <Accordion className='cardsss'>
                     <AccordionSummary
                         expandIcon={<ArrowDownwardIcon />}
                         aria-controls="panel1-content"
@@ -85,7 +85,7 @@ export default function ControlledAccordions() {
 
 
             <div>
-                <Accordion className='card'>
+                <Accordion className='cardsss'>
                     <AccordionSummary
                         expandIcon={<ArrowDropDownIcon />}
                         aria-controls="panel2-content"
@@ -105,7 +105,7 @@ export default function ControlledAccordions() {
                 </Accordion>
 
 
-                <Accordion className='card'>
+                <Accordion className='cardsss'>
                     <AccordionSummary
                         expandIcon={<ArrowDropDownIcon />}
                         aria-controls="panel2-content"
@@ -124,7 +124,7 @@ export default function ControlledAccordions() {
                 </Accordion>
 
 
-                <Accordion className='card'>
+                <Accordion className='cardsss'>
                     <AccordionSummary
                         expandIcon={<ArrowDropDownIcon />}
                         aria-controls="panel2-content"

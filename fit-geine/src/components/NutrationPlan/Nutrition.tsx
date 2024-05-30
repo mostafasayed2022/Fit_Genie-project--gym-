@@ -68,7 +68,7 @@ const Nutrition = () => {
                         placeholder="Enter your email"
                         required
                     />
-                    <button type="submit">Get API Data</button>
+                    <button type="submit">Fetch Nutrition Data</button>
                 </form>
 
                 {error && <h1>{error}</h1>}

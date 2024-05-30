@@ -8,22 +8,22 @@
   }
   
 
-.nutrition-container {
+.workout-container {
     text-align: center;
     padding: 20px;
 }
 
-.nutrition-form {
+.email-form {
     margin-bottom: 20px;
 }
 
-.nutrition-form input{
+.email-input {
     padding: 10px;
     margin: 5px;
     font-size: 16px;
 }
 
-.nutrition-form button{
+.fetch-button {
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
@@ -33,7 +33,7 @@
     margin: 20px;
     transition: 0.5s ease-out;
 }
-.nutrition-form button:hover{
+.fetch-button:hover{
     background-color: var(--color2);
 }
 
@@ -45,20 +45,10 @@
 }
 
 .card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
     padding: 20px;
-    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
     text-align: left;
-}
-
-.card h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.card p {
-    margin: 5px 0;
 }

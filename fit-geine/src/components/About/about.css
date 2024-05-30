@@ -18,8 +18,8 @@
     align-items: center;
     justify-content: center;
     padding-top: 30px;
-    /* margin: 30px; */
-    /* background-image: var(--linear2); */
+    flex-direction: row;
+    flex-wrap: wrap;
     background-color: var(--color1);
 }
 
@@ -44,6 +44,17 @@
     text-transform: capitalize;
     color: var(--color3);
 }
+
+@media (min-width: 768px) {
+    .text-about {
+      flex: 1;
+      text-align: left;
+    }
+  
+    .video {
+      max-width: 600px;
+    }
+  }
 
 /* classes images */
 
