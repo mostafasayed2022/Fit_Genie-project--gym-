@@ -7,7 +7,11 @@ import services from "../../images/services.jpg";
 import fitness_gif from "../../images/fitness_gif.gif"
 import fitness_image from "../../images/fitness_image.jpg"
 
-
+import card1 from "../../images/card1.jpg";
+import card2 from "../../images/card2.jpg";
+import card3 from "../../images/card3.jpg";
+import card4 from "../../images/card4.jpg";
+import card5 from "../../images/card5.jpg";
 function index() {
 
   return (
@@ -60,13 +64,19 @@ function index() {
           <p>Body composition refers to the proportion of fat, muscle, bone, and other tissues in the body. Achieving a healthy body composition involves maintaining an appropriate balance of lean muscle mass and body fat through a combination of exercise, nutrition, and lifestyle choices.</p>
         </div>
       </div>
-      <div className="section_last">
-          <div className="ttext-about">
-        <p>Fitness is not solely about physical attributes but also encompasses mental and emotional well-being. Regular exercise has been linked to improved mood, reduced stress, enhanced cognitive function, and better overall quality of life. Additionally, adopting healthy lifestyle habits such as proper nutrition, adequate sleep, stress management, and avoiding harmful substances like tobacco and excessive alcohol contribute to overall fitness and well-being.
-          People pursue fitness goals for various reasons, including improving health, enhancing athletic performance, managing weight, increasing energy levels, and boosting self-confidence. Regardless of individual motivations, incorporating regular physical activity and healthy habits into daily life is essential for achieving and maintaining fitness over the long term.
-        </p>
-          <img src={fitness_image} alt="fitness_image" />
+      <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
+        <h1> fitness advantages!</h1>
       </div>
+
+
+      <div className="image-grid">
+        <img src={fitness_image} alt=" fitness_image" />
+        <img src={fitness_image} alt=" fitness_image" />
+        <img src={fitness_image} alt="fitness_image" />
+        <img src={card1} alt="fitness_image" />
+        <img src={card2} alt="fitness_image" />
+        <img src={card3} alt="fitness_image" />
+
       </div>
 
       <Footer />

@@ -106,31 +106,15 @@
     letter-spacing: 2px;
   }
   
-  .section_last{
-  }
-  .ttext-about{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color2);
-    
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); 
+    grid-gap: 10px; 
   }
   
-  .ttext-about p{
-  
-    font-size: 18px;
-    line-height: 2;
-    font-weight: 500;
-    text-transform: capitalize;
-    color: var(--color3);
-    margin-left: 30px;
-    
-    }
-  .ttext-about img{
-    width: 530px;
-    height: 500px;
-    padding: 20px;
-    margin: 15px;
-    border-radius: 50px;
+  .image-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
   }
   
