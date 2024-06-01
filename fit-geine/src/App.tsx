@@ -15,6 +15,10 @@ import PaymentForm from './components/Home/PaymentForm';
 import NotFound from './components/NotFound';
 import WorkoutPlan from './components/Workout/WorkoutPlan';
 import Nutrition from './components/NutrationPlan/Nutrition';
+import Services_fitness from "./components/Services_fitness/Fitness"
+import Services_building from "./components/Services_building/Building"
+import Services_crossfit from "./components/Services_crossfit/Crossfit"
+import Services_cardio from "./components/Services_cardio/Cardio"
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -31,7 +35,7 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/register" />} />
+      <Route path="/" element={<Navigate to="/login"/>} />
       <Route path="about" element={<About />} />
       <Route path="blog" element={<Blog />} />
       <Route path="contactUs" element={<ContactUs />} />
@@ -43,6 +47,11 @@ const App = () => {
       <Route path='payment' element={<PaymentForm />} />
       <Route path='workout' element={<WorkoutPlan />} />
       <Route path='nutration' element={<Nutrition />} />
+      <Route path='/fitness' element={<Services_fitness/>} />
+      <Route path='/building' element={<Services_building/>} />
+      <Route path='/crossfit' element={<Services_crossfit/>} />
+      <Route path='/cardio' element={<Services_cardio/>} />
+
 
     </Routes>
   );

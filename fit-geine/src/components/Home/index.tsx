@@ -12,6 +12,13 @@ import ContactForm from './ContactForm';
 import About from './About';
 import AOS from "aos";
 import Footer from "../Footer";
+// services pages
+import Services_fitness from "../Services_fitness/Fitness"
+import Services_building from "../Services_fitness/Fitness"
+import Services_crossfit from "../Services_fitness/Fitness"
+import Services_cardio from "../Services_fitness/Fitness"
+
+
 // css
 import './home.css';
 import '../Pricing/pricing.css'
@@ -138,58 +145,66 @@ function Home() {
       </div>
       <div className='cards'>
         <div className='card'>
-          <Card style={{  }}>
+          <Card style={{}}>
             <Card.Img className='image' src={card1} />
             <Card.Body>
               <Card.Title className='title'>Fitness</Card.Title>
               <Card.Text className='text'>
                 Fitness is a broad term that encompasses various aspects of physical well-being, including strength, endurance, flexibility, and cardiovascular health.
               </Card.Text>
-              <Button data-aos="fade-up-right" variant="primary">Go somewhere</Button>
+              <Link to={'/fitness'}>
+                <Button data-aos="fade-up-right" variant="primary">Go somewhere</Button>
+              </Link>
             </Card.Body>
           </Card>
         </div>
 
         <div className='card'>
-          <Card style={{ }}>
+          <Card style={{}}>
             <Card.Img className='image' src={card2} />
             <Card.Body>
               <Card.Title className='title'>Body Building</Card.Title>
               <Card.Text className='text'>
                 Bodybuilding is a form of physical fitness training that focuses on building and sculpting muscle mass to achieve a muscular and well-defined physique.
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Link to={'/building'}>
+                <Button data-aos="fade-up-right" variant="primary">Go somewhere</Button>
+              </Link>
             </Card.Body>
           </Card>
         </div>
 
         <div className='card'>
-          <Card style={{  }}>
+          <Card style={{}}>
             <Card.Img className='image' src={card3} />
             <Card.Body>
               <Card.Title className='title'>Crossfit </Card.Title>
               <Card.Text className='text'>
                 CrossFit is a high-intensity fitness program that combines elements of strength training, cardiovascular exercise, and  movements.
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Link to={'/crossfit'}>
+                <Button data-aos="fade-up-right" variant="primary">Go somewhere</Button>
+              </Link>
             </Card.Body>
           </Card>
         </div>
 
         <div className='card'>
-          <Card style={{  }}>
+          <Card style={{}}>
             <Card.Img className='image' src={card4} />
             <Card.Body>
               <Card.Title className='title'>Cardio</Card.Title>
               <Card.Text className='text'>
                 Cardiovascular exercise, often referred to simply as "cardio," is any activity that raises your heart rate and increases your breathing rate .
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Link to={'/cardio'}>
+                <Button data-aos="fade-up-right" variant="primary">Go somewhere</Button>
+              </Link>
             </Card.Body>
           </Card>
         </div>
       </div>
-      
+
       <div className='background' style={{ backgroundImage: `url(${counter1})` }}>
 
         <div className='counter_number' >

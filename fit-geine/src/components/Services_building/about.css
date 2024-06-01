@@ -1,0 +1,112 @@
+:root{
+    --color1:#254c51;    
+    --color2:#6c8589;
+    --color3:#cedcdd;
+    --color4:#000c08;
+    --linear:linear-gradient(to right bottom, #070002, #1a1415, #292022, #382d2f, #493a3c);
+    --linear2:linear-gradient(to right top, #f5f7f7, #b1b4b4, #727576, #393c3d, #000407);
+}
+
+.video{
+    width: 100%;
+    border-radius: 30px;
+    padding-right: 25px;
+}
+
+.container_about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: var(--color1);
+}
+
+.text-about{
+    padding: 30px;
+    margin: 30px;
+}
+.text-about .title_about{
+    font-size: 40px;
+    font-weight: 800;
+    font-family: 'Poppins';
+    text-transform: uppercase;
+}
+.text-about .title_about span{
+    color: var(--color3);
+}
+
+.text-about p{
+    font-size: 18px;
+    line-height: 2;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: var(--color3);
+}
+
+@media (min-width: 768px) {
+    .text-about {
+      flex: 1;
+      text-align: left;
+    }
+  
+    .video {
+      max-width: 600px;
+    }
+  }
+
+/* classes images */
+
+   .images-container{
+    display: flex;
+    flex-wrap: wrap;
+    
+    }
+     .images-container .box{
+        position: relative;
+        overflow: hidden;
+    }
+    @media(min-width:768px){
+         .images-container .box{
+            flex-basis: 50%;
+        }
+    }
+    @media(min-width:1199px){
+         .images-container .box{
+            flex-basis: 25%;
+        }
+    }
+    
+     .images-container .box img{
+        max-width: 100%;
+    }
+     .images-container .box:hover .caption
+    {
+    bottom: 0;
+    
+    }
+     .images-container .box:hover img{
+        transform: rotate(3deg) scale(1.1);
+    }
+    
+     .images-container .box .caption{
+        position: absolute;
+        left: 0;
+        padding: 20px;
+        /* background-image: var(--linear); */
+        background-color: var(--color2);
+        width: 100%;
+        transition: 0.3s;
+        bottom: -100%;
+    }
+     .images-container .box .caption h4{
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--color4);
+    text-transform: capitalize;
+    }
+     .images-container .box .caption p{
+    color: var(--color3);
+    font-weight: bold;
+    }

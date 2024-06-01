@@ -3,6 +3,7 @@ import Navbar from "../Navbar";
 import Footer from "../Footer";
 import './pricing.css'
 import PricingPlans from '../Home/PricingPlans';
+import { Link } from "react-router-dom";
 // images
 import bg_grit_light from '../../images/bg_grit_light.jpg';
 import services from "../../images/services.jpg";
@@ -42,7 +43,9 @@ function Pricing() {
         </div>
         <div className='plan'>
           {plans.map((plan, index) => (
+          <Link to={"/payment"} >
             <PricingPlans key={index} {...plan} />
+          </Link>
           ))}
         </div>
       </div>
