@@ -21,7 +21,7 @@ function index() {
       <Navbar loggedIn={undefined} />
 
       <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
-        <h1>About us</h1>
+        <h1>Crossfit</h1>
       </div>
       <div className="container_about">
         <div className="text-about">
