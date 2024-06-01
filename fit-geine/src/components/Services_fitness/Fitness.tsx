@@ -5,14 +5,15 @@ import "./about.css"
 // images
 import services from "../../images/services.jpg";
 import fitness_gif from "../../images/fitness_gif.gif"
-import fitness_image from "../../images/fitness_image.jpg"
+import fit1 from "../../images/fit1.jpg";
+import fit2 from "../../images/fit2.jpg";
+import fit3 from "../../images/fit3.jpg";
+import fit4 from "../../images/fit4.jpg";
+import fit5 from "../../images/fit5.jpg";
 
-import card1 from "../../images/card1.jpg";
-import card2 from "../../images/card2.jpg";
-import card3 from "../../images/card3.jpg";
-import card4 from "../../images/card4.jpg";
 import card5 from "../../images/card5.jpg";
-function index() {
+
+function Fitness() {
 
   return (
     <body>
@@ -65,17 +66,17 @@ function index() {
         </div>
       </div>
       <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
-        <h1> fitness advantages!</h1>
+        <h1> Fitness gallery!</h1>
       </div>
 
 
       <div className="image-grid">
-        <img src={fitness_image} alt=" fitness_image" />
-        <img src={fitness_image} alt=" fitness_image" />
-        <img src={fitness_image} alt="fitness_image" />
-        <img src={card1} alt="fitness_image" />
-        <img src={card2} alt="fitness_image" />
-        <img src={card3} alt="fitness_image" />
+        <img src={fit5} alt=" fitness_image" />
+        <img src={fit1} alt=" fitness_image" />
+        <img src={fit2} alt="fitness_image" />
+        <img src={fit3} alt="fitness_image" />
+        <img src={fit4} alt="fitness_image" />
+        <img src={card5} alt="fitness_image" />
 
       </div>
 
@@ -84,4 +85,4 @@ function index() {
   );
 }
 
-export default index;
+export default Fitness;
