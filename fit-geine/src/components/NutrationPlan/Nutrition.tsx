@@ -6,9 +6,9 @@ import './Nutrition.css';
 
 // Define types
 interface MealDataItem {
-    Calories: number;
-    Protein: number;
-    Carbs: number;
+    Calories: string;
+    Protein: string;
+    Carbs: string;
     Meal: string;
 }
 
