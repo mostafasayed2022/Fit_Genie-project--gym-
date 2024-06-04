@@ -3,12 +3,17 @@ import Navbar from "../Navbar";
 import "./WorkoutPlan.css"; // Ensure you have a corresponding CSS file for styling
 
 interface WorkoutPlan {
-    Intensitylevel: string;
-    Typeofexercises: string;
+    [key: string]: {
+        "Type of exercises": string;
+        "Duration and frequency of workouts": string;
+        "Intensity level": string;
+        "Specific exercises or routines": string;
+        "Calories burnt": string;
+    };
 }
 
 const WorkoutPlan = () => {
-    const [workoutPlans, setWorkoutPlans] = useState<WorkoutPlan[]>([]);
+    const [workoutPlans, setWorkoutPlans] = useState<WorkoutPlan | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
@@ -22,14 +27,14 @@ const WorkoutPlan = () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ email: email })
+                body: JSON.stringify({ email })
             });
 
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
 
-            const data = await response.json();
+            const data: WorkoutPlan = await response.json();
             setWorkoutPlans(data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -67,10 +72,14 @@ const WorkoutPlan = () => {
                 </form>
                 {error && <p style={{ color: 'red' }}>{error}</p>}
                 <div className="cards-container">
-                    {Array.isArray(workoutPlans) && workoutPlans.map((workoutPlan, index) => (
-                        <div className="card" key={index}>
-                            <h2>Intensity Level: {workoutPlan.Intensitylevel}</h2>
-                            <p>Type of Exercises: {workoutPlan.Typeofexercises}</p>
+                    {workoutPlans && Object.keys(workoutPlans).map((key) => (
+                        <div className="card" key={key}>
+                            <h2>{key}</h2>
+                            <p>Type of exercises: {workoutPlans[key]["Type of exercises"]}</p>
+                            <p>Duration and frequency of workouts: {workoutPlans[key]["Duration and frequency of workouts"]}</p>
+                            <p>Intensity level: {workoutPlans[key]["Intensity level"]}</p>
+                            <p>Specific exercises or routines: {workoutPlans[key]["Specific exercises or routines"]}</p>
+                            <p>Calories burnt: {workoutPlans[key]["Calories burnt"]}</p>
                         </div>
                     ))}
                 </div>
