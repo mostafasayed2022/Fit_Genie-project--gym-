@@ -19,19 +19,11 @@ import Services_fitness from "./components/Services_fitness/Fitness"
 import Services_building from "./components/Services_building/Building"
 import Services_crossfit from "./components/Services_crossfit/Crossfit"
 import Services_cardio from "./components/Services_cardio/Cardio"
+import LogOut from './components/LogOut/LogOut';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [token, setToken] = useState<string | undefined>(undefined);
-
-  // const handleError=(response: { ok: any; statusText: string | undefined; json: () => any; })=>{
-  //   if(!response.ok)
-  //   {
-  //     throw Error(response.statusText);
-  //   }
-  //   return response.json();
-  // }
-
 
   return (
     <Routes>
@@ -40,6 +32,7 @@ const App = () => {
       <Route path="blog" element={<Blog />} />
       <Route path="contactUs" element={<ContactUs />} />
       <Route path="/login" element={<Login setToken={setToken} setLoggedIn={setLoggedIn} />} />
+      <Route path="/logout" element={<LogOut />} />
       <Route path="/register" element={<Register />} />
       <Route path="/home" element={<Home />} />
       <Route path="*" element={<NotFound />} />

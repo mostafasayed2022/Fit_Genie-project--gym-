@@ -6,7 +6,7 @@ import "./navbar.scss";
 import logo from "../../images/logo.ico";
 import "./logoname.css";
 
-const Navbar = (props: { loggedIn: any; }) => {
+const Navbar = (props: { loggedIn: boolean; }) => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [size, setSize] = useState({
@@ -33,6 +33,12 @@ const Navbar = (props: { loggedIn: any; }) => {
 
   const menuToggleHandler = () => {
     setMenuOpen((p) => !p);
+  };
+
+  const handleLogout = () => {
+    // Perform logout logic here, e.g., clear tokens, update state, etc.
+    localStorage.removeItem("token");
+    navigate('/login');
   };
 
   return (
@@ -77,12 +83,18 @@ const Navbar = (props: { loggedIn: any; }) => {
               <Link to="/ContactUs">ContactUs</Link>
             </li>
 
-            <Link to="/register">
-              <button className="btn">Register</button>
-            </Link>
-            <Link to="/login">
-              <button className="btn btn__login">Login</button>
-            </Link>
+            {props.loggedIn ? (
+              <button className="btn btn__login" onClick={handleLogout}>Logout</button>
+            ) : (
+              <>
+                <Link to="/register">
+                  <button className="btn">Register</button>
+                </Link>
+                <Link to="/login">
+                  <button className="btn btn__login">Login</button>
+                </Link>
+              </>
+            )}
           </ul>
         </nav>
         <div className="header__content__toggle">
