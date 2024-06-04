@@ -36,8 +36,6 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    props.setToken("");
     props.setLoggedIn(false);
     navigate('/login'); // Redirect to login page after logout
   };
