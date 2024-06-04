@@ -94,7 +94,7 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
               </>
             ) : (
               <>
-                <Link to={"/login"}>
+                <Link to={"/logout"}>
                   <button className="btn" onClick={handleLogout}>Logout</button>
                 </Link>
               </>
