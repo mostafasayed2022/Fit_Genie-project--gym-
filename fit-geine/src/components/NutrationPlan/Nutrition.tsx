@@ -38,8 +38,8 @@ const Nutrition: React.FC = () => {
                 throw new Error('Failed to fetch data');
             }
 
-            const data: MealData = await response.json();
-            setMealData(data);
+            const data: {meal_plan:MealData} = await response.json();
+            setMealData(data.meal_plan);
         } catch (error) {
             console.error('Error fetching data:', error);
             setError('Failed to fetch data');
