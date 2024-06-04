@@ -5,16 +5,12 @@ import "../Loader/Loader.css";
 import './Nutrition.css';
 
 // Define types
-interface MealDataItem {
-    meal_plan:string
-}
-
-interface MealData {
-    [key: string]: MealDataItem;
+interface MealPlan {
+    meal_plan: string;
 }
 
 const Nutrition: React.FC = () => {
-    const [mealData, setMealData] = useState<MealData | null>(null);
+    const [mealData, setMealData] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
@@ -35,7 +31,7 @@ const Nutrition: React.FC = () => {
                 throw new Error('Failed to fetch data');
             }
 
-            const data: {meal_plan:MealData} = await response.json();
+            const data: MealPlan = await response.json();
             setMealData(data.meal_plan);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -72,16 +68,8 @@ const Nutrition: React.FC = () => {
 
                 {error && <h1>{error}</h1>}
                 {mealData && (
-                    <div className="cards-container">
-                        {Object.keys(mealData).map((mealKey: string, index: number) => (
-                            <div className="card" key={index}>
-                                <h2>{mealKey}</h2>
-                                <p>Calories: {mealData[mealKey].meal_plan}</p>
-                                <p>Protein: {mealData[mealKey].meal_plan}</p>
-                                <p>Carbs: {mealData[mealKey].meal_plan}</p>
-                                <p>Meal: {mealData[mealKey].meal_plan}</p>
-                            </div>
-                        ))}
+                    <div className="meal-plan">
+                        <pre>{mealData}</pre>
                     </div>
                 )}
             </div>
