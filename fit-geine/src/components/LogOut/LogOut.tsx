@@ -21,7 +21,7 @@ const LogOut: React.FC = () => {
                 }
 
                 // Clear token and redirect to login
-                localStorage.removeItem("token");
+                localStorage.clear()
                 navigate("/login");
             } catch (error) {
                 console.error("Logout error:", error);
