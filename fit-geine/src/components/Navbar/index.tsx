@@ -63,7 +63,11 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
         >
           <ul>
             {props.loggedIn ? (
-              <>
+                <Link to="/logout">
+                  <button className="btn" onClickCapture={handleLogout}>Logout</button>
+                </Link>
+                ) : (
+                <>
                 <li>
                   <Link to="/home">Home</Link>
                 </li>
@@ -85,27 +89,14 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
                 <li>
                   <Link to="/ContactUs">ContactUs</Link>
                 </li>
-                <li>
-                  <Link to="/register">
-                    <button className="btn">Register</button>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/login">
-                    <button className="btn btn__login">Login</button>
-                  </Link>
-                </li>
-              </>
-
-            ) : (
-
-              <li>
-                <Link to="/logout">
-                  <button className="btn" onClick={handleLogout}>Logout</button>
+                <Link to="/register">
+                  <button className="btn">Register</button>
                 </Link>
-              </li>
+                <Link to="/login">
+                  <button className="btn btn__login">Login</button>
+                </Link>
+              </>
             )}
-
           </ul>
         </nav>
         <div className="header__content__toggle">
