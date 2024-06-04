@@ -36,7 +36,8 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
   };
 
   const handleLogout = () => {
-    props.setToken('');
+    // Perform logout logic here, e.g., clear tokens, update state, etc.
+    props.setToken("");
     props.setLoggedIn(false);
     navigate('/login'); // Redirect to login page after logout
   };
@@ -50,7 +51,6 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
           </Link>
           <p className="span1">Fit <span className="span2">Genie </span></p>
         </div>
-
 
         <nav
           className={`${"header__content__nav"} 
@@ -84,12 +84,7 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
             </li>
 
             {props.loggedIn ? (
-              <>
-              <Link to={"logout"}>
-                <button className="btn" onClick={handleLogout}>Logout</button>
-              </Link>
-                
-              </>
+              <button className="btn" onClick={handleLogout}>Logout</button>
             ) : (
               <>
                 <Link to="/register">
