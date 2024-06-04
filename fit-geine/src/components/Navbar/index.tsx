@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./navbar.scss";
 import logo from "../../images/logo.ico";
 import "./logoname.css";
+import LogOut from "../LogOut/LogOut";
 
 const Navbar = (props: { loggedIn: boolean; }) => {
   const navigate = useNavigate();
@@ -84,7 +85,9 @@ const Navbar = (props: { loggedIn: boolean; }) => {
             </li>
 
             {props.loggedIn ? (
+              <Link to={"/logout"}>
               <button className="btn btn__login" onClick={handleLogout}>Logout</button>
+              </Link>
             ) : (
               <>
                 <Link to="/register">
