@@ -7,7 +7,7 @@ import logo from "../../images/logo.ico";
 import "./logoname.css";
 import LogOut from "../LogOut/LogOut";
 
-const Navbar = (props: { loggedIn: boolean; }) => {
+const Navbar = (props: { loggedIn?: boolean; }) => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [size, setSize] = useState({
