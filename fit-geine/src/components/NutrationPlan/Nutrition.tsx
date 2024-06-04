@@ -6,10 +6,7 @@ import './Nutrition.css';
 
 // Define types
 interface MealDataItem {
-    Calories: string;
-    Protein: string;
-    Carbs: string;
-    Meal: string;
+    meal_plan:string
 }
 
 interface MealData {
@@ -79,10 +76,10 @@ const Nutrition: React.FC = () => {
                         {Object.keys(mealData).map((mealKey: string, index: number) => (
                             <div className="card" key={index}>
                                 <h2>{mealKey}</h2>
-                                <p>Calories: {mealData[mealKey].Calories}</p>
-                                <p>Protein: {mealData[mealKey].Protein}</p>
-                                <p>Carbs: {mealData[mealKey].Carbs}</p>
-                                <p>Meal: {mealData[mealKey].Meal}</p>
+                                <p>Calories: {mealData[mealKey].meal_plan}</p>
+                                <p>Protein: {mealData[mealKey].meal_plan}</p>
+                                <p>Carbs: {mealData[mealKey].meal_plan}</p>
+                                <p>Meal: {mealData[mealKey].meal_plan}</p>
                             </div>
                         ))}
                     </div>
