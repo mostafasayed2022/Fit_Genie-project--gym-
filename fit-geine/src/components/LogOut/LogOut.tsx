@@ -36,12 +36,11 @@ const LogOut: React.FC = () => {
         <>
             <Navbar loggedIn={false} setToken={function (token: string): void {
                 throw new Error("Function not implemented.");
-            } } setLoggedIn={function (loggedIn: boolean): void {
+            }} setLoggedIn={function (loggedIn: boolean): void {
                 throw new Error("Function not implemented.");
-            } }  />
+            }} />
             <div className="logout-container">
-                <h1>Logging out...</h1>
-                {/* You can add a loader or message here if needed */}
+                <h1>User is logged in</h1>
             </div>
         </>
     );
