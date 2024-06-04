@@ -54,7 +54,11 @@ const WorkoutPlan = () => {
 
     return (
         <>
-            <Navbar loggedIn={false} />
+            <Navbar loggedIn={false} setToken={function (token: string): void {
+                throw new Error("Function not implemented.");
+            } } setLoggedIn={function (loggedIn: boolean): void {
+                throw new Error("Function not implemented.");
+            } } />
             <div className="workout-container">
                 <h1>Workout Plans</h1>
                 <form onSubmit={handleSubmit} className="email-form">

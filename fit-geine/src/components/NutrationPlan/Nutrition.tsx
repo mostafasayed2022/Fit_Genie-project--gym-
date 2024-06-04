@@ -52,7 +52,11 @@ const Nutrition: React.FC = () => {
     return (
         <>
             {isLoading && <Loader />}
-            <Navbar loggedIn={false} />
+            <Navbar loggedIn={false} setToken={function (token: string): void {
+                throw new Error("Function not implemented.");
+            } } setLoggedIn={function (loggedIn: boolean): void {
+                throw new Error("Function not implemented.");
+            } }  />
             <div className="nutrition-container">
                 <h1>Nutrition Plans</h1>
                 <form onSubmit={handleSubmit} className="nutrition-form">

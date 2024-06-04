@@ -64,7 +64,11 @@ const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedI
 
   return (
     <div>
-      <Navbar loggedIn={undefined} />
+      <Navbar loggedIn={false} setToken={function (token: string): void {
+        throw new Error('Function not implemented.');
+      } } setLoggedIn={function (loggedIn: boolean): void {
+        throw new Error('Function not implemented.');
+      } } />
       <div className='logiiin' style={{ backgroundImage: `url(${services})` }}>
         <h1>Login Page</h1>
       </div>
