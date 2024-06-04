@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import Navbar from "../Navbar";
 import Loader from "../Loader/Loader";
-import "../Loader/Loader.css"
+import "../Loader/Loader.css";
 import './Nutrition.css';
 
-interface MealData {
-    [key: string]: {
-        calories: string;
-        protein: string;
-        carbs: string;
-        meal: string;
-    };
+// Define types
+interface MealDataItem {
+    Calories: number;
+    Protein: number;
+    Carbs: number;
+    Meal: string;
 }
 
-const Nutrition = () => {
+interface MealData {
+    [key: string]: MealDataItem;
+}
+
+const Nutrition: React.FC = () => {
     const [mealData, setMealData] = useState<MealData | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
@@ -35,21 +38,20 @@ const Nutrition = () => {
                 throw new Error('Failed to fetch data');
             }
 
-            const data = await response.json();
-            console.log('Fetched data:', data);
+            const data: MealData = await response.json();
             setMealData(data);
-        } catch (error: unknown) {
+        } catch (error) {
             console.error('Error fetching data:', error);
             setError('Failed to fetch data');
         }
         setIsLoading(false);
     };
 
-    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         fetchMealData(email);
     };
@@ -68,19 +70,19 @@ const Nutrition = () => {
                         placeholder="Enter your email"
                         required
                     />
-                    <button type="submit">Fetch Nutrition Data</button>
+                    <button type="submit">Get API Data</button>
                 </form>
 
                 {error && <h1>{error}</h1>}
                 {mealData && (
                     <div className="cards-container">
-                        {Object.keys(mealData).map((mealKey) => (
-                            <div className="card" key={mealKey}>
+                        {Object.keys(mealData).map((mealKey: string, index: number) => (
+                            <div className="card" key={index}>
                                 <h2>{mealKey}</h2>
-                                <p>Calories: {mealData[mealKey]?.calories}</p>
-                                <p>Protein: {mealData[mealKey]?.protein}</p>
-                                <p>Carbs: {mealData[mealKey]?.carbs}</p>
-                                <p>Meal: {mealData[mealKey]?.meal}</p>
+                                <p>Calories: {mealData[mealKey].Calories}</p>
+                                <p>Protein: {mealData[mealKey].Protein}</p>
+                                <p>Carbs: {mealData[mealKey].Carbs}</p>
+                                <p>Meal: {mealData[mealKey].Meal}</p>
                             </div>
                         ))}
                     </div>
