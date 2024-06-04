@@ -47,3 +47,7 @@ const LogOut: React.FC = () => {
 };
 
 export default LogOut;
+function setIsLoggedin(arg0: boolean) {
+    throw new Error("Function not implemented.");
+}
+
