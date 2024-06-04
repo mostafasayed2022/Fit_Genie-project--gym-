@@ -36,7 +36,7 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
   };
 
   const handleLogout = () => {
-    // Perform logout logic here, e.g., clear tokens, update state, etc.
+    localStorage.removeItem("token");
     props.setToken("");
     props.setLoggedIn(false);
     navigate('/login'); // Redirect to login page after logout
@@ -60,44 +60,44 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
           <ul>
             {props.loggedIn ? (
               <>
-              <Link to={"/logout"}>
-                <button className="btn" onClick={handleLogout}>Logout</button>
-              </Link>
-            </>
-            ) : (   
+                <li>
+                  <Link to="/home">Home</Link>
+                </li>
+                <li>
+                  <Link to="/about">About</Link>
+                </li>
+                <li>
+                  <Link to="/pricing">Pricing</Link>
+                </li>
+                <li>
+                  <Link to="/Blog">Blog</Link>
+                </li>
+
+                <li>
+                  <Link to="/workout">Workout Plan</Link>
+                </li>
+
+                <li>
+                  <Link to="/nutration">Nutrition Plan</Link>
+                </li>
+
+                <li>
+                  <Link to="/ContactUs">ContactUs</Link>
+                </li>
+
+                <Link to="/register">
+                  <button className="btn">Register</button>
+                </Link>
+                <Link to="/login">
+                  <button className="btn btn__login">Login</button>
+                </Link>
+              </>
+            ) : (
               <>
-              <li>
-                <Link to="/home">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/pricing">Pricing</Link>
-              </li>
-              <li>
-                <Link to="/Blog">Blog</Link>
-              </li>
-
-              <li>
-                <Link to="/workout">Workout Plan</Link>
-              </li>
-
-              <li>
-                <Link to="/nutration">Nutrition Plan</Link>
-              </li>
-
-              <li>
-                <Link to="/ContactUs">ContactUs</Link>
-              </li>
-
-              <Link to="/register">
-                <button className="btn">Register</button>
-              </Link>
-              <Link to="/login">
-                <button className="btn btn__login">Login</button>
-              </Link>
-            </>
+                <Link to={"/logout"}>
+                  <button className="btn" onClick={handleLogout}>Logout</button>
+                </Link>
+              </>
             )}
           </ul>
         </nav>
