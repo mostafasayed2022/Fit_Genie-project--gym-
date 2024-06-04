@@ -40,7 +40,7 @@ const LogOut: React.FC = () => {
                 throw new Error("Function not implemented.");
             }} />
             <div className="logout-container">
-                <h1>User is logged in</h1>
+                <h1>User is logged out</h1>
             </div>
         </>
     );
