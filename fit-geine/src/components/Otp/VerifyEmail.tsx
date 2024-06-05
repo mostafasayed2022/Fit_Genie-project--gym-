@@ -53,11 +53,11 @@ const VerifyEmail = () => {
 
     if (success) {
             Swal.fire({
-                icon: "error",
-                title: "otp is done ..go to the home page",
+                icon: "success",
+                title: "otp is done..",
                 text: "Check your username or password"
               });
-            navigate("/home");
+            navigate("/login");
     }
     return (
         <div className="email-otp-verification">
