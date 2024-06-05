@@ -20,6 +20,7 @@ import Services_building from "./components/Services_building/Building"
 import Services_crossfit from "./components/Services_crossfit/Crossfit"
 import Services_cardio from "./components/Services_cardio/Cardio"
 import LogOut from './components/LogOut/LogOut';
+import VerifyEmail from './components/Otp/VerifyEmail';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -38,6 +39,8 @@ const App = () => {
       <Route path="/logout" element={<LogOut />} />
       <Route path="/register" element={<Register />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/verify" element={<VerifyEmail />} />
+
       <Route path="*" element={<NotFound />} />
       <Route path="pricing" element={<Pricing />} />
       <Route path='payment' element={<PaymentForm />} />

@@ -9,7 +9,7 @@ import contactBG from "../../images/contactBg.jpg";
 import Swal from 'sweetalert2';
 
 const loginUser = async (credentials: { username: string, password: string }) => {
-  
+
   const data = await fetch("https://127.0.0.1:8000/api/login/", {
     method: 'POST',
     headers: {
@@ -24,7 +24,7 @@ const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedI
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState(false);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -66,9 +66,9 @@ const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedI
     <div>
       <Navbar loggedIn={false} setToken={function (token: string): void {
         throw new Error('Function not implemented.');
-      } } setLoggedIn={function (loggedIn: boolean): void {
+      }} setLoggedIn={function (loggedIn: boolean): void {
         throw new Error('Function not implemented.');
-      } } />
+      }} />
       <div className='logiiin' style={{ backgroundImage: `url(${services})` }}>
         <h1>Login Page</h1>
       </div>
@@ -118,7 +118,9 @@ const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedI
                   </label>
                 </div>
                 <div className='Forget'>
-                  <a href="#">Forget password?</a>
+                  <Link to={'/verify'}>
+                    <a href="#">Forget password?</a>
+                  </Link>
                 </div>
               </div>
             </form>

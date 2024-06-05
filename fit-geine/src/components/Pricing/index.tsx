@@ -16,23 +16,27 @@ function Pricing() {
     {
       name: 'Basic',
       price: 60,
-      features: ['Feature 1', 'Feature 2', 'Feature 3', "Feature 4"],
+      features: ['Access to all of fitgenie', ' access to hardware', 'not access to ai plans', "access to Services fitgenie"],
     },
     {
       name: 'Pro',
       price: 120,
-      features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'],
+      features: ['Access to all of fitgenie', 'access to hardware', 'access to Services fitgenie', 'access to ai plans but not all'],
     },
     {
       name: 'Premium',
       price: 250,
-      features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'],
+      features: ['Access to all of fitgenie', 'access to hardware', 'access to Services fitgenie', 'access to ai plans '],
     },
   ];
 
   return (
     <body>
-      <Navbar loggedIn={undefined} />
+      <Navbar loggedIn={false} setToken={function (token: string): void {
+        throw new Error('Function not implemented.');
+      }} setLoggedIn={function (loggedIn: boolean): void {
+        throw new Error('Function not implemented.');
+      }} />
       <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
         <h1>Pricing</h1>
       </div>
