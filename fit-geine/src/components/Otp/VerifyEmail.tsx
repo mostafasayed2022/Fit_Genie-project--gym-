@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import './EmailOtpVerification.css';
-
+import workout from "../../images/workout.jpg";
 
 const VerifyEmail = () => {
 
@@ -44,7 +44,6 @@ const VerifyEmail = () => {
             Swal.fire({
                 icon: "error",
                 title: 'Invalid OTP. Please try again.',
-                text: "Check your username or password"
               });
         } finally {
             setLoading(false);
@@ -55,7 +54,6 @@ const VerifyEmail = () => {
             Swal.fire({
                 icon: "success",
                 title: "otp is done..",
-                text: "Check your username or password"
               });
             navigate("/login");
     }
