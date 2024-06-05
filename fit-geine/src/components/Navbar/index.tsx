@@ -48,9 +48,7 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
     navigate('/login');
   };
 
-  const handleRegisterClick = () => {
-    navigate('/login')
-  };
+
 
   return (
     <header className="header">
@@ -104,8 +102,8 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
             }
             {localStorage.getItem("token") ?
               <>
-                <Link to="/logout">
-                  <button className="btn" onClickCapture={handleLogout} onClick={handleRegisterClick}>Logout</button>
+                <Link to="/login">
+                  <button className="btn" onClickCapture={handleLogout}>Logout</button>
                 </Link>
               </>
               : null
