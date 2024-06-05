@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
+
 import "./navbar.scss";
 import logo from "../../images/logo.ico";
 import "./logoname.css";
@@ -44,6 +46,17 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
 
     // Redirect to login page
     navigate('/login');
+  };
+
+  const handleRegisterClick = () => {
+    Swal.fire({
+      title: 'Activate your OTP',
+      text: 'Please check your email to activate your OTP.',
+      icon: 'info',
+      confirmButtonText: 'OK'
+    }).then(() => {
+    navigate('/verify')
+    });
   };
 
   return (
@@ -89,10 +102,10 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
               :
               <>
                 <Link to="/register">
-                  <button className="btn">Register</button>
+                  <button className="btn" onClick={handleRegisterClick}>Register</button>
                 </Link>
                 <Link to="/login">
-                  <button className="btn btn__login">Login</button>
+                  <button className="btn btn__login" >Login</button>
                 </Link>
               </>
             }
