@@ -42,7 +42,7 @@ const Register = () => {
         title: "Registration Successful",
         text: "You have successfully registered!",
       });
-      navigate('/login');
+      navigate('/verify');
       
       console.log(response.data);
     } catch (error) {

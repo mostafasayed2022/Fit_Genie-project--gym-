@@ -102,7 +102,7 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
               :
               <>
                 <Link to="/register">
-                  <button className="btn" onClick={handleRegisterClick}>Register</button>
+                  <button className="btn">Register</button>
                 </Link>
                 <Link to="/login">
                   <button className="btn btn__login" >Login</button>
