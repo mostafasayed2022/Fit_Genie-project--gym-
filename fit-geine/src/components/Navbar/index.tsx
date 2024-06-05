@@ -49,14 +49,7 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
   };
 
   const handleRegisterClick = () => {
-    Swal.fire({
-      title: 'Activate your OTP',
-      text: 'Please check your email to activate your OTP.',
-      icon: 'info',
-      confirmButtonText: 'OK'
-    }).then(() => {
-    navigate('/verify')
-    });
+    navigate('/login')
   };
 
   return (
@@ -112,7 +105,7 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
             {localStorage.getItem("token") ?
               <>
                 <Link to="/logout">
-                  <button className="btn" onClickCapture={handleLogout}>Logout</button>
+                  <button className="btn" onClickCapture={handleLogout} onClick={handleRegisterClick}>Logout</button>
                 </Link>
               </>
               : null
