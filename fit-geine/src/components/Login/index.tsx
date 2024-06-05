@@ -6,7 +6,14 @@ import Footer from "../Footer";
 import { FaGoogle, FaFacebook, FaLinkedin } from 'react-icons/fa';
 import services from "../../images/services.jpg";
 import contactBG from "../../images/contactBg.jpg";
+
 import Swal from 'sweetalert2';
+
+
+
+
+
+
 
 const loginUser = async (credentials: { username: string, password: string }) => {
 
