@@ -11,10 +11,10 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    // confirmPassword: "",
   });
   const navigate=useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -26,14 +26,14 @@ const Register = () => {
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
-    if (formData.password !== formData.confirmPassword) {
-      Swal.fire({
-        icon: "error",
-        title: "Passwords do not match",
-        text: "Please make sure your passwords match.",
-      });
-      return;
-    }
+    // if (formData.password !== formData.confirmPassword) {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "Passwords do not match",
+    //     text: "Please make sure your passwords match.",
+    //   });
+    //   return;
+    // }
 
     try {
       const response = await axios.post(`https://localhost:8000/api/register/`, formData);
@@ -73,8 +73,8 @@ const Register = () => {
                 <input
                   required
                   type="text"
-                  name="fullName"
-                  value={formData.fullName}
+                  name="name"
+                  value={formData.name}
                   onChange={handleInputChange}
                   placeholder="Full name"
                 />
@@ -102,7 +102,7 @@ const Register = () => {
                 />
               </div>
 
-              <div className="form-field-wrapper">
+              {/* <div className="form-field-wrapper">
                 <input
                   type={showPassword ? 'text' : 'password'}
                   name="confirmPassword"
@@ -111,7 +111,7 @@ const Register = () => {
                   value={formData.confirmPassword}
                   onChange={handleInputChange}
                 />
-              </div>
+              </div> */}
 
               <div className="form-field-wrapper">
                 <input

@@ -19,7 +19,7 @@ const VerifyEmail = () => {
         setError('');
 
         try {
-            await axios.post('https://your-api-endpoint.com/send-otp', { email });
+            await axios.post('https://127.0.0.1:8000/send-otp/', { email });
             setStep('otp');
         } catch (err) {
             setError('Failed to send verification email. Please try again.');
@@ -34,7 +34,7 @@ const VerifyEmail = () => {
         setError('');
 
         try {
-            await axios.post('https://your-api-endpoint.com/verify-otp', { email, otp });
+            await axios.post('https://127.0.0.1:8000/verify-otp/', { email, otp });
             setSuccess(true);
         } catch (err) {
             setError('Invalid OTP. Please try again.');
@@ -71,6 +71,13 @@ const VerifyEmail = () => {
                 <div className="otp-verification">
                     <h2>OTP Verification</h2>
                     <form onSubmit={handleOtpSubmit}>
+                    <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Enter your email"
+                            required
+                        />
                         <input
                             type="text"
                             value={otp}
