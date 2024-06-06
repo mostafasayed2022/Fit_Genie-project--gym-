@@ -33,8 +33,11 @@ const Blog: React.FC = () => {
 
   return (
     <div>
-      <Navbar loggedIn={undefined} />
-      <div className="container">
+      <Navbar loggedIn={false} setToken={function (token: string): void {
+        throw new Error('Function not implemented.');
+      }} setLoggedIn={function (loggedIn: boolean): void {
+        throw new Error('Function not implemented.');
+      }} />      <div className="container">
         <div className='title_cards ' style={{ backgroundImage: `url(${services})` }}>
           Blog page
         </div>   

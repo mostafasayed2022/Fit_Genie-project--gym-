@@ -10,9 +10,9 @@
 }
 
 body{
-  background-image: url("../../images/contactBg.jpg");
+  /* background-image: url("../../images/contactBg.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center; */
   
 }
 .email-otp-verification {
