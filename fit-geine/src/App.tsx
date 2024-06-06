@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import "./App.css";
 import { Canvas } from '@react-three/fiber';
-import GymScene from './3D/GymScene';
 import Navbar from "./components/Navbar";
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./components/Home";
@@ -49,7 +48,6 @@ const App: React.FC = () => {
         <Route path='/building' element={<Services_building />} />
         <Route path='/crossfit' element={<Services_crossfit />} />
         <Route path='/cardio' element={<Services_cardio />} />
-        {/* <Route path='/gym' element={<Canvas><GymScene /></Canvas>} /> */}
       </Routes>
 
     </>
