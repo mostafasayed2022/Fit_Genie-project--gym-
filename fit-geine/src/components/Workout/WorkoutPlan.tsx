@@ -5,7 +5,7 @@ import "../Loader/Loader.css";
 import "./WorkoutPlan.css"; // Ensure you have a corresponding CSS file for styling
 
 interface WorkoutPlans {
-    workout_plan: string;
+    workout: string;
 }
 
 const WorkoutPlan: React.FC=() => {
@@ -25,14 +25,14 @@ const WorkoutPlan: React.FC=() => {
                 },
                 body: JSON.stringify({ email })
             });
-            console.log(response)
+            console.log(workoutPlans)
 
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
 
             const data: WorkoutPlans = await response.json();
-            setWorkoutPlans(data.workout_plan);
+            setWorkoutPlans(data.workout);
         } catch (error) {
             console.error('Error fetching data:', error);
             setError('Failed to fetch workout plans');
