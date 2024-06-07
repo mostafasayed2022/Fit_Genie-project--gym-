@@ -21,6 +21,7 @@ import Services_crossfit from "./components/Services_crossfit/Crossfit"
 import Services_cardio from "./components/Services_cardio/Cardio"
 import LogOut from './components/LogOut/LogOut';
 import VerifyEmail from './components/Otp/VerifyEmail';
+import Profile from './components/Trainers/Profile';
 
 
 const App: React.FC = () => {
@@ -48,6 +49,8 @@ const App: React.FC = () => {
         <Route path='/building' element={<Services_building />} />
         <Route path='/crossfit' element={<Services_crossfit />} />
         <Route path='/cardio' element={<Services_cardio />} />
+        <Route path='/profile' element={<Profile />} />
+
       </Routes>
 
     </>

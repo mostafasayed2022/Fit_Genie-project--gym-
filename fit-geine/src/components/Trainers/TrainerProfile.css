@@ -1,0 +1,91 @@
+:root{
+    --color1:#254c51;    
+    --color2:#6c8589;
+    --color3:#cedcdd;
+    --color4:#000c08;
+    --linear:linear-gradient(to right bottom, #070002, #1a1415, #292022, #382d2f, #493a3c);
+    --linear2:linear-gradient(to right top, #f5f7f7, #b1b4b4, #727576, #393c3d, #000407);
+}
+
+
+.trainer-profile-page {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+  }
+  
+
+  
+  .trainer-image {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .trainer-features {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .trainer-features li {
+    background-color: #f0f0f0;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  form > div {
+    margin: 10px 0;
+  }
+  
+  form > div > label {
+    display: block;
+    margin-bottom: 5px;
+    
+  }
+  
+  form > div > input,
+  form > div > textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--color3);
+  }
+  
+  form > button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  form > button[type='button'] {
+    background-color: #dc3545;
+  }
+  
+  
+  .btn-edit{
+    padding: 10px;
+    margin: 3px;
+    width: 33%;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: var(--color2);
+    color: var(--color4);
+    transition: 0.5s ease-in;
+    cursor: pointer;
+  }
+  
+  .btn-edit:hover{
+    background-color: var(--color1);
+    color: var(--color3);
+  }
+  

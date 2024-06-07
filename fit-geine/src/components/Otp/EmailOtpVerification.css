@@ -9,12 +9,6 @@
   --linear2:linear-gradient(to right top, #f5f7f7, #b1b4b4, #727576, #393c3d, #000407);
 }
 
-body{
-  /* background-image: url("../../images/contactBg.jpg");
-  background-size: cover;
-  background-position: center; */
-  
-}
 .email-otp-verification {
     max-width: 400px;
     margin: 50px auto;

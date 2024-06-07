@@ -232,12 +232,16 @@ function Home() {
         <div className='Trainers' style={{ backgroundImage: `url(${services})` }}>
           <h1>Our Trainers</h1>
         </div>
+
         <div className="trainer-cards">
           {trainers.map((trainer, index) => (
-            <TrainerCard key={index} {...trainer} />
+            <Link to={"/profile"}>
+              <TrainerCard key={index} {...trainer} />
+            </Link>
           ))}
         </div>
-      </div>
+
+      </div >
 
       <div className='plans' style={{ backgroundImage: `url(${services})` }}>
         <h1> OUR PRICING PLANS</h1>
