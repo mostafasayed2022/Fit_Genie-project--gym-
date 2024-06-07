@@ -11,6 +11,7 @@ const token = localStorage.getItem('token');
 const email = localStorage.getItem('email');
 
 const API_TRAINER = 'https://127.0.0.1:8000/api/profile/?email=${email}';
+const API_UPDATE = "https://127.0.0.1:8000/profile/update/"
 
 
 // interface Trainer {
@@ -87,6 +88,21 @@ const Profile = () => {
         }
     };
 
+    const handleUpdateProfile = () => {
+        axios.put(API_UPDATE, formData, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+            .then(response => {
+                console.log('Trainer data updated:', response.data);
+            })
+            .catch(error => {
+                console.error('Error updating trainer data:', error);
+            });
+    };
+
+
     return (
         <>
             <Navbar loggedIn={false} setToken={() => { }} setLoggedIn={() => { }} />
@@ -137,7 +153,10 @@ const Profile = () => {
                                 <li key={index}>{feature}</li>
                             ))} */}
                         </ul>
-                        <button className='btn-edit' onClick={() => setIsEditing(true)}>Edit Profile</button>
+                        <button className='btn-edit' onClick={() => { setIsEditing(true); handleUpdateProfile(); }}>
+                            Edit Profile
+                        </button>
+
                     </>
                 )}
             </div>
