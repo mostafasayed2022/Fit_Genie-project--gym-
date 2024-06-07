@@ -68,9 +68,7 @@ const Profile = () => {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsEditing(false);
-
         const token = localStorage.getItem('token');
-
         if (token) {
             // Send the updated trainer data to the API
             axios.put(API_TRAINER, formData, {
