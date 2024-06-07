@@ -4,12 +4,12 @@ import Loader from "../Loader/Loader";
 import "../Loader/Loader.css";
 import "./WorkoutPlan.css"; // Ensure you have a corresponding CSS file for styling
 
-interface WorkoutPlan {
-    workout: string;
+interface WorkoutPlans {
+    workout_plan: string;
 }
 
-const WorkoutPlan: React.FC = () => {
-    const [workoutPlans, setWorkoutPlans] = useState<WorkoutPlan[]>([]);
+const WorkoutPlan: React.FC=() => {
+    const [workoutPlans, setWorkoutPlans] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
@@ -25,13 +25,14 @@ const WorkoutPlan: React.FC = () => {
                 },
                 body: JSON.stringify({ email })
             });
+            console.log(response)
 
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
 
-            const data: WorkoutPlan[] = await response.json();
-            setWorkoutPlans(data);
+            const data: WorkoutPlans = await response.json();
+            setWorkoutPlans(data.workout_plan);
         } catch (error) {
             console.error('Error fetching data:', error);
             setError('Failed to fetch workout plans');
@@ -50,8 +51,12 @@ const WorkoutPlan: React.FC = () => {
 
     return (
         <>
-            {isLoading && <Loader />}
-            <Navbar loggedIn={false} setToken={() => { }} setLoggedIn={() => { }} />
+            {isLoading && <Loader/>}
+            <Navbar loggedIn={false} setToken={function (token: string): void {
+                throw new Error("Function not implemented.");
+            }} setLoggedIn={function (loggedIn: boolean): void {
+                throw new Error("Function not implemented.");
+            }} />
             <div className="workout-container">
                 <h1>Workout Plans</h1>
                 <form onSubmit={handleSubmit} className="email-form">
@@ -62,35 +67,14 @@ const WorkoutPlan: React.FC = () => {
                         placeholder="Enter your email"
                         required
                     />
-                    <button type="submit" className="fetch-button">Get API Data</button>
+                    <button type="submit" className="fetch-button"> Get API Data</button>
                 </form>
                 {error && <p style={{ color: 'red' }}>{error}</p>}
-                <div className="workout-plans-section">
-                    <h2>Cardio</h2>
-                    <div className="workout-plans">
-                        {workoutPlans.map((plan, index) => (
-                            <div key={index} className="workout-card">
-                                <p>{plan.workout}</p>
-                            </div>
-                        ))}
+                {workoutPlans && (
+                    <div className="work-plan">
+                        <pre className="workout-card">{workoutPlans}</pre>
                     </div>
-                    <h2>Strength Training</h2>
-                    <div className="workout-plans">
-                        {workoutPlans.map((plan, index) => (
-                            <div key={index} className="workout-card">
-                                <p>{plan.workout}</p>
-                            </div>
-                        ))}
-                    </div>
-                    <h2>Flexibility</h2>
-                    <div className="workout-plans">
-                        {workoutPlans.map((plan, index) => (
-                            <div key={index} className="workout-card">
-                                <p>{plan.workout}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                )}
             </div>
         </>
     );
