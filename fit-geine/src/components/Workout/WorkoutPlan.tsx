@@ -45,7 +45,7 @@ const WorkoutPlan: React.FC=() => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        fetchMealData(email);
+        fetchWorkoutPlans(email);
     };
 
     return (
@@ -81,7 +81,3 @@ const WorkoutPlan: React.FC=() => {
 };
 
 export default WorkoutPlan;
-function fetchMealData(email: string) {
-    throw new Error("Function not implemented.");
-}
-
