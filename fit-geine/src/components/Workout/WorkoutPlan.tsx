@@ -72,7 +72,7 @@ const WorkoutPlan: React.FC=() => {
                 {error && <p style={{ color: 'red' }}>{error}</p>}
                 {workoutPlans && (
                     <div className="cards-container">
-                        <pre className="card">{workoutPlans}</pre>
+                        <pre>{workoutPlans}</pre>
                     </div>
                 )}
             </div>
