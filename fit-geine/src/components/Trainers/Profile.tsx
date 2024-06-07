@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import './TrainerProfile.css';
 // import trainer4 from "../../images/trainer4.jpg";
 import Navbar from '../Navbar';
@@ -6,7 +6,12 @@ import Footer from '../Footer';
 import axios from 'axios';
 
 // Replace with your actual API endpoint
-const API_TRAINER = 'https://api.example.com/trainer';
+
+const token = localStorage.getItem('token');
+const email = localStorage.getItem('email');
+
+const API_TRAINER = 'https://127.0.0.1:8000/api/profile/?email=${email}';
+
 
 // interface Trainer {
 //     name: string;
@@ -25,23 +30,34 @@ const Profile = () => {
     });
 
     useEffect(() => {
-        // Fetch the trainer data from the API when the component mounts
-        axios.get(API_TRAINER)
-            .then(response => {
-                const trainer = response.data;
-                setFormData({
-                    name: trainer.name,
-                    avatar: trainer.avatar,
-                    bio: trainer.bio
-                    // features: trainer.features
-                });
+
+
+
+        if (token) {
+            setFormData(JSON.parse(token));
+        } else {
+            // Fetch the trainer data from the API when the component mounts
+            axios.get(API_TRAINER, {
+                headers: {
+                    Authorization: `Token ${token}`
+                }
             })
-            .catch(error => {
-                console.error('Error fetching trainer data:', error);
-            });
+                .then(response => {
+                    const trainer = response.data;
+                    setFormData({
+                        name: trainer.name,
+                        avatar: trainer.avatar,
+                        bio: trainer.bio,
+                        // features: trainer.features
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching trainer data:', error);
+                });
+        }
     }, []);
 
-    const handleChange = (e: { target: { name: any; value: any; }; }) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
@@ -49,17 +65,28 @@ const Profile = () => {
         });
     };
 
-    const handleSubmit = (e: { preventDefault: () => void; }) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsEditing(false);
-        // Send the updated trainer data to the API
-        axios.put(API_TRAINER, formData)
-            .then(response => {
-                console.log('Trainer data updated:', response.data);
+
+        const token = localStorage.getItem('token');
+
+        if (token) {
+            // Send the updated trainer data to the API
+            axios.put(API_TRAINER, formData, {
+                headers: {
+                    Authorization: `Token ${token}`
+                }
             })
-            .catch(error => {
-                console.error('Error updating trainer data:', error);
-            });
+                .then(response => {
+                    console.log('Trainer data updated:', response.data);
+                })
+                .catch(error => {
+                    console.error('Error updating trainer data:', error);
+                });
+        } else {
+            console.error('No token found. Cannot update trainer data.');
+        }
     };
 
     return (
