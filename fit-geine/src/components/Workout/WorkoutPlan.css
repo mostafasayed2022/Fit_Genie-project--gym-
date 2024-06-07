@@ -52,6 +52,10 @@
     background-color: #f9f9f9;
 }
 
+.workout-plans-section {
+    margin-top: 30px;
+}
+
 .workout-card p {
     margin: 0;
 }
