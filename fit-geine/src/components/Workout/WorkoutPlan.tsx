@@ -8,7 +8,7 @@ interface WorkoutPlans {
     workout_plan: string;
 }
 
-const WorkoutPlan: React.FC = () => {
+const WorkoutPlan: React.FC=() => {
     const [workoutPlans, setWorkoutPlans] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
@@ -25,6 +25,7 @@ const WorkoutPlan: React.FC = () => {
                 },
                 body: JSON.stringify({ email })
             });
+            console.log(response)
 
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
@@ -35,9 +36,8 @@ const WorkoutPlan: React.FC = () => {
         } catch (error) {
             console.error('Error fetching data:', error);
             setError('Failed to fetch workout plans');
-        } finally {
-            setIsLoading(false);
         }
+        setIsLoading(false);
     };
 
     const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -51,7 +51,7 @@ const WorkoutPlan: React.FC = () => {
 
     return (
         <>
-            {isLoading && <Loader />}
+            {isLoading && <Loader/>}
             <Navbar loggedIn={false} setToken={function (token: string): void {
                 throw new Error("Function not implemented.");
             }} setLoggedIn={function (loggedIn: boolean): void {
