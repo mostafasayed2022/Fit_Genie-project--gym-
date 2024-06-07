@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import Navbar from "../Navbar";
 import Loader from "../Loader/Loader";
 import "../Loader/Loader.css";
@@ -8,7 +8,7 @@ interface WorkoutPlan {
     workout_plan: string;
 }
 
-const WorkoutPlan = () => {
+const WorkoutPlan: React.FC=() => {
     const [workoutPlans, setWorkoutPlans] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
@@ -39,13 +39,13 @@ const WorkoutPlan = () => {
         setIsLoading(false);
     };
 
-    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        fetchWorkoutPlans(email);
+        fetchMealData(email);
     };
 
     return (
@@ -81,3 +81,7 @@ const WorkoutPlan = () => {
 };
 
 export default WorkoutPlan;
+function fetchMealData(email: string) {
+    throw new Error("Function not implemented.");
+}
+
