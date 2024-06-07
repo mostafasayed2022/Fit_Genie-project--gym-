@@ -6,6 +6,7 @@ import Footer from "../Footer";
 import { FaGoogle, FaFacebook, FaLinkedin } from 'react-icons/fa';
 import services from "../../images/services.jpg";
 import contactBG from "../../images/contactBg.jpg";
+import bacgroundsport from "../../images/bacgroundsport.jpg"
 
 import Swal from 'sweetalert2';
 
@@ -76,7 +77,7 @@ const Login = (props: { setToken: (token: string) => void, setLoggedIn: (loggedI
       }} setLoggedIn={function (loggedIn: boolean): void {
         throw new Error('Function not implemented.');
       }} />
-      <div className='logiiin' style={{ backgroundImage: `url(${services})` }}>
+      <div className='logiiin' style={{ backgroundImage: `url(${bacgroundsport})` }}>
         <h1>Login Page</h1>
       </div>
       <div className="containerrrr" style={{ backgroundImage: `url(${contactBG})` }}>
