@@ -43,7 +43,12 @@
     justify-content: center;
     gap: 20px;
 }
-
+ .meal-plan{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+ }
 .card {
     background-color: #fff;
     border: 1px solid #ddd;
