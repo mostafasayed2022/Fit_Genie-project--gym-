@@ -12,6 +12,7 @@ import trainer1 from "../../images/trainer1.jpg";
 import trainer2 from "../../images/trainer2.jpg";
 import trainer3 from "../../images/trainer3.jpg";
 import trainer4 from "../../images/trainer4.jpg";
+import sports from "../../images/sports.jpg"
 
 
 
@@ -44,9 +45,12 @@ function index() {
   
   return (
     <body>
-      <Navbar loggedIn={undefined} />
-
-      <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
+      <Navbar loggedIn={false} setToken={function (token: string): void {
+        throw new Error('Function not implemented.');
+      }} setLoggedIn={function (loggedIn: boolean): void {
+        throw new Error('Function not implemented.');
+      }} />
+      <div className='Testimonials' style={{ backgroundImage: `url(${sports})` }}>
         <h1>About us</h1>
       </div>
       <div className="container_about">

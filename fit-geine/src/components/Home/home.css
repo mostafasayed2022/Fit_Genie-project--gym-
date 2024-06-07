@@ -166,13 +166,14 @@ body {
            }
            
            .title_cards{
-            /* background-image: url("../../images/services.jpg"); */
-            background: rgb(24,25,25);
-            background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%);
+            background-image: url("../../images/services.jpg");
+            /* background: rgb(24,25,25);
+            background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%); */
             height: 30vh;
             width: 100%;
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             text-align: center;
             font-size: 80px;
             text-transform: uppercase;
@@ -262,8 +263,10 @@ color: var(--color2);
             }
             
             .Testimonials{
-              background: rgb(24,25,25);
-              background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%);
+              /* background: rgb(24,25,25);
+              background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%); */
+              background-image: url("../../images/services.jpg");
+              background-attachment: fixed;
               height: 30vh;
               width: 100%;
               background-size: cover;
@@ -422,8 +425,10 @@ color: var(--color2);
 
 
 .Trainers{
-  background: rgb(24,25,25);
-  background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%);
+  /* background: rgb(24,25,25);
+  background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%); */
+  background-image: url("../../images/services.jpg");
+  background-attachment: fixed;
   height: 30vh;
   width: 100%;
   text-align: center;
@@ -447,8 +452,12 @@ color: var(--color2);
 /* PricingPlan.module.css */
 
 .plans{
-  background: rgb(24,25,25);
-  background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%);
+  /* background: rgb(24,25,25);
+  background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%); */
+  background-image: url("../../images/services.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
   height: 30vh;
   width: 100%;
   text-align: center;
@@ -543,8 +552,10 @@ color: var(--color2);
 /* Accordion */
 
 .accordion{
-  background: rgb(24,25,25);
-  background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%);
+  /* background: rgb(24,25,25);
+  background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%); */
+  background-image: url("../../images/services.jpg");
+  background-attachment: fixed;
   height: 30vh;
   width: 100%;
   background-size: cover;
@@ -566,8 +577,10 @@ color: var(--color2);
 
 }
 .accordion-contact {
-  background: rgb(24,25,25);
-  background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%);
+  /* background: rgb(24,25,25);
+  background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%); */
+  background-image: url("../../images/services.jpg");
+  background-attachment: fixed;
   height: 30vh;
   width: 100%;
   background-size: cover;

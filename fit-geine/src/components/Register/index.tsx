@@ -4,6 +4,8 @@ import Navbar from "../Navbar";
 import Footer from "../Footer";
 import services from "../../images/services.jpg";
 import contactBG from "../../images/contactBg.jpg";
+import sports from "../../images/sports.jpg"
+
 import './register.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -62,7 +64,7 @@ const Register = () => {
   return (
     <>
       {/* <Navbar loggedIn={undefined} /> */}
-      <div className='logiiin' style={{ backgroundImage: `url(${services})` }}>
+      <div className='logiiin' style={{ backgroundImage: `url(${sports})` }}>
         <h1> Register Page</h1>
       </div>
       <div className="containerrrrr" style={{ backgroundImage: `url(${contactBG})` }}>

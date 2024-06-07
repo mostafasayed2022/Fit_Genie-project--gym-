@@ -5,6 +5,8 @@ import Footer from "../Footer";
 import "./blog.css";
 import "../Home/home.css"
 import services from "../../images/services.jpg";
+import sports from "../../images/sports.jpg"
+
 
 interface Article {
   description: string;
@@ -38,7 +40,7 @@ const Blog: React.FC = () => {
       }} setLoggedIn={function (loggedIn: boolean): void {
         throw new Error('Function not implemented.');
       }} />      <div className="container">
-        <div className='title_cards ' style={{ backgroundImage: `url(${services})` }}>
+        <div className='title_cards ' style={{ backgroundImage: `url(${sports})` }}>
           Blog page
         </div>   
         <div className="row">

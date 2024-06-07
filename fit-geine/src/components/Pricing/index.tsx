@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import bg_grit_light from '../../images/bg_grit_light.jpg';
 import services from "../../images/services.jpg";
 import bg_gym from "../../images/bg_gym.jpg";
+import sports from "../../images/sports.jpg"
 
 
 function Pricing() {
@@ -37,7 +38,7 @@ function Pricing() {
       }} setLoggedIn={function (loggedIn: boolean): void {
         throw new Error('Function not implemented.');
       }} />
-      <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
+      <div className='Testimonials' style={{ backgroundImage: `url(${sports})` }}>
         <h1>Pricing</h1>
       </div>
       <div className="bg-image">

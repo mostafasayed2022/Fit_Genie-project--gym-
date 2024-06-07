@@ -5,6 +5,7 @@ import '../Home/home.css';
 // images
 import services from "../../images/services.jpg";
 import contactBG from "../../images/contactBg.jpg";
+import sports from "../../images/sports.jpg"
 
 
 
@@ -79,7 +80,7 @@ function Contactt() {
 
 
         <>
-            <div className='plans'>
+            <div className='plans' style={{ backgroundImage: `url(${sports})` }}>
                 <h1>Our Contact Us</h1>
             </div>
             <div className="txt-contact">
