@@ -37,7 +37,7 @@
     background-color: var(--color2);
 }
 
-.cards-container {
+.work-plan {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
