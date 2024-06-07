@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../Navbar";
+import Loader from "../Loader/Loader";
+import "../Loader/Loader.css";
 import "./WorkoutPlan.css"; // Ensure you have a corresponding CSS file for styling
 
 interface WorkoutPlan {
@@ -48,6 +50,7 @@ const WorkoutPlan = () => {
 
     return (
         <>
+            {isLoading && <Loader/>}
             <Navbar loggedIn={false} setToken={function (token: string): void {
                 throw new Error("Function not implemented.");
             }} setLoggedIn={function (loggedIn: boolean): void {
@@ -69,7 +72,7 @@ const WorkoutPlan = () => {
                 {error && <p style={{ color: 'red' }}>{error}</p>}
                 {workoutPlans && (
                     <div className="cards-container">
-                        <pre>{workoutPlans}</pre>
+                        <pre className="card">{workoutPlans}</pre>
                     </div>
                 )}
             </div>
