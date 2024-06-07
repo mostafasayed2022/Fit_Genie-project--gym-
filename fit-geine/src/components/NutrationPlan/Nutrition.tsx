@@ -69,7 +69,6 @@ const Nutrition: React.FC = () => {
                     />
                     <button type="submit">Get API Data</button>
                 </form>
-
                 {error && <h1>{error}</h1>}
                 {mealData && (
                     <div className="meal-plan">

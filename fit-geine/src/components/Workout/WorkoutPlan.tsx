@@ -4,7 +4,7 @@ import Loader from "../Loader/Loader";
 import "../Loader/Loader.css";
 import "./WorkoutPlan.css"; // Ensure you have a corresponding CSS file for styling
 
-interface WorkoutPlan {
+interface WorkoutPlans {
     workout_plan: string;
 }
 
@@ -30,7 +30,7 @@ const WorkoutPlan: React.FC=() => {
                 throw new Error('Failed to fetch data');
             }
 
-            const data: WorkoutPlan = await response.json();
+            const data: WorkoutPlans = await response.json();
             setWorkoutPlans(data.workout_plan);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -65,7 +65,6 @@ const WorkoutPlan: React.FC=() => {
                         onChange={handleEmailChange}
                         placeholder="Enter your email"
                         required
-                        className="email-input"
                     />
                     <button type="submit" className="fetch-button"> Get API Data</button>
                 </form>
