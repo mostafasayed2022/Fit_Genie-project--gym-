@@ -14,155 +14,111 @@ const API_TRAINER = 'https://127.0.0.1:8000/api/profile/?email=${email}';
 const API_UPDATE = "https://127.0.0.1:8000/profile/update/"
 
 
-// interface Trainer {
-//     name: string;
-//     avatar: string;
-//     bio: string;
-//     features: string[];
-// }
-
+interface ProfileData {
+    name: string;
+    bio: string;
+    user: {
+        email: string;
+    };
+}
 const Profile = () => {
-    const [isEditing, setIsEditing] = useState(false);
-    const [formData, setFormData] = useState({
+    const [profile, setProfile] = useState<ProfileData>({
         name: '',
-        avatar: '',
         bio: '',
-        // features: []
+        user: {
+            email: ''
+        }
     });
+    const [isEditing, setIsEditing] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<Error | null>(null);
+
 
     useEffect(() => {
-
-
-
-        if (token) {
-            setFormData(JSON.parse(token));
-        } else {
-            // Fetch the trainer data from the API when the component mounts
-            axios.get(API_TRAINER, {
-                headers: {
-                    Authorization: `Token ${token}`
+        const fetchProfile = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    throw new Error('No token found');
                 }
-            })
-                .then(response => {
-                    const trainer = response.data;
-                    setFormData({
-                        name: trainer.name,
-                        avatar: trainer.avatar,
-                        bio: trainer.bio,
-                        // features: trainer.features
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching trainer data:', error);
+                const response = await axios.get<ProfileData>('http://127.0.0.1:8000/profile/update/', {
+                    headers: {
+                        'Authorization': `Token ${token}`
+                    }
                 });
-        }
+                setProfile(response.data);
+                setLoading(false);
+            } catch (err) {
+                setError(error);
+                setLoading(false);
+            }
+        };
+
+        fetchProfile();
     }, []);
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleEdit = () => {
+        setIsEditing(true);
+    };
+
+    const handleSave = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                throw new Error('No token found');
+            }
+            await axios.patch('http://127.0.0.1:8000/profile/update/', profile, {
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            });
+            setIsEditing(false);
+        } catch (err) {
+            setError(error);
+        }
+    };
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
+        setProfile({
+            ...profile,
+            [name]: value
         });
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setIsEditing(false);
-        const token = localStorage.getItem('token');
-        if (token) {
-            // Send the updated trainer data to the API
-            axios.put(API_TRAINER, formData, {
-                headers: {
-                    Authorization: `Token ${token}`
-                }
-            })
-                .then(response => {
-                    console.log('Trainer data updated:', response.data);
-                })
-                .catch(error => {
-                    console.error('Error updating trainer data:', error);
-                });
-        } else {
-            console.error('No token found. Cannot update trainer data.');
-        }
-    };
-
-    const handleUpdateProfile = () => {
-        axios.put(API_UPDATE, formData, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
-            .then(response => {
-                console.log('Trainer data updated:', response.data);
-            })
-            .catch(error => {
-                console.error('Error updating trainer data:', error);
-            });
-    };
-
-
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error.message}</div>;
     return (
-        <>
-            <Navbar loggedIn={false} setToken={() => { }} setLoggedIn={() => { }} />
-            <div className="trainer-profile-page">
+        <div>
+            <h1>Profile</h1>
+            <div>
+                <label>Name: </label>
                 {isEditing ? (
-                    <form onSubmit={handleSubmit}>
-                        <div>
-                            <label htmlFor="name">Name:</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="bio">Bio:</label>
-                            <textarea
-                                id="bio"
-                                name="bio"
-                                value={formData.bio}
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <div>
-                            {/* <label htmlFor="features">Features:</label>
-                            <input
-                                type="text"
-                                id="features"
-                                name="features"
-                                value={formData.features.join(', ')}
-                                onChange={handleChange}
-                            /> */}
-                        </div>
-                        <button type="submit">Save</button>
-                        <button type="button" onClick={() => setIsEditing(false)}>
-                            Cancel
-                        </button>
-                    </form>
+                    <input type="text" name="name" value={profile.name} onChange={handleChange} />
                 ) : (
-                    <>
-                        <img src={formData.avatar} alt={`${formData.name}'s profile`} className="trainer-image" />
-                        <h2 className='data_name'>{formData.name}</h2>
-                        <p>{formData.bio}</p>
-                        <ul className="trainer-features">
-                            {/* {formData.features.map((feature, index) => (
-                                <li key={index}>{feature}</li>
-                            ))} */}
-                        </ul>
-                        <button className='btn-edit' onClick={() => { setIsEditing(true); handleUpdateProfile(); }}>
-                            Edit Profile
-                        </button>
-
-                    </>
+                    <span>{profile.name}</span>
                 )}
             </div>
-            <Footer />
-        </>
+            <div>
+                <label>Bio: </label>
+                {isEditing ? (
+                    <input type="text" name="bio" value={profile.bio} onChange={handleChange} />
+                ) : (
+                    <span>{profile.bio}</span>
+                )}
+            </div>
+            <div>
+                <label>Email: </label>
+                <span>{profile.user.email}</span>
+            </div>
+            {isEditing ? (
+                <button onClick={handleSave}>Save</button>
+            ) : (
+                <button onClick={handleEdit}>Edit</button>
+            )}
+        </div>
     );
+    <Footer />
 };
 
 export default Profile;
