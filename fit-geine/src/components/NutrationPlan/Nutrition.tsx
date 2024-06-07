@@ -71,7 +71,7 @@ const Nutrition: React.FC = () => {
                 {error && <h1>{error}</h1>}
                 {mealData && (
                     <div className="meal-plan">
-                        <pre>{mealData}</pre>
+                        <pre className="card">{mealData}</pre>
                     </div>
                 )}
             </div>
