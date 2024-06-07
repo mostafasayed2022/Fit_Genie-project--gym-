@@ -6,7 +6,6 @@ import "./WorkoutPlan.css"; // Ensure you have a corresponding CSS file for styl
 
 interface WorkoutPlan {
     workout: string;
-    type: 'Cardio' | 'Strength Training' | 'Flexibility';
 }
 
 const WorkoutPlan: React.FC = () => {
@@ -49,10 +48,6 @@ const WorkoutPlan: React.FC = () => {
         fetchWorkoutPlans(email);
     };
 
-    const getWorkoutsByType = (type: 'Cardio' | 'Strength Training' | 'Flexibility') => {
-        return workoutPlans.filter(plan => plan.type === type);
-    };
-
     return (
         <>
             {isLoading && <Loader />}
@@ -73,7 +68,7 @@ const WorkoutPlan: React.FC = () => {
                 <div className="workout-plans-section">
                     <h2>Cardio</h2>
                     <div className="workout-plans">
-                        {getWorkoutsByType('Cardio').slice(0, 3).map((plan, index) => (
+                        {workoutPlans.map((plan, index) => (
                             <div key={index} className="workout-card">
                                 <p>{plan.workout}</p>
                             </div>
@@ -81,7 +76,7 @@ const WorkoutPlan: React.FC = () => {
                     </div>
                     <h2>Strength Training</h2>
                     <div className="workout-plans">
-                        {getWorkoutsByType('Strength Training').slice(0, 3).map((plan, index) => (
+                        {workoutPlans.map((plan, index) => (
                             <div key={index} className="workout-card">
                                 <p>{plan.workout}</p>
                             </div>
@@ -89,14 +84,13 @@ const WorkoutPlan: React.FC = () => {
                     </div>
                     <h2>Flexibility</h2>
                     <div className="workout-plans">
-                        {getWorkoutsByType('Flexibility').slice(0, 3).map((plan, index) => (
+                        {workoutPlans.map((plan, index) => (
                             <div key={index} className="workout-card">
                                 <p>{plan.workout}</p>
                             </div>
                         ))}
                     </div>
                 </div>
-
             </div>
         </>
     );
