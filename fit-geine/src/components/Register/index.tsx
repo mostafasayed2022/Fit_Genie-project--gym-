@@ -5,7 +5,6 @@ import Footer from "../Footer";
 import services from "../../images/services.jpg";
 import contactBG from "../../images/contactBg.jpg";
 import sports from "../../images/sports.jpg"
-
 import './register.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -18,24 +17,17 @@ const Register = () => {
     password: "",
     // confirmPassword: "",
   });
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-
-    // if (formData.password !== formData.confirmPassword) {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Passwords do not match",
-    //     text: "Please make sure your passwords match.",
-    //   });
-    //   return;
-    // }
 
     try {
       const response = await axios.post(`https://localhost:8000/api/register/`, formData);
@@ -45,7 +37,7 @@ const Register = () => {
         text: "You have successfully registered!",
       });
       navigate('/verify');
-      
+
       console.log(response.data);
     } catch (error) {
       Swal.fire({
@@ -56,14 +48,17 @@ const Register = () => {
       console.error(`Error registration:`, error);
     }
   }
-
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   }
 
   return (
     <>
-      {/* <Navbar loggedIn={undefined} /> */}
+      <Navbar loggedIn={false} setToken={function (token: string): void {
+        throw new Error("Function not implemented.");
+      }} setLoggedIn={function (loggedIn: boolean): void {
+        throw new Error("Function not implemented.");
+      }} />
       <div className='logiiin' style={{ backgroundImage: `url(${sports})` }}>
         <h1> Register Page</h1>
       </div>

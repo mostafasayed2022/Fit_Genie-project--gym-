@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import './EmailOtpVerification.css';
 import workout from "../../images/workout.jpg";
+import Navbar from '../Navbar';
 
 const VerifyEmail = () => {
 
@@ -14,7 +15,7 @@ const VerifyEmail = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState(false);
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
     const handleEmailSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
@@ -44,66 +45,73 @@ const VerifyEmail = () => {
             Swal.fire({
                 icon: "error",
                 title: 'Invalid OTP. Please try again.',
-              });
+            });
         } finally {
             setLoading(false);
         }
     };
 
     if (success) {
-            Swal.fire({
-                icon: "success",
-                title: "otp is done..",
-              });
-            navigate("/login");
+        Swal.fire({
+            icon: "success",
+            title: "otp is done..",
+        });
+        navigate("/login");
     }
     return (
-        <div className="email-otp-verification">
-            {step === 'email' && (
-                <div className="email-verification">
-                    <h2>Email Verification</h2>
-                    <form onSubmit={handleEmailSubmit}>
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Enter your email"
-                            required
-                        />
-                        <button type="submit" disabled={loading} onSubmit={handleEmailSubmit}>
-                            {loading ? 'Sending...' : 'Send Verification Email'}
-                        </button>
-                    </form>
-                    {error && <p className="error">{error}</p>}
-                </div>
-            )}
+        <>
+            <Navbar loggedIn={false} setToken={function (token: string): void {
+                throw new Error("Function not implemented.");
+            }} setLoggedIn={function (loggedIn: boolean): void {
+                throw new Error("Function not implemented.");
+            }} />
+            <div className="email-otp-verification">
+                {step === 'email' && (
+                    <div className="email-verification">
+                        <h2>Email Verification</h2>
+                        <form onSubmit={handleEmailSubmit}>
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Enter your email"
+                                required
+                            />
+                            <button type="submit" disabled={loading} onSubmit={handleEmailSubmit}>
+                                {loading ? 'Sending...' : 'Send Verification Email'}
+                            </button>
+                        </form>
+                        {error && <p className="error">{error}</p>}
+                    </div>
+                )}
 
-            {step === 'otp' && (
-                <div className="otp-verification">
-                    <h2>OTP Verification</h2>
-                    <form onSubmit={handleOtpSubmit}>
-                    <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Enter your email"
-                            required
-                        />
-                        <input
-                            type="text"
-                            value={otp}
-                            onChange={(e) => setOtp(e.target.value)}
-                            placeholder="Enter OTP"
-                            required
-                        />
-                        <button type="submit" disabled={loading}>
-                            {loading ? 'Verifying...' : 'Verify OTP'}
-                        </button>
-                    </form>
-                    {error && <p className="error">{error}</p>}
-                </div>
-            )}
-        </div>
+                {step === 'otp' && (
+                    <div className="otp-verification">
+                        <h2>OTP Verification</h2>
+                        <form onSubmit={handleOtpSubmit}>
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Enter your email"
+                                required
+                            />
+                            <input
+                                type="text"
+                                value={otp}
+                                onChange={(e) => setOtp(e.target.value)}
+                                placeholder="Enter OTP"
+                                required
+                            />
+                            <button type="submit" disabled={loading}>
+                                {loading ? 'Verifying...' : 'Verify OTP'}
+                            </button>
+                        </form>
+                        {error && <p className="error">{error}</p>}
+                    </div>
+                )}
+            </div>
+        </>
     );
 }
 
