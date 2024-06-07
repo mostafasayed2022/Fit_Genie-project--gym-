@@ -4,7 +4,8 @@
     --color3:#cedcdd;
     --color4:#000c08;
     --linear:linear-gradient(to right bottom, #070002, #1a1415, #292022, #382d2f, #493a3c);
-    --linear2:linear-gradient(to right top, #f5f7f7, #b1b4b4, #727576, #393c3d, #000407);
+    --linear2:linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%);
+
 }
 
 body {
@@ -165,7 +166,9 @@ body {
            }
            
            .title_cards{
-            background-image: url("../../images/services.jpg");
+            /* background-image: url("../../images/services.jpg"); */
+            background: rgb(24,25,25);
+            background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%);
             height: 30vh;
             width: 100%;
             background-size: cover;
@@ -259,7 +262,8 @@ color: var(--color2);
             }
             
             .Testimonials{
-              background-image: url("../../images/services.jpg");
+              background: rgb(24,25,25);
+              background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%);
               height: 30vh;
               width: 100%;
               background-size: cover;
@@ -418,11 +422,10 @@ color: var(--color2);
 
 
 .Trainers{
-  background-image: url("../../images/services.jpg");
+  background: rgb(24,25,25);
+  background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%);
   height: 30vh;
   width: 100%;
-  background-size: cover;
-  background-position: center;
   text-align: center;
   font-size: 30px;
   text-transform: uppercase;
@@ -444,11 +447,10 @@ color: var(--color2);
 /* PricingPlan.module.css */
 
 .plans{
-  background-image: url("../../images/services.jpg");
+  background: rgb(24,25,25);
+  background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%);
   height: 30vh;
   width: 100%;
-  background-size: cover;
-  background-position: center;
   text-align: center;
   font-size: 30px;
   text-transform: uppercase;
@@ -541,7 +543,8 @@ color: var(--color2);
 /* Accordion */
 
 .accordion{
-  background-image: url("../../images/services.jpg");
+  background: rgb(24,25,25);
+  background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%);
   height: 30vh;
   width: 100%;
   background-size: cover;
@@ -563,7 +566,8 @@ color: var(--color2);
 
 }
 .accordion-contact {
-  background-image: url("../../images/services.jpg");
+  background: rgb(24,25,25);
+  background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%);
   height: 30vh;
   width: 100%;
   background-size: cover;

@@ -79,7 +79,7 @@ function Contactt() {
 
 
         <>
-            <div className='plans' style={{ backgroundImage: `url(${services})` }}>
+            <div className='plans'>
                 <h1>Our Contact Us</h1>
             </div>
             <div className="txt-contact">

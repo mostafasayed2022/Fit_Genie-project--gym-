@@ -14,9 +14,13 @@ import services from "../../images/services.jpg";
 function ContactUs() {
   return (
     <>
-      <Navbar loggedIn={undefined} />
+      <Navbar loggedIn={false} setToken={function (token: string): void {
+        throw new Error('Function not implemented.');
+      }} setLoggedIn={function (loggedIn: boolean): void {
+        throw new Error('Function not implemented.');
+      }} />
       <Contactt/>
-      <div className='accordion-contact' style={{ backgroundImage: `url(${services})` }}>
+      <div className='accordion-contact' >
         <h1> FREQUENTLY ASKED QUESTIONS</h1>
       </div>
       <ControlledAccordions />

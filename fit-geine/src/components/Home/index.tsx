@@ -146,7 +146,7 @@ function Home() {
       <div>
         <About />
       </div>
-      <div data-aos="fade-up-right" className='title_cards ' style={{ backgroundImage: `url(${services})` }}>
+      <div data-aos="fade-up-right" className='title_cards '>
         services
       </div>
       <div className='cards'>
@@ -222,14 +222,14 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
+      <div className='Testimonials' >
         <h1>Testimonials</h1>
       </div>
       <TestimonialsSlider />
 
 
       <div className="trainers-page">
-        <div className='Trainers' style={{ backgroundImage: `url(${services})` }}>
+        <div className='Trainers'>
           <h1>Our Trainers</h1>
         </div>
 
@@ -243,7 +243,7 @@ function Home() {
 
       </div >
 
-      <div className='plans' style={{ backgroundImage: `url(${services})` }}>
+      <div className='plans'>
         <h1> OUR PRICING PLANS</h1>
       </div>
 
@@ -255,7 +255,7 @@ function Home() {
         ))}
       </div>
 
-      <div className='accordion' style={{ backgroundImage: `url(${services})` }}>
+      <div className='accordion' >
         <h1> FREQUENTLY ASKED QUESTIONS</h1>
       </div>
 

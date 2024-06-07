@@ -78,7 +78,7 @@ function ContactForm() {
 
 
         <>
-            <div className='plans' style={{ backgroundImage: `url(${services})` }}>
+            <div className='plans' >
                 <h1>Our Contact Us</h1>
             </div>
             <form onSubmit={handleSubmit} className="form-container" style={{ backgroundImage: `url(${contactBG})` }}>
