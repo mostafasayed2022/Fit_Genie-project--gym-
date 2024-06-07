@@ -16,7 +16,6 @@ const TrainerCard = ({ name, image, description }:TrainerCardProps) => {
       <h3>{name}</h3>
       <p>{description}</p>
       </div>
-
     </div>
   );
 };
