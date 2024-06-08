@@ -40,8 +40,8 @@
 
 .workout-plans {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
 }
 
@@ -49,7 +49,7 @@
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
-    width: 100%;
+    max-width: 100%;
     background-color: #f9f9f9;
     margin: 20px;
     color: var(--color2);
