@@ -10,20 +10,8 @@
 
 .nutrition-container {
     text-align: center;
-    padding: 50px;
-    background-image: url("../../images/sports.jpg");
-    height: 40vh;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    text-align: center;
-    font-size: 50px;
-    text-transform: uppercase;
-    color:white;
-    font-weight: bold;
+    padding: 20px;
 }
-
 .nutrition-form {
     margin-bottom: 20px;
 }
@@ -74,10 +62,10 @@
     text-align: left;
 }
 
-.card h2 {
+/* .card h2 {
     font-size: 1.5em;
     margin-bottom: 10px;
-}
+} */
 
 .card p {
     margin: 5px 0;
