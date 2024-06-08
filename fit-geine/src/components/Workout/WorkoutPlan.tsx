@@ -13,7 +13,7 @@ const WorkoutPlan: React.FC=() => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
-
+    
     const fetchWorkoutPlans = async (email: string) => {
         setIsLoading(true);
         setError(null); // Clear previous errors
@@ -32,12 +32,26 @@ const WorkoutPlan: React.FC=() => {
             }
 
             const data: WorkoutPlans = await response.json();
-            setWorkoutPlans(data.workout);
+            const slicedWorkout = sliceWorkout(data.workout, 0, 100);
+            setWorkoutPlans(slicedWorkout);
         } catch (error) {
             console.error('Error fetching data:', error);
             setError('Failed to fetch workout plans');
         }
         setIsLoading(false);
+    };
+
+    const sliceWorkout = (workout: string, startIndex: number, endIndex: number) => {
+        // Find the indexes of specific symbols
+        const startSymbolIndex = workout.indexOf('-', startIndex);
+        const endSymbolIndex = workout.indexOf('+', endIndex);
+    
+        // Check if the symbols are found and return the sliced string
+        if (startSymbolIndex !== -1 && endSymbolIndex !== -1) {
+            return workout.slice(startSymbolIndex, endSymbolIndex);
+        } else {
+            return '';
+        }
     };
 
     const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
