@@ -30,7 +30,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`https://localhost:8000/api/register/`, formData);
+      const response = await axios.post(`https://127.0.0.1:8000/api/register/`, formData);
       Swal.fire({
         icon: "success",
         title: "Registration Successful",
