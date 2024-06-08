@@ -66,7 +66,7 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
           }`}
         >
           <ul>
-            {localStorage.getItem("token") ?
+            {/* {localStorage.getItem("token") ? */}
               <>
                 <li>
                   <Link to="/home">Home</Link>
@@ -99,7 +99,7 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
                   <button className="btn btn__login" >Login</button>
                 </Link>
               </>
-            }
+            {/* } */}
             {localStorage.getItem("token") ?
               <>
                 <Link to="/login">

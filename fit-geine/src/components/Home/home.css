@@ -167,8 +167,6 @@ body {
            
            .title_cards{
             background-image: url("../../images/services.jpg");
-            /* background: rgb(24,25,25);
-            background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%); */
             height: 30vh;
             width: 100%;
             background-size: cover;
@@ -180,7 +178,6 @@ body {
             color:white;
             font-weight: bold;
             animation: h1 5s infinite;
-
            }
            
            @keyframes h1 {
