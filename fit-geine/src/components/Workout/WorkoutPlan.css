@@ -22,16 +22,7 @@
         text-transform: uppercase;
         color:white;
         font-weight: bold;
-        animation: h1 5s infinite;
        }
-       
-       
-           
-       @keyframes h1 {
-        from { color: white;}
-        to {color: var(--color3);}
-
-      }
        
         
 .email-form {
