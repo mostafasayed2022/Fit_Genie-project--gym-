@@ -4,6 +4,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 
+
 import "./navbar.scss";
 import logo from "../../images/logo.ico";
 import "./logoname.css";
