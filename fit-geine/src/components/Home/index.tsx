@@ -133,7 +133,7 @@ function Home() {
           <div className="right-banner">
             <h1 data-aos="fade-up-right" >
               Fit Genie
-            </h1>
+            </h1><br/>
             <h2 className="fancy">UNLOCK YOUR FULL <span>FITNESS</span>  POTENTIAL</h2>
             <div className="butt">
               <Link to="/register">

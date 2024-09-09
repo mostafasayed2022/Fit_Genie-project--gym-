@@ -62,10 +62,11 @@ body {
             letter-spacing: 1px;
           }
           .right-banner h2{
-            font-size: 25px;
+            font-size: 35px;
             font-weight: 500;
-            letter-spacing: 0px;
-          }
+            letter-spacing: 5px;
+            color:var(--);
+        }
           .right-banner h2 span{
             font-size: 34px;
             font-weight: bold;
