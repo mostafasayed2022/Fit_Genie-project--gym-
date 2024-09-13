@@ -1,11 +1,8 @@
 import React from 'react';
 import './footer.css';
 import logo from "../../images/logo.ico";
-
 import { Link } from 'react-router-dom';
 
-import contactBG from "../../images/contactBg.jpg";
-// import footerBG from "../../images/gymOverlayBg.jpg";
 
 
 
