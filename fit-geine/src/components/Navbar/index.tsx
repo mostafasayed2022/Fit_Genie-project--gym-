@@ -67,8 +67,8 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
           }`}
         >
           <ul>
-            {localStorage.getItem("token") ?
-              <>
+            {/* {localStorage.getItem("token") ?
+              <> */}
                 <li>
                   <Link to="/home">Home</Link>
                 </li>
@@ -90,8 +90,8 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
                 <li>
                   <Link to="/ContactUs">ContactUs</Link>
                 </li>
-              </>
-              :
+              {/* </>
+              : */}
               <>
                 <Link to="/register">
                   <button className="btn">Register</button>
@@ -101,14 +101,14 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
                 </Link>
               </>
             }
-            {localStorage.getItem("token") ?
+            {/* {localStorage.getItem("token") ? */}
               <>
                 <Link to="/login">
                   <button className="btn" onClickCapture={handleLogout}>Logout</button>
                 </Link>
               </>
-              : null
-            }
+            {/* //   : null
+            // } */}
 
           </ul>
         </nav>

@@ -25,7 +25,7 @@ import '../Pricing/pricing.css'
 
 
 // images
-import home from "../../images/home.jpg";
+import home from "../../images/image2.jpg";
 import card1 from "../../images/card1.jpg";
 import card2 from "../../images/card2.jpg";
 import card3 from "../../images/card3.jpg";
@@ -228,7 +228,7 @@ function Home() {
       <TestimonialsSlider />
 
 
-      <div className="trainers-page">
+      {/* <div className="trainers-page">
         <div className='Trainers'>
           <h1>Our Trainers</h1>
         </div>
@@ -241,7 +241,7 @@ function Home() {
           ))}
         </div>
 
-      </div >
+      </div > */}
 
       <div className='plans'>
         <h1> OUR PRICING PLANS</h1>
@@ -260,9 +260,9 @@ function Home() {
       </div>
 
       <ControlledAccordions />
-      <div>
+      {/* <div>
         <ContactForm />
-      </div>
+      </div> */}
       <div>
         <Footer />
       </div>

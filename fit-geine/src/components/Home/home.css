@@ -5,7 +5,7 @@
     --color4:#000c08;
     --linear:linear-gradient(to right bottom, #070002, #1a1415, #292022, #382d2f, #493a3c);
     --linear2:linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%);
-
+    --linear3:linear-gradient(140deg,var(--color4) 0%, var(--color1) 30%, var(--color2) 80%, var(--color3) 100% );
 }
 
 body {
@@ -70,7 +70,7 @@ body {
           .right-banner h2 span{
             font-size: 34px;
             font-weight: bold;
-            color: var(--color1);
+            color: var(--color2);
             letter-spacing: 6px;
             }
             .btn{
@@ -99,7 +99,7 @@ body {
            }
            
             .cards{
-            background-color: var(--color1);
+            background: var(--linear3);
             display: flex;
              align-items: center;
              justify-content: center;
@@ -310,67 +310,6 @@ color: var(--color2);
               display: none;
             }
             
-            /* cards service */
-            
-            /* .cards {
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: space-around;
-              gap: 1rem;
-              padding: 1rem;
-            }
-            
-            .card {
-              background: #fff;
-              border-radius: 8px;
-              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-              overflow: hidden;
-              margin: 1rem;
-              display: flex;
-              flex-direction: column;
-            }
-
-            
-            .card img {
-              width: 100%;
-              height: 200px;
-              object-fit: cover;
-            }
-            
-            .card-body {
-              padding: 1rem;
-              flex: 1;
-              display: flex;
-              flex-direction: column;
-            }
-            
-            .card-title {
-              font-size: 1.25rem;
-              font-weight: bold;
-              margin-bottom: 0.5rem;
-            }
-            
-            .card-text {
-              flex: 1;
-              font-size: 1rem;
-              margin-bottom: 1rem;
-            }
-            
-            .card button {
-              background-color: #007bff;
-              color: white;
-              border: none;
-              border-radius: 4px;
-              padding: 0.5rem 1rem;
-              cursor: pointer;
-              align-self: start;
-            }
-            
-            .card button:hover {
-              background-color: #0056b3;
-            }
-             */
-            
             
             /* TrainerCard.css */
 .trainer-card {
@@ -575,8 +514,6 @@ color: var(--color2);
 
 }
 .accordion-contact {
-  /* background: rgb(24,25,25);
-  background: linear-gradient(90deg, rgba(24,25,25,1) 0%, rgba(0,0,0,1) 52%, rgba(56,45,47,1) 100%); */
   background-image: url("../../images/services.jpg");
   background-attachment: fixed;
   height: 30vh;
@@ -599,7 +536,6 @@ color: var(--color2);
   margin-top: 30px;
   max-width: 96%;
   margin-left: 20px;
-  flex-wrap: wrap;
 }
 
 .cont {
@@ -672,61 +608,134 @@ color: var(--color2);
   
   /* form contact */
 
-  .form-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 60px;
-    padding: 23px;
-    flex-wrap: wrap; 
-    margin: 0;
-  }
-.container-form{
-  padding: 20px;
-  border-radius: 15px;
-  background-color: var(--color1);
-}
-
-.container-form input{
-  background-color: var(--color3);
-}
-.container-form textarea{
-  background-color: var(--color3);
-}
-
 .txt-contact{
   text-align: center;
   padding: 30px;
   font-size: 50px;
   font-weight: 500;
   text-transform: uppercase;
-  /* background-image: var(--linear2); */
   background-color: var(--color1);
   
 }
 
-.txt-contact span{
-  color: var(--color3);
+
+
+
+/* Container Styling */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  background: var(--linear3);
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
-.txt-contact h3{
-    font-size: 35px;
-    font-weight: 200;
+/* Contact Information */
+.contact-info {
+  flex: 1 1 40%;
+  max-width: 400px;
+  margin: 1rem;
+}
+
+.contact-info .class1 {
+  font-size: 3rem;
+  margin: 30px 0;
+}
+
+
+.class1 span{
+  color: var(--color2);
+  font-size: 3.5rem;
+}
+
+
+.class3{
+    font-size: 15px;
     text-transform: capitalize;
-    margin-top: 40px;
-
+    color: #f1f1f1;
 }
 
-.txt-contact p{
-     font-size: 15px;
-    text-transform: capitalize;
-    color: var(--color3);
+.contact-info .class2 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--color2);
 }
 
-.txt-contact h3 span{
-  color: var(--color3);
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Form Styling */
+.contact-form {
+  flex: 1 1 50%;
+  max-width: 450px;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 4px rgba(0, 0, 0, 0.3);
+  color: #333;
+}
+
+.input-group3 {
+  margin-bottom: 1rem;
+}
+
+.input-group3 label {
+  display: block;
+  margin-bottom: 0.5rem;
   font-weight: bold;
+  color: var(--color1);
 }
+
+.input-group3 input,
+.input-group3 textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.groups .input-group3 .input1{
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  background-color: var(--color3);
+  border-radius: 5px;
+}
+
+.input-group3 textarea {
+  height: 100px;
+  resize: none;
+}
+.groups{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-info,
+  .contact-form {
+    max-width: 100%;
+  }
+}
+
+
 
 /* ------------------payment_form --------------------------------*/
 
