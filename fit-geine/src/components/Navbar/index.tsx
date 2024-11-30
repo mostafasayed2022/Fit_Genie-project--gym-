@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 
 
 import "./navbar.scss";
-import logo from "../../images/Power Gym Instagram Story (7).png";
+import logo from "../../images/Power_Gym_Instagram_Story__7_-removebg-preview.ico";
 import "./logoname.css";
 
 const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; setLoggedIn: (loggedIn: boolean) => void; }) => {
@@ -100,7 +100,7 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
                   <button className="btn btn__login" >Login</button>
                 </Link>
               </>
-            }
+            
             {/* {localStorage.getItem("token") ? */}
               <>
                 <Link to="/login">
