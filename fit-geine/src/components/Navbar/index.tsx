@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 
 
 import "./navbar.scss";
-import logo from "../../images/logo.ico";
+import logo from "../../images/Power Gym Instagram Story (7).png";
 import "./logoname.css";
 
 const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; setLoggedIn: (loggedIn: boolean) => void; }) => {
