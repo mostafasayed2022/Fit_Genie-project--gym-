@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 
 
 import "./navbar.scss";
-import logo from "../../images/Power_Gym_Instagram_Story__7_-removebg-preview.ico";
+import logo from "../../images/logo3.ico";
 import "./logoname.css";
 
 const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; setLoggedIn: (loggedIn: boolean) => void; }) => {
@@ -56,7 +56,7 @@ const Navbar = (props: { loggedIn: boolean; setToken: (token: string) => void; s
       <div className="header__content">
         <div className="logo_name">
           <Link to="/home" className="header__content__logo">
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" className="header__content__logo1" />
           </Link>
           <p className="span1">Fit <span className="span2">Genie </span></p>
         </div>

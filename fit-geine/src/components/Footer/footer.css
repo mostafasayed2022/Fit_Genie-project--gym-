@@ -26,6 +26,10 @@
     flex: 1;
     margin: 0 20px;
   }
+  .column .logo-footer{
+    height: 80px;
+    width: auto;
+  }
  .bottomBar{
     border-top: 1px solid #555;
     padding:20px 0;

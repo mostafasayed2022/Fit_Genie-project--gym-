@@ -1,9 +1,7 @@
 import React from 'react';
 import './footer.css';
-import logo from "../../images/logo.ico";
+import logo from "../../images/logo3.ico";
 import { Link } from 'react-router-dom';
-
-
 
 
 const Footer = () => {
@@ -11,8 +9,7 @@ const Footer = () => {
     <footer className='footer'>
       <div className='container'>
         <div className='column' >
-          <img src={logo} alt='logo' />
-
+          <img src={logo} alt='logo' className='logo-footer' />
           <p>Fit-Genie  has the best personal training program .Our certified personal trainers are experts in their craft. We create the perfect programs to help you reach your goals. Everything begins with our energy and figuring out how to evolve that, then the journey begins.</p>
         </div>
         <div className="column">

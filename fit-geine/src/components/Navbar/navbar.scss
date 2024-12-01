@@ -28,6 +28,12 @@
 
     transition: 0.3s ease all;
 
+    .logo_name {
+        .header__content__logo1 {
+          height: 60px;
+          width: auto;
+        }
+      }
     &__content {
         overflow: hidden;
         color: #fff;
@@ -152,7 +158,8 @@
                 }
 
             }
-
+        
+        
 
             &.isMenu {
                 transform: translate(100%);
