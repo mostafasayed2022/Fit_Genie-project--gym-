@@ -1,96 +1,81 @@
 import React from "react";
-import Navbar from "../Navbar";
-import Footer from "../Footer";
-import Home from "../Home";
 import TrainerCard from "../Home/TrainerCard ";
 import ImagesClasses from "./ImagesClasses";
-import './about.css';
-// images
+import { TRAINERS } from "../../data/constants";
 import bgVideo from "../../images/bgVideo.mp4";
 import services from "../../images/services.jpg";
-import trainer1 from "../../images/trainer1.jpg";
-import trainer2 from "../../images/trainer2.jpg";
-import trainer3 from "../../images/trainer3.jpg";
-import trainer4 from "../../images/trainer4.jpg";
-import sports from "../../images/sports.jpg"
+import sports from "../../images/sports.jpg";
 
-
-
-function index() {
-
-  const trainers = [
-    {
-      name: 'JANE MARSHALL',
-      image: trainer1,
-      description: 'CARDIO & CONDITIONING',
-    },
-    {
-      name: 'DAVE WOOD',
-      image: trainer2,
-      description: 'STRENGTH TRAINER',
-    },
-  
-    {
-      name: 'MATTHEW AIDEN',
-      image: trainer3,
-      description: 'FREESTYLE TRAINER',
-    },
-  
-    {
-      name: 'WILLIAM MASON',
-      image: trainer4,
-      description: 'GROUP EXERCISE TRAINER',
-    },
-  ];
-  
+const AboutPage: React.FC = () => {
   return (
-    <body>
-      <Navbar loggedIn={false} setToken={function (token: string): void {
-        throw new Error('Function not implemented.');
-      }} setLoggedIn={function (loggedIn: boolean): void {
-        throw new Error('Function not implemented.');
-      }} />
-      <div className='Testimonials' style={{ backgroundImage: `url(${sports})` }}>
-        <h1>About us</h1>
+    <div className="pt-20">
+      {/* Hero Section */}
+      <div 
+        className="h-[400px] flex items-center justify-center bg-cover bg-fixed bg-center relative" 
+        style={{ backgroundImage: `url(${sports})` }}
+      >
+        <div className="absolute inset-0 bg-black/60" />
+        <h1 className="text-5xl md:text-8xl text-white relative z-10 tracking-tighter" data-aos="zoom-in">
+          ABOUT <span className="text-primary italic font-['Outfit']">US</span>
+        </h1>
       </div>
-      <div className="container_about">
-        <div className="text-about">
-          <div className="title_about">
-            Who we <span>are?</span>
+
+      {/* Intro Section */}
+      <div className="container mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div data-aos="fade-right">
+          <h2 className="text-3xl md:text-5xl mb-8 leading-tight">
+            WHO WE <span className="text-primary italic font-['Outfit']">ARE?</span>
+          </h2>
+          <p className="text-white/70 text-lg leading-relaxed mb-8">
+            Fit Genie has the best personal training program. Our certified personal trainers 
+            are experts in their craft. We create the perfect programs to help you reach your goals. 
+            Everything begins with our energy and figuring out how to evolve that, then the journey begins.
+          </p>
+          <div className="grid grid-cols-2 gap-8">
+            <div className="glass-card">
+              <h4 className="text-primary font-bold text-xl mb-1 italic">Our Mission</h4>
+              <p className="text-white/50 text-sm">To empower every individual to reach their peak physical potential through science-backed training.</p>
+            </div>
+            <div className="glass-card">
+              <h4 className="text-primary font-bold text-xl mb-1 italic">Our Vision</h4>
+              <p className="text-white/50 text-sm">To be the global leader in personalized fitness and holistic health management.</p>
+            </div>
           </div>
-            <p>Fit-Genie has the best personal training program 
-            ,Our certified personal trainers are experts in their craft
-            , We create the perfect programs to help you reach your goals
-            , Everything begins with our energy and 
-            figuring out how to evolve that, then the journey begins.</p>
         </div>
-        <div>
-          <video autoPlay loop muted className="video">
-            <source src={bgVideo} type="video/mp4">
-            </source>
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/5 border border-white/5" data-aos="fade-left">
+          <video autoPlay loop muted className="w-full h-full object-cover aspect-video">
+            <source src={bgVideo} type="video/mp4" />
           </video>
+          <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
         </div>
       </div>
-      
-      <div className="trainers-page">
-        <div className='Trainers' style={{ backgroundImage: `url(${services})` }}>
-          <h1>Our Trainers</h1>
+
+      {/* Trainers Section */}
+      <section className="py-24 bg-dark-lighter">
+        <div 
+          className="h-[250px] flex items-center justify-center bg-cover bg-center mb-16 relative" 
+          style={{ backgroundImage: `url(${services})` }}
+        >
+          <div className="absolute inset-0 bg-black/70" />
+          <h2 className="text-4xl md:text-6xl text-white relative z-10 uppercase tracking-tighter italic">Our Expert Trainers</h2>
         </div>
-        <div className="trainer-cards">
-          {trainers.map((trainer, index) => (
+        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {TRAINERS.map((trainer, index) => (
             <TrainerCard key={index} {...trainer} />
           ))}
         </div>
-      </div>
-        
-      <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
-        <h1>Our Classes</h1>
-      </div>
-        <ImagesClasses/>
-        
-      <Footer />
-    </body>
+      </section>
+
+      {/* Classes Section */}
+      <section className="py-24 bg-dark">
+        <div className="container mx-auto px-6 text-center mb-16">
+          <h2 className="text-4xl md:text-6xl uppercase tracking-tighter">Our Premium Classes</h2>
+          <div className="w-24 h-1 bg-primary mx-auto mt-4 rounded-full" />
+        </div>
+        <ImagesClasses />
+      </section>
+    </div>
   );
 }
 
-export default index;
+export default AboutPage;

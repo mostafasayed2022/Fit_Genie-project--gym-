@@ -1,92 +1,92 @@
 import React from "react";
-import Navbar from "../Navbar";
-import Footer from "../Footer";
-import './about.css';
-// images
-import crossfit_gif from "../../images/crossfit_gif.gif"
+import { SERVICE_DETAILS } from "../../data/constants";
 import services from "../../images/services.jpg";
-import crossfit1 from "../../images/crossfit1.jpg"
-import crossfit2 from "../../images/crossfit2.jpg"
-import crossfit3 from "../../images/crossfit3.jpg"
-import crossfit4 from "../../images/crossfit4.jpg"
-import crossfit5 from "../../images/crossfit5.jpg"
-import crossfit6 from "../../images/crossfit6.jpg"
 
+const Crossfit: React.FC = () => {
+    const data = SERVICE_DETAILS.crossfit;
 
+    return (
+        <div className="pt-20 bg-dark text-white overflow-x-hidden">
+            {/* Header */}
+            <div 
+                className='h-[200px] md:h-[300px] flex items-center justify-center bg-cover bg-fixed bg-center relative overflow-hidden' 
+                style={{ backgroundImage: `url(${services})` }}
+            >
+                <div className="absolute inset-0 bg-black/60" />
+                <h1 className="text-4xl sm:text-5xl md:text-8xl relative z-10 tracking-tighter uppercase font-black italic px-6 text-center leading-none" data-aos="zoom-in">
+                    {data.title}
+                </h1>
+            </div>
 
+            {/* Intro */}
+            <div className="container mx-auto px-6 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div data-aos="fade-right">
+                    <span className="text-primary font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">Intensity & Grit</span>
+                    <h2 className="text-3xl md:text-5xl mb-8 leading-[0.95] font-black uppercase tracking-tighter italic text-left">
+                        WHAT IS <span className="text-primary italic font-['Outfit']">CROSSFIT?</span>
+                    </h2>
+                    <p className="text-white/60 text-base md:text-lg leading-relaxed mb-10 max-w-xl italic text-left">
+                        {data.intro}
+                    </p>
+                    <div className="flex flex-wrap gap-4">
+                        <button className="btn-primary !px-10 !py-4 text-[10px] tracking-widest font-black uppercase">GET STARTED</button>
+                        <button className="btn-outline !px-10 !py-4 text-[10px] tracking-widest font-black uppercase border-white/10 hover:border-primary">LEARN MORE</button>
+                    </div>
+                </div>
+                <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/5 group" data-aos="fade-left">
+                    <img src={data.gif} alt="crossfit" className="w-full h-full object-cover aspect-video group-hover:scale-105 transition-transform duration-1000" />
+                    <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent" />
+                </div>
+            </div>
 
-function Crossfit() {
+            {/* Advantages */}
+            <section className="py-20 lg:py-32 bg-dark-lighter">
+                <div className="container mx-auto px-6 text-center mb-16 px-4">
+                    <span className="text-primary font-black uppercase tracking-[0.4em] text-[10px]">All-Round Power</span>
+                    <h2 className="text-3xl md:text-6xl uppercase tracking-tighter font-black italic mt-4">Crossfit <span className="text-primary">Advantages</span></h2>
+                </div>
+                
+                <div className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
+                    {data.advantages.map((adv, index) => (
+                        <div 
+                            key={index} 
+                            className="glass-card group hover:border-primary/20 transition-all duration-700 hover:-translate-y-2 border border-white/5 text-left"
+                            data-aos="fade-up"
+                            data-aos-delay={index * 100}
+                        >
+                            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary font-black text-2xl mb-8 group-hover:bg-primary group-hover:text-black transition-all shadow-xl italic tracking-tighter">
+                                0{index + 1}
+                            </div>
+                            <h3 className="text-xl md:text-2xl font-black mb-4 uppercase tracking-tighter italic leading-tight">{adv.title}</h3>
+                            <p className="text-white/40 text-sm leading-relaxed font-medium line-clamp-4">{adv.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
 
-  return (
-    <body>
-      <Navbar loggedIn={undefined} />
-      <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
-        <h1>crossfit</h1>
-      </div>
-      <div className="container_about">
-        <div className="text-about">
-          <div className="title_about">
-            What is  the <span>crossfit?</span>
-          </div>
-          <p>CrossFit is a high-intensity fitness program that incorporates elements from various disciplines, including weightlifting, gymnastics, calisthenics, and cardiovascular exercise.
-            It is characterized by constantly varied functional movements performed at high intensity. The workouts, known as WODs (Workout of the Day), typically include a mix of exercises such as weightlifting (e.g., squats, deadlifts, cleans),
-            bodyweight movements (e.g., pull-ups, push-ups, burpees), and cardiovascular exercises (e.g., rowing, running, jump rope).
-            CrossFit workouts are designed to be scalable, meaning they can be adjusted to accommodate individuals of different fitness levels, from beginners to elite athletes. Participants often perform the same workout but scale the intensity,
-            load, or movements based on their abilities and experience.</p>
+            {/* Gallery */}
+            <section className="py-20 lg:py-32 bg-dark relative overflow-hidden">
+                <div className="container mx-auto px-6 text-center mb-16 px-4">
+                    <span className="text-primary font-black uppercase tracking-[0.4em] text-[10px] px-4 text-center">Warrior Mode</span>
+                    <h2 className="text-3xl md:text-6xl uppercase tracking-tighter font-black italic mt-4 text-center">Crossfit <span className="text-primary">Gallery</span></h2>
+                </div>
+                <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+                    {data.gallery.map((img, index) => (
+                        <div 
+                            key={index} 
+                            className="group relative aspect-square rounded-xl lg:rounded-2xl overflow-hidden shadow-2xl border border-white/5"
+                            data-aos="zoom-in"
+                        >
+                            <img src={img} alt="gallery" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0" />
+                            <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </div>
+                    ))}
+                </div>
+                <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px]" />
+            </section>
         </div>
-        <div className="image">
-          <img src={crossfit_gif} alt="fitness_gif" />
-        </div>
-      </div>
-
-      <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
-        <h1> crossfit advantages!</h1>
-      </div>
-
-      <div className="card-containerr">
-        <div className="cart">
-          <h2> Movements</h2>
-          <p>CrossFit emphasizes functional movements, which are movements that mimic real-life activities and engage multiple muscle groups simultaneously. Examples include squats, deadlifts, pull-ups, and Olympic weightlifting movements like the snatch and clean and jerk.</p>
-        </div>
-
-        <div className="cart">
-          <h2> Constant Variation</h2>
-          <p>Workouts in CrossFit are highly varied and rarely repeated. This constant variation keeps participants engaged and challenges their bodies in different ways, preventing plateaus and promoting overall fitness.</p>
-        </div>
-
-        <div className="cart">
-          <h2> High Intensity</h2>
-          <p>CrossFit workouts are typically performed at high intensity, meaning they are fast-paced and push participants to work at or near their maximum effort level. This intensity helps improve cardiovascular fitness, strength, and endurance.</p>
-        </div>
-
-        <div className="cart">
-          <h2>Workout Structure</h2>
-          <p>CrossFit workouts, known as "WODs" (Workout of the Day), are typically short but intense. They often combine different exercises in a circuit or AMRAP (As Many Rounds As Possible) format, with participants completing a prescribed number of repetitions or rounds as quickly as possible.</p>
-        </div>
-
-        <div className="cart">
-          <h2>Scalability</h2>
-          <p> CrossFit workouts can be scaled or modified to suit individuals of all fitness levels, from beginners to elite athletes. This scalability makes CrossFit accessible to a wide range of people with varying fitness goals and abilities.</p>
-        </div>
-      </div>
-      <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
-        <h1> crossfit gallery!</h1>
-      </div>
-
-
-      <div className="image-grid">
-        <img src={crossfit1} alt=" fitness_image" />
-        <img src={crossfit2} alt=" fitness_image" />
-        <img src={crossfit3} alt="fitness_image" />
-        <img src={crossfit4} alt="fitness_image" />
-        <img src={crossfit5} alt="fitness_image" />
-        <img src={crossfit6} alt="fitness_image" />
-
-      </div>
-
-      <Footer />
-    </body>
-  );
+    );
 }
 
 export default Crossfit;

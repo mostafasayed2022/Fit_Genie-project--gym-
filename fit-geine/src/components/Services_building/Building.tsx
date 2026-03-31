@@ -1,93 +1,92 @@
 import React from "react";
-import Navbar from "../Navbar";
-import Footer from "../Footer";
-import './about.css';
-// images
-import building_gif from "../../images/building_gif.gif"
+import { SERVICE_DETAILS } from "../../data/constants";
 import services from "../../images/services.jpg";
 
-import build1 from "../../images/build1.jpg"
-import build2 from "../../images/build2.jpg"
-import build3 from "../../images/build3.jpg"
-import build4 from "../../images/build4.jpg"
-import build5 from "../../images/build5.jpg"
-import build6 from "../../images/build6.jpg"
+const Building: React.FC = () => {
+    const data = SERVICE_DETAILS.building;
 
+    return (
+        <div className="pt-20 bg-dark text-white overflow-x-hidden">
+            {/* Header */}
+            <div 
+                className='h-[200px] md:h-[300px] flex items-center justify-center bg-cover bg-fixed bg-center relative overflow-hidden' 
+                style={{ backgroundImage: `url(${services})` }}
+            >
+                <div className="absolute inset-0 bg-black/60" />
+                <h1 className="text-4xl sm:text-5xl md:text-8xl relative z-10 tracking-tighter uppercase font-black italic px-6 text-center leading-none" data-aos="zoom-in">
+                    {data.title}
+                </h1>
+            </div>
 
+            {/* Intro */}
+            <div className="container mx-auto px-6 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div data-aos="fade-right">
+                    <span className="text-primary font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">Power & Mass</span>
+                    <h2 className="text-3xl md:text-5xl mb-8 leading-[0.95] font-black uppercase tracking-tighter italic text-left">
+                        WHAT IS <span className="text-primary italic font-['Outfit']">BODY BUILDING?</span>
+                    </h2>
+                    <p className="text-white/60 text-base md:text-lg leading-relaxed mb-10 max-w-xl italic text-left">
+                        {data.intro}
+                    </p>
+                    <div className="flex flex-wrap gap-4">
+                        <button className="btn-primary !px-10 !py-4 text-[10px] tracking-widest font-black uppercase">GET STARTED</button>
+                        <button className="btn-outline !px-10 !py-4 text-[10px] tracking-widest font-black uppercase border-white/10 hover:border-primary">LEARN MORE</button>
+                    </div>
+                </div>
+                <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/5 group" data-aos="fade-left">
+                    <img src={data.gif} alt="bodybuilding" className="w-full h-full object-cover aspect-video group-hover:scale-105 transition-transform duration-1000" />
+                    <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent" />
+                </div>
+            </div>
 
+            {/* Advantages */}
+            <section className="py-20 lg:py-32 bg-dark-lighter">
+                <div className="container mx-auto px-6 text-center mb-16 px-4">
+                    <span className="text-primary font-black uppercase tracking-[0.4em] text-[10px]">Aesthetic Goals</span>
+                    <h2 className="text-3xl md:text-6xl uppercase tracking-tighter font-black italic mt-4">Building <span className="text-primary">Advantages</span></h2>
+                </div>
+                
+                <div className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
+                    {data.advantages.map((adv, index) => (
+                        <div 
+                            key={index} 
+                            className="glass-card group hover:border-primary/20 transition-all duration-700 hover:-translate-y-2 border border-white/5 text-left"
+                            data-aos="fade-up"
+                            data-aos-delay={index * 100}
+                        >
+                            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary font-black text-2xl mb-8 group-hover:bg-primary group-hover:text-black transition-all shadow-xl italic tracking-tighter">
+                                0{index + 1}
+                            </div>
+                            <h3 className="text-xl md:text-2xl font-black mb-4 uppercase tracking-tighter italic leading-tight">{adv.title}</h3>
+                            <p className="text-white/40 text-sm leading-relaxed font-medium line-clamp-4">{adv.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
 
-function Building() {
-
-  return (
-<body>
-      <Navbar loggedIn={undefined} />
-      <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
-        <h1>body Building</h1>
-      </div>
-      <div className="container_about">
-        <div className="text-about">
-          <div className="title_about">
-            What is  the <span>body Building?</span>
-          </div>
-          <p>Bodybuilding is a sport and fitness activity focused on developing and sculpting the muscles of the body through weightlifting, nutrition, and sometimes supplementation.
-          It's not just about building muscle mass but also about achieving symmetry, proportion, and definition. 
-          Bodybuilders typically engage in resistance training exercises targeting specific muscle groups to promote hypertrophy (muscle growth) and often follow strict diets to reduce body fat and enhance muscle definition.
-          Competitive bodybuilding
-          involves participants showcasing their physique in front of judges, who assess muscularity, definition, symmetry, and overall presentation.</p>
+            {/* Gallery */}
+            <section className="py-20 lg:py-32 bg-dark relative overflow-hidden">
+                <div className="container mx-auto px-6 text-center mb-16 px-4">
+                    <span className="text-primary font-black uppercase tracking-[0.4em] text-[10px]">Strength Showcase</span>
+                    <h2 className="text-3xl md:text-6xl uppercase tracking-tighter font-black italic mt-4 px-4 text-center">Building <span className="text-primary">Gallery</span></h2>
+                </div>
+                <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+                    {data.gallery.map((img, index) => (
+                        <div 
+                            key={index} 
+                            className="group relative aspect-square rounded-xl lg:rounded-2xl overflow-hidden shadow-2xl border border-white/5"
+                            data-aos="zoom-in"
+                        >
+                            <img src={img} alt="gallery" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0" />
+                            <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </div>
+                    ))}
+                </div>
+                <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px]" />
+            </section>
         </div>
-        <div className="image">
-          <img src={building_gif} alt="fitness_gif" />
-        </div>
-      </div>
-
-      <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
-        <h1> body Building advantages!</h1>
-      </div>
-
-      <div className="card-containerr">
-        <div className="cart">
-          <h2>Nutrition</h2>
-          <p>Nutrition is a critical component of bodybuilding. Bodybuilders typically follow a high-protein diet to support muscle growth and repair. They also carefully monitor their calorie intake, macronutrient ratios (protein, carbohydrates, and fats), and meal timing to optimize muscle building and minimize fat gain.</p>
-        </div>
-
-        <div className="cart">
-          <h2> Lifestyle</h2>
-          <p>Bodybuilding is not just a sport but often a lifestyle for those involved. It requires dedication, discipline, and consistency in training, nutrition, and lifestyle habits to achieve and maintain a competitive physique.</p>
-        </div>
-
-        <div className="cart">
-          <h2> Training</h2>
-          <p>Bodybuilders typically follow a structured weightlifting program that targets different muscle groups on different days of the week. They often divide their training into "splits," focusing on specific muscle groups each session to allow for adequate recovery time.</p>
-        </div>
-
-        <div className="cart">
-          <h2>Rest and Recovery</h2>
-          <p>Adequate rest and recovery are essential for muscle growth and overall health. Bodybuilders typically prioritize sleep and may incorporate rest days into their training schedules to allow their muscles to recover and grow.</p>
-        </div>
-
-        <div className="cart">
-          <h2>Supplementation</h2>
-          <p>Many bodybuilders use supplements to support their training and nutrition goals. These may include protein powders, creatine, branched-chain amino acids (BCAAs), pre-workout supplements, and vitamins/minerals..</p>
-        </div>
-      </div>
-      <div className='Testimonials' style={{ backgroundImage: `url(${services})` }}>
-        <h1>body building gallery!</h1>
-      </div>
-
-
-      <div className="image-grid">
-        <img src={build1} alt=" fitness_image" />
-        <img src={build2} alt=" fitness_image" />
-        <img src={build3} alt="fitness_image" />
-        <img src={build4} alt="fitness_image" />
-        <img src={build5} alt="fitness_image" />
-        <img src={build6} alt="fitness_image" />
-
-      </div>
-
-      <Footer />
-    </body>
-  );
+    );
 }
 
 export default Building;

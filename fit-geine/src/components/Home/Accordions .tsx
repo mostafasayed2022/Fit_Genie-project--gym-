@@ -1,153 +1,86 @@
-import * as React from 'react';
-import Accordion from '@mui/material/Accordion';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import Typography from '@mui/material/Typography';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import './home.css';
+import React, { useState } from 'react';
+import { FAQS } from '../../data/constants';
+import { FaChevronDown } from 'react-icons/fa';
 
+const ControlledAccordions: React.FC = () => {
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-export default function ControlledAccordions() {
-    const [expanded, setExpanded] = React.useState<string | false>(false);
-
-    const handleChange =
-        (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-            setExpanded(isExpanded ? panel : false);
-        };
+    const toggleAccordion = (index: number) => {
+        setOpenIndex(openIndex === index ? null : index);
+    };
 
     return (
-    <div className='cont'>
-        <div className='accordio-container'>
-            <div>
-                <Accordion className='cardsss'>
-                    <AccordionSummary
-                        expandIcon={<ArrowDownwardIcon />}
-                        aria-controls="panel1-content"
-                        id="panel1-header"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+            {/* Left Column */}
+            <div className="space-y-4">
+                {FAQS.slice(0, 3).map((faq, index) => (
+                    <div 
+                        key={index} 
+                        className="glass-card !p-0 overflow-hidden border border-white/5 hover:border-primary/20 transition-colors"
+                        data-aos="fade-up"
+                        data-aos-delay={index * 100}
                     >
-                        <Typography className='text_accordion'>How do I choose the right routine for my goals?</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Typography className='card-content'>
-                            Determine what you want to achieve, whether it's weight loss, muscle gain,
-                            improved cardiovascular fitness, or overall health and wellness.
-                            Choose a routine that matches your current fitness level. If you're a beginner,
-                            start with a program designed for beginners to avoid injury and build a solid foundation.
-                            Pay attention to how your body responds to the routine. If you experience pain or discomfort,
-                            adjust the routine or seek guidance from a fitness professional.
-                        </Typography>
-                    </AccordionDetails>
-                </Accordion>
-
-                <Accordion className='cardsss'>
-                    <AccordionSummary
-                        expandIcon={<ArrowDownwardIcon />}
-                        aria-controls="panel1-content"
-                        id="panel1-header"
-                    >
-                        <Typography className='text_accordion'>Should I bulk (gain weight) or cut (lose weight)?</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Typography className='card-content'>
-                            Building muscle mass and strength.
-                            Eat at a calorie surplus (consume more calories than you burn).
-                            Focus on a balanced diet with higher protein intake to support muscle growth.
-                            Include strength training to stimulate muscle growth.<br />
-                            Reduce body fat and improve muscle definition.
-                            Eat at a calorie deficit (consume fewer calories than you burn).
-                            Maintain adequate protein intake to preserve muscle mass.
-                            Combine cardio and strength training to maintain muscle while burning fat.
-                        </Typography>
-                    </AccordionDetails>
-                </Accordion>
-
-                <Accordion className='cardsss'>
-                    <AccordionSummary
-                        expandIcon={<ArrowDownwardIcon />}
-                        aria-controls="panel1-content"
-                        id="panel1-header"
-                    >
-                        <Typography className='text_accordion'>Can I lose fat and build muscle at the same time?</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Typography className='card-content'>
-                            To achieve body recomposition, you need to maintain a slight caloric deficit
-                            to lose fat while consuming enough protein and nutrients to support muscle growth.
-                            Adequate protein intake is crucial for preserving and building muscle mass while in a caloric deficit.
-                            Aim for around 1.2 to 2.2 grams of protein per kilogram of body weight per day.
-                            Incorporate resistance training into your routine to stimulate muscle growth.
-                            Focus on compound exercises that target multiple muscle groups.
-                        </Typography>
-                    </AccordionDetails>
-                </Accordion>
+                        <button 
+                            onClick={() => toggleAccordion(index)}
+                            className="w-full p-6 text-left flex justify-between items-center group transition-all"
+                        >
+                            <span className={`font-bold transition-colors ${openIndex === index ? 'text-primary' : 'text-white/80 group-hover:text-white'}`}>
+                                {faq.question}
+                            </span>
+                            <div className={`shrink-0 ml-4 transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-primary' : 'text-white/20'}`}>
+                                <FaChevronDown />
+                            </div>
+                        </button>
+                        <div 
+                            className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                                openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                            }`}
+                        >
+                            <div className="p-6 pt-0 text-white/50 text-sm leading-relaxed border-t border-white/5">
+                                {faq.answer}
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
 
-
-            <div>
-                <Accordion className='cardsss'>
-                    <AccordionSummary
-                        expandIcon={<ArrowDropDownIcon />}
-                        aria-controls="panel2-content"
-                        id="panel2-header"
-                    >
-                        <Typography className='text_accordion'>How do I know how many calories to eat?</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Typography className='card-content'>
-                            This is the number of calories your body needs to maintain basic functions at rest.
-                            There are several formulas to estimate BMR, such as the Harris-Benedict equation or the Mifflin-St Jeor equation,
-                            Multiply your BMR by an activity factor to estimate your TDEE.
-                            The activity factor ranges from 1.2 (sedentary) to 1.9 (very active).
-                        </Typography>
-                    </AccordionDetails>
-
-                </Accordion>
-
-
-                <Accordion className='cardsss'>
-                    <AccordionSummary
-                        expandIcon={<ArrowDropDownIcon />}
-                        aria-controls="panel2-content"
-                        id="panel2-header"
-                    >
-                        <Typography className='text_accordion'>Is it true that eating too much protein at once is a waste?</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Typography className='card-content'>
-                            Research suggests that consuming around 20-40 grams of high-quality protein per meal is sufficient to maximize muscle protein synthesis in most individuals.
-                            Consuming more protein than your body can use for
-                            muscle protein synthesis at one time may result in the excess being used for energy or stored as fat.
-                        </Typography>
-                    </AccordionDetails>
-
-                </Accordion>
-
-
-                <Accordion className='cardsss'>
-                    <AccordionSummary
-                        expandIcon={<ArrowDropDownIcon />}
-                        aria-controls="panel2-content"
-                        id="panel2-header"
-                    >
-                        <Typography className='text_accordion'>Am I not getting a good workout if I’m not sweating?</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Typography className='card-content'>
-                            The intensity of your workout should align with your fitness goals. For example,
-                            if you're aiming to improve cardiovascular fitness, you might focus on activities that elevate your heart rate.
-                            The duration of your workout should be appropriate for your fitness level and goals. A longer workout doesn't always mean a better workout.
-                            Over time, you should see improvements in your strength, endurance, or other fitness markers.
-                            Progression is a sign that your workout routine is effective.
-                            Consistently engaging in physical activity is key to seeing results.
-                            A single intense workout is less beneficial than a regular, sustainable exercise routine.
-                        </Typography>
-                    </AccordionDetails>
-
-                </Accordion>
+            {/* Right Column */}
+            <div className="space-y-4">
+                {FAQS.slice(3).map((faq, index) => {
+                    const actualIndex = index + 3;
+                    return (
+                        <div 
+                            key={actualIndex} 
+                            className="glass-card !p-0 overflow-hidden border border-white/5 hover:border-primary/20 transition-colors"
+                            data-aos="fade-up"
+                            data-aos-delay={actualIndex * 100}
+                        >
+                            <button 
+                                onClick={() => toggleAccordion(actualIndex)}
+                                className="w-full p-6 text-left flex justify-between items-center group transition-all"
+                            >
+                                <span className={`font-bold transition-colors ${openIndex === actualIndex ? 'text-primary' : 'text-white/80 group-hover:text-white'}`}>
+                                    {faq.question}
+                                </span>
+                                <div className={`shrink-0 ml-4 transition-transform duration-300 ${openIndex === actualIndex ? 'rotate-180 text-primary' : 'text-white/20'}`}>
+                                    <FaChevronDown />
+                                </div>
+                            </button>
+                            <div 
+                                className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                                    openIndex === actualIndex ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                                }`}
+                            >
+                                <div className="p-6 pt-0 text-white/50 text-sm leading-relaxed border-t border-white/5">
+                                    {faq.answer}
+                                </div>
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
-
-        </div>
         </div>
     );
-}
+};
+
+export default ControlledAccordions;

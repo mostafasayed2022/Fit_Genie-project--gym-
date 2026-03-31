@@ -1,273 +1,148 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { useEffect } from "react";
-import Navbar from "../Navbar";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import Counter from './Counter';
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+// Components
+import About from './About';
+import CounterSection from './Counter';
 import TestimonialsSlider from './TestimonialsSlider';
-import TrainerCard from './TrainerCard ';
 import PricingPlans from './PricingPlans';
 import ControlledAccordions from './Accordions ';
-import ContactForm from './ContactForm';
-import About from './About';
-import AOS from "aos";
-import Footer from "../Footer";
-// services pages
-import Services_fitness from "../Services_fitness/Fitness"
-import Services_building from "../Services_fitness/Fitness"
-import Services_crossfit from "../Services_fitness/Fitness"
-import Services_cardio from "../Services_fitness/Fitness"
 
+// Constants & Data
+import { SERVICES, STATS, PRICING_PLANS } from "../../data/constants";
 
-// css
-import './home.css';
-import '../Pricing/pricing.css'
+// Images
+import homeBg from "../../images/image2.jpg";
 
+const Home: React.FC = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: "ease-out-cubic",
+    });
+  }, []);
 
-// images
-import home from "../../images/image2.jpg";
-import card1 from "../../images/card1.jpg";
-import card2 from "../../images/card2.jpg";
-import card3 from "../../images/card3.jpg";
-import card4 from "../../images/card4.jpg";
-import card5 from "../../images/card5.jpg";
-import services from "../../images/services.jpg";
-import counter1 from "../../images/counter1.jpg";
-import trainer1 from "../../images/trainer1.jpg";
-import trainer2 from "../../images/trainer2.jpg";
-import trainer3 from "../../images/trainer3.jpg";
-import trainer4 from "../../images/trainer4.jpg";
-
-
-// import counter2 from "../../images/counter2.jpg";
-
-
-const trainers = [
-  {
-    name: 'JANE MARSHALL',
-    image: trainer1,
-    description: 'CARDIO & CONDITIONING',
-  },
-  {
-    name: 'DAVE WOOD',
-    image: trainer2,
-    description: 'STRENGTH TRAINER',
-  },
-
-  {
-    name: 'MATTHEW AIDEN',
-    image: trainer3,
-    description: 'FREESTYLE TRAINER',
-  },
-
-  {
-    name: 'WILLIAM MASON',
-    image: trainer4,
-    description: 'GROUP EXERCISE TRAINER',
-  },
-];
-
-
-
-
-const plans = [
-  {
-    name: 'Basic',
-    price: 60,
-    features: ['Access to all of fitgenie', ' access to hardware', 'not access to ai plans', "access to Services fitgenie"],
-  },
-  {
-    name: 'Pro',
-    price: 120,
-    features: ['Access to all of fitgenie', 'access to hardware', 'access to Services fitgenie', 'access to ai plans but not all'],
-  },
-  {
-    name: 'Premium',
-    price: 250,
-    features: ['Access to all of fitgenie', 'access to hardware', 'access to Services fitgenie', 'access to ai plans '],
-  },
-];
-
-
-
-const cards = [
-  {
-    img: card1,
-    title: 'Fitness',
-    text: 'Fitness is a broad term that encompasses various aspects of physical well-being, including strength, endurance, flexibility, and cardiovascular health.'
-  },
-  {
-    img: card2,
-    title: 'Body Building',
-    text: 'Bodybuilding is a form of physical fitness training that focuses on building and sculpting muscle mass to achieve a muscular and well-defined physique.'
-  },
-  {
-    img: card3,
-    title: 'Crossfit',
-    text: 'CrossFit is a high-intensity fitness program that combines elements of strength training, cardiovascular exercise, and functional movements.'
-  },
-  {
-    img: card4,
-    title: 'Cardio',
-    text: 'Cardiovascular exercise, often referred to simply as "cardio," is any activity that raises your heart rate and increases your breathing rate.'
-  }
-];
-
-
-// useEffect(() => {
-//   AOS.init(); // Initialize AOS
-// }, []);
-
-function Home() {
   return (
-    <>
-      <Navbar loggedIn={false} setToken={function (token: string): void {
-        throw new Error('Function not implemented.');
-      }} setLoggedIn={function (loggedIn: boolean): void {
-        throw new Error('Function not implemented.');
-      }} />
-      <div className="containerr" style={{
-        backgroundImage: `url(${home})`,
-      }}>
-        <div className="banner">
-          <div className="right-banner">
-            <h1 data-aos="fade-up-right" >
-              Fit Genie
-            </h1><br/>
-            <h2 className="fancy">UNLOCK YOUR FULL <span>FITNESS</span>  POTENTIAL</h2>
-            <div className="butt">
+    <div className="overflow-x-hidden">
+      {/* Hero Section */}
+      <section 
+        className="relative min-h-screen flex items-center pt-20 bg-cover bg-center overflow-hidden"
+        style={{ backgroundImage: `url(${homeBg})` }}
+      >
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="container mx-auto px-6 relative z-10 text-left">
+          <div className="max-w-4xl" data-aos="fade-right">
+            <h1 className="text-primary text-5xl sm:text-7xl md:text-9xl mb-2 tracking-tighter font-black italic leading-none uppercase">
+              Fit <span className="text-white">Genie</span>
+            </h1>
+            <h2 className="text-3xl sm:text-5xl md:text-7xl text-white font-black mb-8 leading-[0.95] uppercase tracking-tighter">
+              UNLOCK YOUR FULL <span className="text-primary italic font-['Outfit']">FITNESS</span> POTENTIAL
+            </h2>
+            <div className="flex flex-wrap gap-4 mt-10">
               <Link to="/register">
-                <button className="btn">Get Started</button>
+                <button className="btn-primary !px-10 !py-4 text-sm tracking-widest uppercase">Start Journey</button>
               </Link>
+              <a href="#services">
+                <button className="btn-outline !px-10 !py-4 text-sm tracking-widest uppercase">Explore Services</button>
+              </a>
             </div>
           </div>
         </div>
-      </div>
-      <div>
-        <About />
-      </div>
-      <div data-aos="fade-up-right" className='title_cards '>
-        services
-      </div>
-      <div className='cards'>
-        <div className='card'>
-          <Card style={{}}>
-            <Card.Img className='image' src={card1} />
-            <Card.Body>
-              <Card.Title className='title'>Fitness</Card.Title>
-              <Card.Text className='text'>
-                Fitness is a broad term that encompasses various aspects of physical well-being, including strength, endurance, flexibility, and cardiovascular health.
-              </Card.Text>
-              <Link to={'/fitness'}>
-                <Button data-aos="fade-up-right" variant="primary">Go somewhere</Button>
-              </Link>
-            </Card.Body>
-          </Card>
+        
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
+           <div className="w-[1px] h-12 bg-primary" />
+           <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-white">Scroll</span>
         </div>
+      </section>
 
-        <div className='card'>
-          <Card style={{}}>
-            <Card.Img className='image' src={card2} />
-            <Card.Body>
-              <Card.Title className='title'>Body Building</Card.Title>
-              <Card.Text className='text'>
-                Bodybuilding is a form of physical fitness training that focuses on building and sculpting muscle mass to achieve a muscular and well-defined physique.
-              </Card.Text>
-              <Link to={'/building'}>
-                <Button data-aos="fade-up-right" variant="primary">Go somewhere</Button>
-              </Link>
-            </Card.Body>
-          </Card>
-        </div>
+      {/* About Section */}
+      <About />
 
-        <div className='card'>
-          <Card style={{}}>
-            <Card.Img className='image' src={card3} />
-            <Card.Body>
-              <Card.Title className='title'>Crossfit </Card.Title>
-              <Card.Text className='text'>
-                CrossFit is a high-intensity fitness program that combines elements of strength training, cardiovascular exercise, and  movements.
-              </Card.Text>
-              <Link to={'/crossfit'}>
-                <Button data-aos="fade-up-right" variant="primary">Go somewhere</Button>
-              </Link>
-            </Card.Body>
-          </Card>
-        </div>
+      {/* Services Section */}
+      <section id="services" className="py-20 lg:py-32 bg-dark text-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16" data-aos="fade-up">
+            <span className="text-primary font-bold tracking-[0.4em] uppercase text-[10px]">What we offer</span>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic mt-4">OUR SERVICES</h2>
+            <div className="w-16 h-1 bg-primary mx-auto rounded-full mt-6" />
+          </div>
 
-        <div className='card'>
-          <Card style={{}}>
-            <Card.Img className='image' src={card4} />
-            <Card.Body>
-              <Card.Title className='title'>Cardio</Card.Title>
-              <Card.Text className='text'>
-                Cardiovascular exercise, often referred to simply as "cardio," is any activity that raises your heart rate and increases your breathing rate .
-              </Card.Text>
-              <Link to={'/cardio'}>
-                <Button data-aos="fade-up-right" variant="primary">Go somewhere</Button>
-              </Link>
-            </Card.Body>
-          </Card>
-        </div>
-      </div>
-
-      <div className='background' style={{ backgroundImage: `url(${counter1})` }}>
-
-        <div className='counter_number' >
-          <div className="numbers">
-            <Counter number={586} title="Working Days" />
-            <Counter number={1036} title="Happy Clients" />
-            <Counter number={875} title="Successful Stories" />
-            <Counter number={1250} title="Perfect Bodies" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {SERVICES.map((service, index) => (
+              <div 
+                key={service.id} 
+                className="glass-card group flex flex-col"
+                data-aos="fade-up"
+                data-aos-delay={index * 50}
+              >
+                <div className="relative overflow-hidden rounded-xl mb-6 aspect-square md:aspect-video">
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" 
+                  />
+                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold uppercase italic mb-4 group-hover:text-primary transition-colors leading-tight">
+                  {service.title}
+                </h3>
+                <p className="text-white/40 text-sm mb-8 flex-grow leading-relaxed line-clamp-3">
+                  {service.description}
+                </p>
+                <Link to={service.link}>
+                  <button className="text-primary font-black text-[10px] tracking-[0.3em] uppercase flex items-center gap-2 group-hover:gap-4 transition-all pb-1 border-b border-primary/20 hover:border-primary">
+                    KNOW MORE <span className="text-lg">&rarr;</span>
+                  </button>
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-      <div className='Testimonials' >
-        <h1>Testimonials</h1>
-      </div>
-      <TestimonialsSlider />
+      </section>
 
+      {/* Stats Section */}
+      <CounterSection />
 
-      {/* <div className="trainers-page">
-        <div className='Trainers'>
-          <h1>Our Trainers</h1>
+      {/* Testimonials */}
+      <section className="py-24 bg-dark-lighter relative overflow-hidden">
+        <div className="container mx-auto px-6 text-center mb-16 relative z-10">
+          <span className="text-primary font-bold tracking-[0.4em] uppercase text-[10px]">Real results</span>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic mt-4">TESTIMONIALS</h2>
         </div>
+        <TestimonialsSlider />
+        <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px]" />
+      </section>
 
-        <div className="trainer-cards">
-          {trainers.map((trainer, index) => (
-            <Link to={"/profile"}>
-              <TrainerCard key={index} {...trainer} />
-            </Link>
-          ))}
+      {/* Pricing Section */}
+      <section className="py-24 bg-dark">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-primary font-bold tracking-[0.4em] uppercase text-[10px]">Fair Pricing</span>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic mt-4">PRICING PLANS</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {PRICING_PLANS.map((plan, index) => (
+              <PricingPlans key={index} {...plan} />
+            ))}
+          </div>
         </div>
+      </section>
 
-      </div > */}
-
-      <div className='plans'>
-        <h1> OUR PRICING PLANS</h1>
-      </div>
-
-      <div className='plan'>
-        {plans.map((plan, index) => (
-          <Link to={"/payment"}>
-            <PricingPlans key={index} {...plan} />
-          </Link>
-        ))}
-      </div>
-
-      <div className='accordion' >
-        <h1> FREQUENTLY ASKED QUESTIONS</h1>
-      </div>
-
-      <ControlledAccordions />
-      {/* <div>
-        <ContactForm />
-      </div> */}
-      <div>
-        <Footer />
-      </div>
-    </>
+      {/* FAQ Section */}
+      <section className="py-24 bg-dark-lighter">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter">Frequently Asked Questions</h2>
+          </div>
+          <ControlledAccordions />
+        </div>
+      </section>
+    </div>
   );
-}
+};
 
 export default Home;

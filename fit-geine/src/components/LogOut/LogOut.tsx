@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../Navbar";
 
 const LogOut: React.FC = () => {
     const navigate = useNavigate();
@@ -8,24 +7,20 @@ const LogOut: React.FC = () => {
     useEffect(() => {
         const logoutUser = async () => {
             try {
-                const response = await fetch("https://127.0.0.1:8000/api/logout/", {
+                // We attempt to call the logout API
+                await fetch("https://127.0.0.1:8000/api/logout/", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },
                 });
-
-                if (!response.ok) {
-                    throw new Error("Logout failed");
-                }
-
-                // Clear token and redirect to login
-                localStorage.clear()
-                navigate("/login");
             } catch (error) {
                 console.error("Logout error:", error);
-                // Handle error if needed
+            } finally {
+                // Always clear local state and redirect
+                localStorage.clear();
+                window.location.href = "/login"; // Force full reload to reset all states
             }
         };
 
@@ -33,18 +28,11 @@ const LogOut: React.FC = () => {
     }, [navigate]);
 
     return (
-        <>
-            <Navbar loggedIn={false} setToken={function (token: string): void {
-                throw new Error("Function not implemented.");
-            }} setLoggedIn={function (loggedIn: boolean): void {
-                throw new Error("Function not implemented.");
-            }} />
-        </>
+        <div className="min-h-screen bg-dark flex flex-col items-center justify-center space-y-4">
+            <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+            <p className="text-white/40 uppercase tracking-[0.3em] text-[10px] font-bold">Signing you out safely...</p>
+        </div>
     );
 };
 
 export default LogOut;
-function setIsLoggedin(arg0: boolean) {
-    throw new Error("Function not implemented.");
-}
-
