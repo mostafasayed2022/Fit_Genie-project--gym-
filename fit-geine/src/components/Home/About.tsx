@@ -10,7 +10,7 @@ const About: React.FC = () => {
               style={{ backgroundImage: `url(${services})` }}
             >
                 <div className="absolute inset-0 bg-black/60" />
-                <h2 className="text-4xl md:text-7xl lg:text-9xl text-white relative z-10 tracking-tighter font-black uppercase italic" data-aos="zoom-in">ABOUT US</h2>
+                <h2 className="text-4xl md:text-7xl lg:text-9xl text-white relative z-10 tracking-tighter font-black uppercase italic" data-aos="zoom-in" aria-label="About Us Header">ABOUT US</h2>
             </div>
             
             <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -37,7 +37,7 @@ const About: React.FC = () => {
                 </div>
                 
                 <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl group" data-aos="fade-left">
-                    <video autoPlay loop muted className="w-full h-full object-cover aspect-video lg:aspect-square">
+                    <video autoPlay loop muted className="w-full h-full object-cover aspect-video lg:aspect-square" aria-label="A cinemagraph showing a gym facility tour">
                         <source src={bgVideo} type="video/mp4" />
                     </video>
                     <div className="absolute inset-0 bg-primary/20 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-1000" />

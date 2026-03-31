@@ -38,7 +38,7 @@ const Home: React.FC = () => {
             <h1 className="text-primary text-5xl sm:text-7xl md:text-9xl mb-2 tracking-tighter font-black italic leading-none uppercase">
               Fit <span className="text-white">Genie</span>
             </h1>
-            <h2 className="text-3xl sm:text-5xl md:text-7xl text-white font-black mb-8 leading-[0.95] uppercase tracking-tighter">
+            <h2 className="text-3xl sm:text-5xl md:text-7xl text-white font-black mb-8 leading-[0.95] uppercase tracking-tighter" aria-label="Tagline: Unlock your full fitness potential">
               UNLOCK YOUR FULL <span className="text-primary italic font-['Outfit']">FITNESS</span> POTENTIAL
             </h2>
             <div className="flex flex-wrap gap-4 mt-10">
@@ -60,7 +60,9 @@ const Home: React.FC = () => {
       </section>
 
       {/* About Section */}
-      <About />
+      <section aria-label="About Fit Genie">
+        <About />
+      </section>
 
       {/* Services Section */}
       <section id="services" className="py-20 lg:py-32 bg-dark text-white">
@@ -133,7 +135,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-dark-lighter">
+      <section className="py-24 bg-dark-lighter" aria-label="Frequently Asked Questions">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter">Frequently Asked Questions</h2>
