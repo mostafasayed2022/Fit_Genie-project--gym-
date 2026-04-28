@@ -15,7 +15,7 @@ const ContactUs: React.FC = () => {
         <div className="absolute inset-0 bg-black/70" />
         <h2 className="text-4xl md:text-6xl text-white relative z-10 uppercase tracking-tighter italic">Common Questions</h2>
       </div>
-      
+      {/*  */}
       <div className="bg-dark py-24 pb-32">
         <div className="container mx-auto px-6 max-w-4xl">
           <ControlledAccordions />
